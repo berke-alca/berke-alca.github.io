@@ -8,16 +8,19 @@
 <meta name="color-scheme" content="light dark">
 <style>
 :root{
-  --bg:#f5f5f7; --surface:#ffffff; --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
+  --bg:#f2f3f8; --surface:rgba(255,255,255,.7); --cardline:rgba(255,255,255,.9); --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
   --accent:#0071e3; --accent-text:#ffffff; --glass:rgba(255,255,255,.72);
-  --shadow:0 2px 6px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.06);
+  --shadow:0 1px 2px rgba(20,20,60,.04),0 16px 40px rgba(40,50,120,.10);
+  --g1:rgba(10,132,255,.28); --g2:rgba(191,90,242,.22); --g3:rgba(255,55,95,.14);
+  --grad:linear-gradient(100deg,#0a84ff 0%,#7d5cff 50%,#ff375f 100%);
   --ok:#1a7f37; --wip:#b25e00; --chip:rgba(0,0,0,.05);
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#000000; --surface:#1c1c1e; --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
-    --accent:#2997ff; --accent-text:#000000; --glass:rgba(22,22,24,.72);
-    --shadow:0 2px 6px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --bg:#0f1020; --surface:rgba(255,255,255,.07); --cardline:rgba(255,255,255,.12); --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
+    --accent:#2997ff; --accent-text:#000000; --glass:rgba(24,24,44,.6);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px rgba(0,0,0,.35);
+    --g1:rgba(10,132,255,.38); --g2:rgba(191,90,242,.30); --g3:rgba(255,55,95,.18);
     --ok:#30d158; --wip:#ff9f0a; --chip:rgba(255,255,255,.08);
   }
 }
@@ -26,6 +29,10 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);
   font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;
   line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60vmax 50vmax at 15% -5%,var(--g1),transparent 60%),
+             radial-gradient(55vmax 45vmax at 95% 10%,var(--g2),transparent 60%),
+             radial-gradient(50vmax 40vmax at 50% 105%,var(--g3),transparent 60%)}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:980px;margin:0 auto;padding:0 16px}
@@ -47,33 +54,43 @@ a:hover{text-decoration:underline}
 /* hero */
 .hero{text-align:center;padding:72px 0 56px}
 .avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--accent),#5e5ce6);color:#fff;
+  background:var(--grad);color:#fff;border:3px solid var(--cardline);
   font-size:44px;font-weight:700;letter-spacing:.02em;box-shadow:var(--shadow)}
 /* Später Foto einbinden: das div.avatar durch <img class="avatar" src="assets/photo.jpg" alt="Berke Alca" style="object-fit:cover"> ersetzen */
-h1{font-size:clamp(40px,10vw,76px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-weight:700}
+h1{font-size:clamp(46px,12vw,92px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero42{max-width:46ch;margin:0 auto 14px;color:var(--muted);font-size:17px}
 .sub{font-size:clamp(19px,4.5vw,28px);color:var(--muted);margin:0 0 6px;font-weight:500}
 .loc{color:var(--muted);margin:0 0 28px}
 .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;
-  background:var(--surface);color:var(--text);border:1px solid var(--line)}
-.btn.primary{background:var(--accent);color:var(--accent-text);border-color:transparent}
+  background:var(--surface);color:var(--text);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.btn.primary{background:var(--grad);color:#fff;border-color:transparent}
 .btn:hover{text-decoration:none;filter:brightness(.96)}
 
 /* sections */
 section{padding:56px 0}
-h2{font-size:clamp(28px,6vw,44px);letter-spacing:-.02em;margin:0 0 24px;line-height:1.1}
-.card{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:24px}
+h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-height:1.08;font-weight:700}
+.card{background:var(--surface);border:1px solid var(--cardline);border-radius:28px;box-shadow:var(--shadow);padding:26px;
+  -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);transition:transform .3s ease}
+.grid .card:hover{transform:translateY(-3px)}
 .about p{margin:0 0 14px;font-size:18px;max-width:62ch}
+.about .lead{font-size:clamp(20px,4.6vw,26px);line-height:1.35;font-weight:600;letter-spacing:-.01em;max-width:34ch;margin-bottom:22px}
+.about h3{margin:26px 0 8px;font-size:20px;letter-spacing:-.01em}
+.about .box{background:var(--chip);border-radius:20px;padding:18px 20px;margin:0 0 16px}
+.about .box h3{margin-top:0}
+.about .box p{margin:0}
 .about p:last-child{margin:0}
 
 .timeline{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.timeline>li{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:20px 24px}
+.timeline>li{background:var(--surface);border:1px solid var(--cardline);border-radius:24px;box-shadow:var(--shadow);padding:20px 24px;
+  -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
 .timeline .when{color:var(--accent);font-weight:600;font-size:14px}
 .timeline h3{margin:2px 0 4px;font-size:20px}
 .timeline p{margin:0;color:var(--muted)}
 .timeline ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
 .timeline ul li{margin-bottom:3px}
-.goal{display:inline-block;margin:0 0 24px;padding:8px 16px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-weight:600;font-size:15px}
+.goal{display:inline-block;margin:0 0 24px;padding:9px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--shadow);font-weight:600;font-size:15px}
 
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 .proj{display:flex;flex-direction:column}
@@ -87,7 +104,7 @@ h2{font-size:clamp(28px,6vw,44px);letter-spacing:-.02em;margin:0 0 24px;line-hei
 .proj .more{margin-top:auto;font-weight:600;font-size:15px}
 
 .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
-.chips li{background:var(--surface);box-shadow:var(--shadow);border-radius:999px;padding:9px 18px;font-weight:500}
+.chips li{background:var(--surface);border:1px solid var(--cardline);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:999px;padding:9px 18px;font-weight:500}
 
 footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
 footer h2{font-size:28px}
@@ -114,7 +131,9 @@ footer small{color:var(--muted)}
   @page{size:A4;margin:16mm}
   :root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--line:#ccc;--accent:#000;--ok:#000;--wip:#000;--chip:#eee}
   body{background:#fff;color:#000;font-size:10.5pt}
-  .bar,.avatar,.cta,.proj .more{display:none!important}
+  .bar,.avatar,.cta,.proj .more,body::before,.hero42{display:none!important}
+  h1{background:none!important;-webkit-text-fill-color:#000!important;color:#000!important}
+  .card,.timeline>li,.chips li,.goal{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
   .reveal{opacity:1!important;transform:none!important;transition:none!important}
   *{animation:none!important;box-shadow:none!important}
   .wrap{max-width:none;padding:0}
@@ -158,6 +177,7 @@ footer small{color:var(--muted)}
     <div class="avatar" aria-hidden="true">BA</div>
     <h1>Berke Alca</h1>
     <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
+    <p class="hero42" data-i18n="hero42">42 ist eine Programmierschule ohne Lehrer und ohne Vorlesungen: Man lernt durch echte Projekte in C.</p>
     <p class="loc">Mannheim</p>
     <p class="goal" data-i18n="goal">Ziel: nach 42 ein Praktikum, danach Junior Developer</p>
     <div class="cta">
@@ -170,10 +190,14 @@ footer small{color:var(--muted)}
   <section id="about" class="reveal">
     <h2 data-i18n="about_h">Über mich</h2>
     <div class="card about">
-      <p data-i18n="about_1">Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.</p>
-      <p data-i18n="about_2">Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.</p>
-      <p data-i18n="about_4">Danach habe ich das Berufskolleg Informationstechnik in Ulm gemacht und dort C#, Datenbanken, Webentwicklung und Linux auf tieferer Ebene gelernt. Mit Fachhochschulreife bin ich nach Mannheim gezogen und habe Informatik studiert. Das war mir zu theoretisch und zu wenig praxisnah. Ich wollte programmieren. Deshalb jetzt 42.</p>
-      <p data-i18n="about_3">Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.</p>
+      <p class="lead" data-i18n="ab_lead">Ich bin Berke, Student bei 42 Heilbronn. Ich programmiere in C, C# und Java und kenne mich mit Linux aus. Nach 42 suche ich ein Praktikum, mein Ziel ist eine Stelle als Junior Developer.</p>
+      <div class="box">
+        <h3 data-i18n="ab_42_h">Was ist 42 Heilbronn?</h3>
+        <p data-i18n="ab_42_p">42 ist eine Programmierschule ohne Lehrer und ohne Vorlesungen. Jedes Projekt beginnt mit einer schriftlichen Aufgabe, die ich selbst in C löse. Danach prüfen andere Studierende meinen Code (Peer-Evaluation). Er muss außerdem den strengen Coding-Standard (Norminette) einhalten und ohne Warnungen kompilieren.</p>
+      </div>
+      <h3 data-i18n="ab_way_h">Mein Weg</h3>
+      <p data-i18n="ab_way_p">Berufskolleg Informationstechnik in Ulm mit C#, Datenbanken, Webentwicklung und Linux. Danach Informatikstudium in Mannheim. Das war mir zu theoretisch, ich wollte programmieren. Deshalb jetzt 42.</p>
+      <p data-i18n="ab_bz_p">Davor habe ich eine Ausbildung als Bauzeichner gemacht. Das hilft mir bis heute: erst genau planen, dann bauen, und mit klaren Regeln arbeiten.</p>
     </div>
   </section>
 
@@ -301,9 +325,13 @@ footer small{color:var(--muted)}
       nav_about:"Über mich", nav_timeline:"Werdegang", nav_projects:"Projekte", nav_skills:"Skills", nav_contact:"Kontakt",
       email:"E-Mail",
       about_h:"Über mich",
-      about_1:"Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.",
-      about_2:"Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.",
-      about_4:"Danach habe ich das Berufskolleg Informationstechnik in Ulm gemacht und dort C#, Datenbanken, Webentwicklung und Linux auf tieferer Ebene gelernt. Mit Fachhochschulreife bin ich nach Mannheim gezogen und habe Informatik studiert. Das war mir zu theoretisch und zu wenig praxisnah. Ich wollte programmieren. Deshalb jetzt 42.",
+      hero42:"42 ist eine Programmierschule ohne Lehrer und ohne Vorlesungen: Man lernt durch echte Projekte in C.",
+      ab_lead:"Ich bin Berke, Student bei 42 Heilbronn. Ich programmiere in C, C# und Java und kenne mich mit Linux aus. Nach 42 suche ich ein Praktikum, mein Ziel ist eine Stelle als Junior Developer.",
+      ab_42_h:"Was ist 42 Heilbronn?",
+      ab_42_p:"42 ist eine Programmierschule ohne Lehrer und ohne Vorlesungen. Jedes Projekt beginnt mit einer schriftlichen Aufgabe, die ich selbst in C löse. Danach prüfen andere Studierende meinen Code (Peer-Evaluation). Er muss außerdem den strengen Coding-Standard (Norminette) einhalten und ohne Warnungen kompilieren.",
+      ab_way_h:"Mein Weg",
+      ab_way_p:"Berufskolleg Informationstechnik in Ulm mit C#, Datenbanken, Webentwicklung und Linux. Danach Informatikstudium in Mannheim. Das war mir zu theoretisch, ich wollte programmieren. Deshalb jetzt 42.",
+      ab_bz_p:"Davor habe ich eine Ausbildung als Bauzeichner gemacht. Das hilft mir bis heute: erst genau planen, dann bauen, und mit klaren Regeln arbeiten.",
       goal:"Ziel: nach 42 ein Praktikum, danach Junior Developer",
       tl_st_when:"2025 – 2026", tl_st_h:"Informatik (B.Sc.), Hochschule Mannheim",
       tl_st_p:"Informatik-Grundlagen. Mir war das Studium zu theoretisch und zu wenig praxisnah, ich wollte programmieren.",
@@ -313,7 +341,6 @@ footer small{color:var(--muted)}
       tl_bk_b3:"Datenbanken / SQL", tl_bk_b4:"Webentwicklung (HTML, CSS, JavaScript)",
       sk_next:"Als Nächstes bei 42: Python",
       lg_h:"Sprachen", lg_de:"Deutsch", lg_en:"Englisch", lg_tr:"Türkisch",
-      about_3:"Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.",
       tl_h:"Werdegang",
       tl_42_when:"Seit 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
       tl_42_p:"Projekte in C ohne Lehrer und Vorlesungen. Geprüft wird per Peer-Evaluation durch andere Studierende.",
@@ -339,9 +366,13 @@ footer small{color:var(--muted)}
       nav_about:"About", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
       email:"Email",
       about_h:"About me",
-      about_1:"I trained as an architectural draughtsman. But I always wanted to write code.",
-      about_2:"The detour was useful. A draughtsman plans before building. You read technical drawings. You keep structure and details in view. And you work by clear rules.",
-      about_4:"After that I did the Berufskolleg for information technology in Ulm. There I learned C#, databases, web development and Linux at a deeper level. With my Fachhochschulreife (university of applied sciences entrance qualification) I moved to Mannheim and studied computer science. It was too theoretical and too little hands-on for me. I wanted to program. That is why I am at 42 now.",
+      hero42:"42 is a coding school with no teachers and no lectures: you learn by building real projects in C.",
+      ab_lead:"I'm Berke, a student at 42 Heilbronn. I write C, C# and Java and I know my way around Linux. After 42 I'm looking for an internship, and my goal is a Junior Developer job.",
+      ab_42_h:"What is 42 Heilbronn?",
+      ab_42_p:"42 is a coding school with no teachers and no lectures. Every project starts with a written subject that I solve on my own, in C. Then other students check my code (peer evaluation). It also has to follow a strict coding standard (Norminette) and compile without warnings.",
+      ab_way_h:"My path",
+      ab_way_p:"Berufskolleg for information technology in Ulm with C#, databases, web development and Linux. Then computer science studies in Mannheim. It was too theoretical, I wanted to program. That is why I am at 42 now.",
+      ab_bz_p:"Before that I trained as an architectural draughtsman. It still helps me: plan precisely first, then build, and work by clear rules.",
       goal:"Goal: an internship after 42, then Junior Developer",
       tl_st_when:"2025 – 2026", tl_st_h:"Computer Science (B.Sc.), Hochschule Mannheim",
       tl_st_p:"Computer science fundamentals. The degree was too theoretical and too little hands-on for me. I wanted to program.",
@@ -351,7 +382,6 @@ footer small{color:var(--muted)}
       tl_bk_b3:"Databases / SQL", tl_bk_b4:"Web development (HTML, CSS, JavaScript)",
       sk_next:"Next at 42: Python",
       lg_h:"Languages", lg_de:"German", lg_en:"English", lg_tr:"Turkish",
-      about_3:"Today I bring that mindset into code. At 42 Heilbronn I write C on Unix. Understand first, then plan, then build.",
       tl_h:"Timeline",
       tl_42_when:"Since 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
       tl_42_p:"Projects in C with no teachers and no lectures. Work is checked in peer evaluations by other students.",
