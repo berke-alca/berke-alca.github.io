@@ -92,6 +92,24 @@ h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-hei
 .timeline ul li{margin-bottom:3px}
 .goal{display:inline-block;margin:0 0 24px;padding:9px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--shadow);font-weight:600;font-size:15px}
 
+.road{list-style:none;margin:0;padding:0;display:grid}
+.road li{position:relative;padding:0 0 28px 44px}
+.road li:last-child{padding-bottom:0}
+.road li::before{content:"";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
+.road li::after{content:"";position:absolute;left:10px;top:28px;bottom:2px;width:2px;background:var(--line)}
+.road li:last-child::after{display:none}
+.road li.done::before{background:var(--grad);border-color:transparent}
+.road li.done::after{background:var(--grad)}
+.road li.now::before{background:var(--bg);border:6px solid var(--accent)}
+.road li.goal-end::before{background:var(--grad);border-color:transparent;box-shadow:0 0 0 4px var(--chip)}
+.road .when{font-size:13px;font-weight:600;color:var(--accent)}
+.road h3{margin:2px 0 4px;font-size:19px;letter-spacing:-.01em}
+.road p{margin:0;color:var(--muted);font-size:15px}
+@media (min-width:720px){
+  .road{grid-template-columns:repeat(4,1fr)}
+  .road li{padding:44px 20px 0 0}
+  .road li::after{left:28px;right:0;top:10px;bottom:auto;width:auto;height:2px}
+}
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 .proj{display:flex;flex-direction:column}
 .proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
@@ -131,6 +149,9 @@ footer small{color:var(--muted)}
   @page{size:A4;margin:16mm}
   :root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--line:#ccc;--accent:#000;--ok:#000;--wip:#000;--chip:#eee}
   body{background:#fff;color:#000;font-size:10.5pt}
+  .road li::before,.road li::after{display:none}
+  .road{grid-template-columns:repeat(4,1fr)}
+  .road li{padding:0 8pt 0 0}
   .bar,.avatar,.cta,.proj .more,body::before,.hero42{display:none!important}
   h1{background:none!important;-webkit-text-fill-color:#000!important;color:#000!important}
   .card,.timeline>li,.chips li,.goal{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
@@ -159,6 +180,7 @@ footer small{color:var(--muted)}
   <div class="wrap">
     <nav>
       <a href="#about" data-i18n="nav_about">Über mich</a>
+      <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
       <a href="#timeline" data-i18n="nav_timeline">Werdegang</a>
       <a href="#projects" data-i18n="nav_projects">Projekte</a>
       <a href="#skills" data-i18n="nav_skills">Skills</a>
@@ -196,8 +218,36 @@ footer small{color:var(--muted)}
         <p data-i18n="ab_42_p">Die 42 ist eine Programmierschule ohne Lehrkräfte und ohne Vorlesungen. Der Unterricht besteht aus Projekten: Jede Aufgabe liegt schriftlich vor und wird selbstständig in C umgesetzt. Die Ergebnisse bewerten andere Studierende in Peer-Evaluationen. Der Code muss einem strengen Coding-Standard (Norminette) entsprechen und ohne Compiler-Warnungen übersetzt werden.</p>
       </div>
       <h3 data-i18n="ab_way_h">Werdegang in Kürze</h3>
-      <p data-i18n="ab_way_p">Nach dem Berufskolleg Informationstechnik in Ulm (C#, Datenbanken, Webentwicklung, Linux) studierte ich Informatik in Mannheim. Das Studium war mir zu theoretisch. Ich wechselte zur 42, um praxisnah zu programmieren.</p>
+      <p data-i18n="ab_way_p">Nach dem Berufskolleg Informationstechnik in Ulm studierte ich Informatik in Mannheim. Das Studium war mir zu theoretisch. Ich wechselte zur 42, um praxisnah zu programmieren.</p>
       <p data-i18n="ab_bz_p">Zuvor absolvierte ich eine Ausbildung zum Bauzeichner. Sie hat mein strukturiertes und präzises Arbeiten geprägt.</p>
+    </div>
+  </section>
+
+  <section id="roadmap" class="reveal">
+    <h2 data-i18n="rm_h">Roadmap</h2>
+    <div class="card">
+      <ol class="road">
+        <li class="done">
+          <div class="when" data-i18n="rm1_when">05.10.2026</div>
+          <h3 data-i18n="rm1_h">Start Core Curriculum</h3>
+          <p data-i18n="rm1_p">42 Heilbronn</p>
+        </li>
+        <li class="now">
+          <div class="when" data-i18n="rm2_when">Aktuell</div>
+          <h3 data-i18n="rm2_h">Projekte in C</h3>
+          <p data-i18n="rm2_p">Abgeschlossene und laufende Projekte siehe unten</p>
+        </li>
+        <li>
+          <div class="when" data-i18n="rm3_when">Als Nächstes</div>
+          <h3 data-i18n="rm3_h">Praktikum</h3>
+          <p data-i18n="rm3_p">Erste Berufserfahrung in der Softwareentwicklung</p>
+        </li>
+        <li class="goal-end">
+          <div class="when" data-i18n="rm4_when">Ziel</div>
+          <h3 data-i18n="rm4_h">Junior Developer</h3>
+          <p data-i18n="rm4_p">Einstieg als Entwickler</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -219,10 +269,7 @@ footer small{color:var(--muted)}
         <h3 data-i18n="tl_bk_h">Berufskolleg Informationstechnik, Ulm</h3>
         <p data-i18n="tl_bk_p">Mit Fachhochschulreife abgeschlossen.</p>
         <ul>
-          <li data-i18n="tl_bk_b1">C#: Konsolenprogramme</li>
           <li data-i18n="tl_bk_b2">Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau</li>
-          <li data-i18n="tl_bk_b3">Datenbanken / SQL</li>
-          <li data-i18n="tl_bk_b4">Webentwicklung (HTML, CSS, JavaScript)</li>
         </ul>
       </li>
       <li>
@@ -281,15 +328,11 @@ footer small{color:var(--muted)}
     <h2 data-i18n="sk_h">Skills</h2>
     <ul class="chips">
       <li>C</li>
-      <li>C#</li>
-      <li>Java</li>
       <li>Unix / Linux</li>
       <li>Git</li>
       <li>Makefiles</li>
       <li>Shell</li>
       <li data-i18n="sk_mem">Speicherverwaltung</li>
-      <li>SQL</li>
-      <li>HTML / CSS / JavaScript</li>
     </ul>
     <p class="loc" style="margin-top:16px" data-i18n="sk_next">Geplant: Python</p>
   </section>
@@ -322,23 +365,25 @@ footer small{color:var(--muted)}
 (function(){
   var T = {
     de:{
-      nav_about:"Über mich", nav_timeline:"Werdegang", nav_projects:"Projekte", nav_skills:"Skills", nav_contact:"Kontakt",
+      nav_about:"Über mich", nav_roadmap:"Roadmap", nav_timeline:"Werdegang", nav_projects:"Projekte", nav_skills:"Skills", nav_contact:"Kontakt",
       email:"E-Mail",
+rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 Heilbronn",
+      rm2_when:"Aktuell", rm2_h:"Projekte in C", rm2_p:"Abgeschlossene und laufende Projekte siehe unten",
+      rm3_when:"Als Nächstes", rm3_h:"Praktikum", rm3_p:"Erste Berufserfahrung in der Softwareentwicklung",
+      rm4_when:"Ziel", rm4_h:"Junior Developer", rm4_p:"Einstieg als Entwickler",
       about_h:"Über mich",
       hero42:"Die 42 ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.",
       ab_lead:"Software-Engineering-Student an der 42 Heilbronn mit Schwerpunkt C und Unix. Nach dem Common Core suche ich ein Praktikum mit dem Ziel, als Junior Developer einzusteigen.",
       ab_42_h:"Die 42 Heilbronn",
       ab_42_p:"Die 42 ist eine Programmierschule ohne Lehrkräfte und ohne Vorlesungen. Der Unterricht besteht aus Projekten: Jede Aufgabe liegt schriftlich vor und wird selbstständig in C umgesetzt. Die Ergebnisse bewerten andere Studierende in Peer-Evaluationen. Der Code muss einem strengen Coding-Standard (Norminette) entsprechen und ohne Compiler-Warnungen übersetzt werden.",
       ab_way_h:"Werdegang in Kürze",
-      ab_way_p:"Nach dem Berufskolleg Informationstechnik in Ulm (C#, Datenbanken, Webentwicklung, Linux) studierte ich Informatik in Mannheim. Das Studium war mir zu theoretisch. Ich wechselte zur 42, um praxisnah zu programmieren.",
+      ab_way_p:"Nach dem Berufskolleg Informationstechnik in Ulm studierte ich Informatik in Mannheim. Das Studium war mir zu theoretisch. Ich wechselte zur 42, um praxisnah zu programmieren.",
       ab_bz_p:"Zuvor absolvierte ich eine Ausbildung zum Bauzeichner. Sie hat mein strukturiertes und präzises Arbeiten geprägt.",
       goal:"Ziel: Praktikum nach der 42, anschließend Einstieg als Junior Developer",
       tl_st_when:"2025 – 2026", tl_st_h:"Informatik (B.Sc.), Hochschule Mannheim",
       tl_st_p:"Informatik-Grundlagen. Wechsel zur 42 aufgrund des stärkeren Praxisbezugs.",
       tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Informationstechnik, Ulm", tl_bk_p:"Mit Fachhochschulreife abgeschlossen.",
-      tl_bk_b1:"C#: Konsolenprogramme",
       tl_bk_b2:"Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau",
-      tl_bk_b3:"Datenbanken / SQL", tl_bk_b4:"Webentwicklung (HTML, CSS, JavaScript)",
       sk_next:"Geplant: Python",
       lg_h:"Sprachen", lg_de:"Deutsch", lg_en:"Englisch", lg_tr:"Türkisch",
       tl_h:"Werdegang",
@@ -363,23 +408,25 @@ footer small{color:var(--muted)}
       ct_h:"Kontakt"
     },
     en:{
-      nav_about:"About", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
+      nav_about:"About", nav_roadmap:"Roadmap", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
       email:"Email",
+rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"42 Heilbronn",
+      rm2_when:"Now", rm2_h:"Projects in C", rm2_p:"Completed and ongoing projects below",
+      rm3_when:"Next", rm3_h:"Internship", rm3_p:"First professional experience in software development",
+      rm4_when:"Goal", rm4_h:"Junior Developer", rm4_p:"Starting out as a developer",
       about_h:"About me",
       hero42:"42 is a project-based coding school with no teachers and no lectures.",
       ab_lead:"Software engineering student at 42 Heilbronn, focused on C and Unix. After the Common Core I am looking for an internship with the aim of starting as a Junior Developer.",
       ab_42_h:"42 Heilbronn",
       ab_42_p:"42 is a coding school with no teachers and no lectures. Learning happens through projects: every assignment is given in writing and implemented independently in C. Other students assess the results in peer evaluations. The code must follow a strict coding standard (Norminette) and compile without warnings.",
       ab_way_h:"Background in brief",
-      ab_way_p:"After the Berufskolleg for information technology in Ulm (C#, databases, web development, Linux), I studied computer science in Mannheim. The degree was too theoretical for me. I moved to 42 to program in a hands-on way.",
+      ab_way_p:"After the Berufskolleg for information technology in Ulm, I studied computer science in Mannheim. The degree was too theoretical for me. I moved to 42 to program in a hands-on way.",
       ab_bz_p:"Before that I completed an apprenticeship as an architectural draughtsman. It shaped my structured and precise way of working.",
       goal:"Goal: an internship after 42, then a start as Junior Developer",
       tl_st_when:"2025 – 2026", tl_st_h:"Computer Science (B.Sc.), Hochschule Mannheim",
       tl_st_p:"Computer science fundamentals. Moved to 42 for the stronger focus on practice.",
       tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Information Technology, Ulm", tl_bk_p:"Completed with the Fachhochschulreife.",
-      tl_bk_b1:"C#: console programs",
       tl_bk_b2:"Linux at a deeper level: installation and partitions, shell and scripts, users and permissions, network and services, system structure",
-      tl_bk_b3:"Databases / SQL", tl_bk_b4:"Web development (HTML, CSS, JavaScript)",
       sk_next:"Planned: Python",
       lg_h:"Languages", lg_de:"German", lg_en:"English", lg_tr:"Turkish",
       tl_h:"Timeline",
