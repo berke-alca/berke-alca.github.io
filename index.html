@@ -134,6 +134,41 @@ h2{font-size:clamp(26px,5.5vw,38px);letter-spacing:-.02em;margin:0 0 28px;line-h
 @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.22}85%{opacity:.25}100%{transform:translateY(-520px) rotate(8deg);opacity:0}}
 .hero{position:relative}
 @media (min-width:720px){.mini{grid-template-columns:repeat(4,1fr)}}
+/* life */
+.sp{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--grad);z-index:11}
+.fx{-webkit-mask-image:linear-gradient(#000 65%,transparent);mask-image:linear-gradient(#000 65%,transparent)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--orb,.35);animation:drift 22s ease-in-out infinite alternate}
+.orb.a{width:300px;height:300px;left:-6%;top:2%;background:#4f86e8}
+.orb.b{width:320px;height:320px;right:-8%;top:20%;background:#8a7ff0;animation-duration:27s;animation-delay:-8s}
+.orb.c{width:240px;height:240px;left:38%;bottom:-8%;background:#4fb3d9;animation-duration:31s;animation-delay:-14s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(50px,40px) scale(1.18)}}
+@media (prefers-color-scheme:dark){:root{--orb:.28}}
+h1{background-size:220% auto;background-image:linear-gradient(100deg,#4f86e8,#8a7ff0,#4fb3d9,#4f86e8);animation:shine 9s linear infinite}
+@keyframes shine{to{background-position:220% center}}
+.type{margin:0 0 14px;color:var(--muted);font-size:15px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.type b{color:var(--accent);font-weight:600}
+.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;border-radius:2px;background:var(--grad)}
+.btn{transition:transform .25s ease,filter .25s}
+.btn:hover{transform:translateY(-2px)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 8px}
+.stat{background:var(--surface);border:1px solid var(--cardline);border-radius:24px;box-shadow:var(--shadow);padding:18px 10px;text-align:center;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+.stat .num{display:block;font-size:clamp(30px,8vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.stat .lbl{display:block;margin-top:4px;color:var(--muted);font-size:clamp(11px,2.8vw,14px)}
+.card,.timeline>li,.stat{position:relative;overflow:hidden}
+.card::after,.timeline>li::after,.stat::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(127,140,255,.16),transparent 45%)}
+.card:hover::after,.timeline>li:hover::after,.stat:hover::after{opacity:1}
+.proj{transition:transform .2s ease-out}
+.road li.now::before{animation:ring 2.2s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(110,168,254,.55)}100%{box-shadow:0 0 0 12px rgba(110,168,254,0)}}
+.road li{opacity:0;transform:translateY(12px)}
+.in .road li{animation:rpop .6s ease both}
+.in .road li:nth-child(2){animation-delay:.25s}.in .road li:nth-child(3){animation-delay:.5s}.in .road li:nth-child(4){animation-delay:.75s}
+@keyframes rpop{to{opacity:1;transform:none}}
+.chips li{transition:transform .25s ease}
+.chips li:hover{transform:translateY(-3px)}
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 .proj{display:flex;flex-direction:column}
 .proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
@@ -159,7 +194,9 @@ footer small{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .fx{display:none}
+  .fx,.sp{display:none}
+  h1,.orb,.caret,.road li.now::before{animation:none}
+  .road li{opacity:1;transform:none;animation:none!important}
   .panel.on{animation:none}
 }
 
@@ -178,7 +215,11 @@ footer small{color:var(--muted)}
   .road li::before,.road li::after{display:none}
   .road{grid-template-columns:repeat(4,1fr)}
   .road li{padding:0 8pt 0 0}
-  .tabs,.hint,.fx{display:none!important}
+  .tabs,.hint,.fx,.sp,.type{display:none!important}
+  .road li{opacity:1!important;transform:none!important;animation:none!important}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .card::after,.timeline>li::after,.stat::after{display:none}
+  h1{animation:none!important}
   .panel{display:block!important;margin-bottom:8pt}
   .mini{grid-template-columns:repeat(4,1fr)}
   .mini div,.tags span{background:#fff!important;border:1px solid #ccc}
@@ -207,6 +248,7 @@ footer small{color:var(--muted)}
 <body>
 
 <header class="bar">
+  <div class="sp" id="sp"></div>
   <div class="wrap">
     <nav>
       <a href="#about" data-i18n="nav_about">Über mich</a>
@@ -225,11 +267,12 @@ footer small{color:var(--muted)}
 <div class="wrap">
 
   <div class="hero reveal">
-    <div class="fx" aria-hidden="true"><span style="left:6%;animation-delay:-0s;animation-duration:12s">int main(void)</span><span style="left:14%;animation-delay:-5s;animation-duration:15s">malloc()</span><span style="left:22%;animation-delay:-10s;animation-duration:18s">*ptr</span><span style="left:30%;animation-delay:-1s;animation-duration:14s">0x2A</span><span style="left:38%;animation-delay:-6s;animation-duration:17s">#include</span><span style="left:46%;animation-delay:-11s;animation-duration:13s">NULL</span><span style="left:54%;animation-delay:-2s;animation-duration:16s">git push</span><span style="left:62%;animation-delay:-7s;animation-duration:12s">make</span><span style="left:70%;animation-delay:-12s;animation-duration:15s">free()</span><span style="left:78%;animation-delay:-3s;animation-duration:18s">size_t</span><span style="left:86%;animation-delay:-8s;animation-duration:14s">&amp;x</span><span style="left:94%;animation-delay:-13s;animation-duration:17s">return 0;</span></div>
+    <div class="fx" aria-hidden="true"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span style="left:6%;animation-delay:-0s;animation-duration:12s">int main(void)</span><span style="left:14%;animation-delay:-5s;animation-duration:15s">malloc()</span><span style="left:22%;animation-delay:-10s;animation-duration:18s">*ptr</span><span style="left:30%;animation-delay:-1s;animation-duration:14s">0x2A</span><span style="left:38%;animation-delay:-6s;animation-duration:17s">#include</span><span style="left:46%;animation-delay:-11s;animation-duration:13s">NULL</span><span style="left:54%;animation-delay:-2s;animation-duration:16s">git push</span><span style="left:62%;animation-delay:-7s;animation-duration:12s">make</span><span style="left:70%;animation-delay:-12s;animation-duration:15s">free()</span><span style="left:78%;animation-delay:-3s;animation-duration:18s">size_t</span><span style="left:86%;animation-delay:-8s;animation-duration:14s">&amp;x</span><span style="left:94%;animation-delay:-13s;animation-duration:17s">return 0;</span></div>
     <!-- Foto: später assets/photo.jpg einbinden (siehe Kommentar im CSS bei .avatar) -->
     <div class="avatar" aria-hidden="true">BA</div>
     <h1>Berke Alca</h1>
     <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
+    <p class="type"><span data-i18n="type_lbl">Schwerpunkt:</span> <b id="tw">C</b><i class="caret"></i></p>
     <p class="hero42" data-i18n="hero42">42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.</p>
     <p class="goal" data-i18n="intro">Ich bin Berke, 22 Jahre alt und wohne in Mannheim.</p>
     <div class="cta">
@@ -237,6 +280,12 @@ footer small{color:var(--muted)}
       <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="email">E-Mail</a>
     </div>
+  </div>
+
+  <div class="stats reveal" id="stats">
+    <div class="stat"><span class="num" id="n-done" data-to="3">3</span><span class="lbl" data-i18n="st_l1">Projekte abgeschlossen</span></div>
+    <div class="stat"><span class="num" id="n-wip" data-to="1">1</span><span class="lbl" data-i18n="st_l2">in Arbeit</span></div>
+    <div class="stat"><span class="num" id="n-days" data-to="30">30</span><span class="lbl" data-i18n="st_l3">Tage bei 42 Heilbronn</span></div>
   </div>
 
   <section id="about" class="reveal">
@@ -415,6 +464,7 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       rm2_when:"Aktuell", rm2_h:"Projekte in C", rm2_p:"Abgeschlossene und laufende Projekte siehe unten",
       rm3_when:"Als Nächstes", rm3_h:"Praktikum", rm3_p:"Erste Berufserfahrung in der Softwareentwicklung",
       rm4_when:"Ziel", rm4_h:"Junior Developer", rm4_p:"Einstieg als Entwickler",
+      type_lbl:"Schwerpunkt:", st_l1:"Projekte abgeschlossen", st_l2:"in Arbeit", st_l3:"Tage bei 42 Heilbronn",
       about_h:"Über mich",
       hero42:"42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.",
       ab_lead:"Student an der 42 Heilbronn. Schwerpunkt C und Unix. Danach: Praktikum, dann Junior Developer.",
@@ -462,6 +512,7 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       rm2_when:"Now", rm2_h:"Projects in C", rm2_p:"Completed and ongoing projects below",
       rm3_when:"Next", rm3_h:"Internship", rm3_p:"First professional experience in software development",
       rm4_when:"Goal", rm4_h:"Junior Developer", rm4_p:"Starting out as a developer",
+      type_lbl:"Focus:", st_l1:"projects completed", st_l2:"in progress", st_l3:"days at 42 Heilbronn",
       about_h:"About me",
       hero42:"42 Heilbronn is a project-based coding school with no teachers and no lectures.",
       ab_lead:"Student at 42 Heilbronn. Focus on C and Unix. Next: an internship, then Junior Developer.",
@@ -531,6 +582,76 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
         tabs[u].setAttribute("aria-selected", on ? "true" : "false");
         document.getElementById(tabs[u].getAttribute("data-tab")).className = on ? "panel on" : "panel";
       }
+    });
+  }
+
+  var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia && matchMedia("(hover:hover)").matches;
+
+  // scroll progress
+  var sp = document.getElementById("sp");
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    sp.style.width = (h > 0 ? Math.min(100, window.scrollY / h * 100) : 0) + "%";
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // typewriter
+  var tw = document.getElementById("tw");
+  var words = ["C","Unix","Git","Makefiles","Shell"];
+  if (rm){ tw.textContent = "C · Unix · Git"; }
+  else {
+    var wi = 0, ci = 0, del = false;
+    (function tick(){
+      var w = words[wi];
+      ci += del ? -1 : 1;
+      tw.textContent = w.slice(0, ci);
+      var d = del ? 60 : 120;
+      if (!del && ci === w.length){ del = true; d = 1400; }
+      else if (del && ci === 0){ del = false; wi = (wi + 1) % words.length; d = 300; }
+      setTimeout(tick, d);
+    })();
+  }
+
+  // stats from the page itself
+  var done = document.querySelectorAll(".proj .status.ok").length;
+  var wip = document.querySelectorAll(".proj .status.wip").length;
+  var days = Math.max(0, Math.floor((Date.now() - new Date(2026, 9, 5).getTime()) / 86400000) + 1);
+  var nd = document.getElementById("n-done"), nw = document.getElementById("n-wip"), ny = document.getElementById("n-days");
+  nd.setAttribute("data-to", done); nw.setAttribute("data-to", wip); ny.setAttribute("data-to", days);
+  function count(el){
+    var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+    if (rm){ el.textContent = to; return; }
+    var t0 = null;
+    function step(t){
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / 1100);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+    }
+    el.textContent = 0; requestAnimationFrame(step);
+  }
+  if ("IntersectionObserver" in window && !rm){
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ count(nd); count(nw); count(ny); cio.disconnect(); } });
+    }, {threshold:.4});
+    cio.observe(document.getElementById("stats"));
+  } else { count(nd); count(nw); count(ny); }
+
+  // spotlight + tilt
+  if (fine && !rm){
+    var cards = document.querySelectorAll(".card,.timeline>li,.stat");
+    cards.forEach(function(c){
+      c.addEventListener("mousemove", function(e){
+        var r = c.getBoundingClientRect();
+        c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        c.style.setProperty("--my", (e.clientY - r.top) + "px");
+        if (c.classList.contains("proj")){
+          var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+          c.style.transform = "perspective(800px) rotateX(" + (-y * 6) + "deg) rotateY(" + (x * 6) + "deg) translateY(-3px)";
+        }
+      });
+      c.addEventListener("mouseleave", function(){ if (c.classList.contains("proj")) c.style.transform = ""; });
     });
   }
 
