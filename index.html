@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berke Alca</title>
+<meta name="description" content="Berke Alca – Software Engineering Student @ 42 Heilbronn">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{
+  --bg:#f5f5f7; --surface:#ffffff; --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
+  --accent:#0071e3; --accent-text:#ffffff; --glass:rgba(255,255,255,.72);
+  --shadow:0 2px 6px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.06);
+  --ok:#1a7f37; --wip:#b25e00; --chip:rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#000000; --surface:#1c1c1e; --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
+    --accent:#2997ff; --accent-text:#000000; --glass:rgba(22,22,24,.72);
+    --shadow:0 2px 6px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --ok:#30d158; --wip:#ff9f0a; --chip:rgba(255,255,255,.08);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:var(--glass);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:8px;height:52px}
+.bar nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{color:var(--text);font-size:14px;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.bar nav a:hover{background:var(--chip);text-decoration:none}
+.btn-s{font:inherit;font-size:13px;font-weight:600;color:var(--text);background:var(--chip);
+  border:0;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+.btn-s:hover{background:var(--line)}
+.btn-s .on{color:var(--accent)}
+
+/* hero */
+.hero{text-align:center;padding:72px 0 56px}
+.avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),#5e5ce6);color:#fff;
+  font-size:44px;font-weight:700;letter-spacing:.02em;box-shadow:var(--shadow)}
+/* Später Foto einbinden: das div.avatar durch <img class="avatar" src="assets/photo.jpg" alt="Berke Alca" style="object-fit:cover"> ersetzen */
+h1{font-size:clamp(40px,10vw,76px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px;font-weight:700}
+.sub{font-size:clamp(19px,4.5vw,28px);color:var(--muted);margin:0 0 6px;font-weight:500}
+.loc{color:var(--muted);margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;
+  background:var(--surface);color:var(--text);border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:var(--accent-text);border-color:transparent}
+.btn:hover{text-decoration:none;filter:brightness(.96)}
+
+/* sections */
+section{padding:56px 0}
+h2{font-size:clamp(28px,6vw,44px);letter-spacing:-.02em;margin:0 0 24px;line-height:1.1}
+.card{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:24px}
+.about p{margin:0 0 14px;font-size:18px;max-width:62ch}
+.about p:last-child{margin:0}
+
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.timeline li{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:20px 24px}
+.timeline .when{color:var(--accent);font-weight:600;font-size:14px}
+.timeline h3{margin:2px 0 4px;font-size:20px}
+.timeline p{margin:0;color:var(--muted)}
+
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+.proj{display:flex;flex-direction:column}
+.proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.proj h3{margin:0;font-size:22px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.status{font-size:13px;font-weight:600;white-space:nowrap}
+.status.ok{color:var(--ok)} .status.wip{color:var(--wip)}
+.proj p{margin:0 0 10px;color:var(--muted)}
+.proj ul{margin:0 0 14px;padding-left:20px}
+.proj li{margin-bottom:4px}
+.proj .more{margin-top:auto;font-weight:600;font-size:15px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips li{background:var(--surface);box-shadow:var(--shadow);border-radius:999px;padding:9px 18px;font-weight:500}
+
+footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
+footer h2{font-size:28px}
+footer .cta{margin-bottom:20px}
+footer small{color:var(--muted)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+@media (min-width:720px){
+  .grid{grid-template-columns:1fr 1fr}
+  .wrap{padding:0 24px}
+  .hero{padding:104px 0 72px}
+  section{padding:80px 0}
+}
+
+/* print: clean one-column A4 */
+@media print{
+  @page{size:A4;margin:16mm}
+  :root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--line:#ccc;--accent:#000;--ok:#000;--wip:#000;--chip:#eee}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .bar,.avatar,.cta,.proj .more{display:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *{animation:none!important;box-shadow:none!important}
+  .wrap{max-width:none;padding:0}
+  .hero{text-align:left;padding:0 0 10pt}
+  h1{font-size:28pt;margin:0}
+  .sub{font-size:13pt}
+  section{padding:12pt 0;break-inside:avoid}
+  h2{font-size:15pt;margin:0 0 8pt;border-bottom:1px solid #000;padding-bottom:3pt}
+  .card,.timeline li{border:1px solid #ccc;border-radius:6px;padding:8pt 10pt;break-inside:avoid}
+  .grid{grid-template-columns:1fr;gap:8pt}
+  .about p{font-size:10.5pt}
+  footer{border:0;text-align:left;padding:10pt 0 0}
+  footer h2{font-size:15pt}
+  footer .cta{display:block}
+  footer .cta a:after{content:" ("attr(href)")";color:#444;font-size:9pt}
+  footer .cta a{display:block;border:0;padding:0;background:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <nav>
+      <a href="#about" data-i18n="nav_about">Über mich</a>
+      <a href="#timeline" data-i18n="nav_timeline">Werdegang</a>
+      <a href="#projects" data-i18n="nav_projects">Projekte</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+    </nav>
+    <button class="btn-s" id="lang" type="button" aria-label="Sprache wechseln / Switch language"><span id="l-de" class="on">DE</span> | <span id="l-en">EN</span></button>
+    <button class="btn-s" id="pdf" type="button">PDF</button>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="hero reveal">
+    <!-- Foto: später assets/photo.jpg einbinden (siehe Kommentar im CSS bei .avatar) -->
+    <div class="avatar" aria-hidden="true">BA</div>
+    <h1>Berke Alca</h1>
+    <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
+    <p class="loc">Mannheim</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="email">E-Mail</a>
+    </div>
+  </div>
+
+  <section id="about" class="reveal">
+    <h2 data-i18n="about_h">Über mich</h2>
+    <div class="card about">
+      <p data-i18n="about_1">Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.</p>
+      <p data-i18n="about_2">Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.</p>
+      <p data-i18n="about_3">Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.</p>
+    </div>
+  </section>
+
+  <section id="timeline" class="reveal">
+    <h2 data-i18n="tl_h">Werdegang</h2>
+    <ul class="timeline">
+      <li>
+        <div class="when" data-i18n="tl_42_when">Seit 05.10.2026</div>
+        <h3 data-i18n="tl_42_h">42 Heilbronn (Common Core)</h3>
+        <p data-i18n="tl_42_p">Projekte in C ohne Lehrer und Vorlesungen. Geprüft wird per Peer-Evaluation durch andere Studierende.</p>
+      </li>
+      <li>
+        <h3 data-i18n="tl_bz_h">Ausbildung zum Bauzeichner</h3>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2 data-i18n="pr_h">Projekte</h2>
+    <div class="grid">
+
+      <article class="card proj">
+        <div class="top"><h3>libft</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
+        <p data-i18n="libft_p">Meine eigene C-Bibliothek: nachgebaute libc-Funktionen, String-Helfer und verkettete Listen, gebaut als libft.a.</p>
+        <ul>
+          <li data-i18n="libft_b1">Zeiger und Speicher aus nächster Nähe verstanden</li>
+          <li data-i18n="libft_b2">Verkettete Listen mit Zeigern aufgebaut</li>
+          <li data-i18n="libft_b3">Eine Bibliothek per Makefile bauen (libft.a)</li>
+        </ul>
+        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/libft" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+      </article>
+
+      <article class="card proj">
+        <div class="top"><h3>get_next_line</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
+        <p data-i18n="gnl_p">Liest einen File Descriptor Zeile für Zeile. Ein static-Puffer hält den Rest zwischen den Aufrufen.</p>
+        <ul>
+          <li data-i18n="gnl_b1">Zustand zwischen Funktionsaufrufen mit static-Variablen</li>
+          <li data-i18n="gnl_b2">Lesen in Blöcken mit read() und BUFFER_SIZE</li>
+          <li data-i18n="gnl_b3">Sauber mit malloc und free umgehen</li>
+        </ul>
+        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+      </article>
+
+      <article class="card proj">
+        <div class="top"><h3>ft_printf</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
+        <p data-i18n="pf_p">Eigener Nachbau von printf mit variadischen Argumenten.</p>
+        <ul>
+          <li data-i18n="pf_b1">Variadische Funktionen mit va_list</li>
+          <li data-i18n="pf_b2">Zahlen in Dezimal und Hexadezimal umwandeln</li>
+          <li data-i18n="pf_b3">Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)</li>
+        </ul>
+        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+      </article>
+
+      <article class="card proj">
+        <div class="top"><h3>push_swap</h3><span class="status wip" data-i18n="st_wip">🔄 In Arbeit</span></div>
+        <p data-i18n="ps_p">Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.</p>
+        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <h2 data-i18n="sk_h">Skills</h2>
+    <ul class="chips">
+      <li>C</li>
+      <li>Unix / Linux</li>
+      <li>Git</li>
+      <li>Makefiles</li>
+      <li>Shell</li>
+      <li data-i18n="sk_mem">Speicherverwaltung</li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer id="contact">
+  <div class="wrap reveal">
+    <h2 data-i18n="ct_h">Kontakt</h2>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:berkealca@gmail.com">berkealca@gmail.com</a>
+    </div>
+    <small>© Berke Alca</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T = {
+    de:{
+      nav_about:"Über mich", nav_timeline:"Werdegang", nav_projects:"Projekte", nav_skills:"Skills", nav_contact:"Kontakt",
+      email:"E-Mail",
+      about_h:"Über mich",
+      about_1:"Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.",
+      about_2:"Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.",
+      about_3:"Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.",
+      tl_h:"Werdegang",
+      tl_42_when:"Seit 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
+      tl_42_p:"Projekte in C ohne Lehrer und Vorlesungen. Geprüft wird per Peer-Evaluation durch andere Studierende.",
+      tl_bz_h:"Ausbildung zum Bauzeichner",
+      pr_h:"Projekte", st_done:"✅ Abgeschlossen", st_wip:"🔄 In Arbeit", code:"Code ansehen →",
+      libft_p:"Meine eigene C-Bibliothek: nachgebaute libc-Funktionen, String-Helfer und verkettete Listen, gebaut als libft.a.",
+      libft_b1:"Zeiger und Speicher aus nächster Nähe verstanden",
+      libft_b2:"Verkettete Listen mit Zeigern aufgebaut",
+      libft_b3:"Eine Bibliothek per Makefile bauen (libft.a)",
+      gnl_p:"Liest einen File Descriptor Zeile für Zeile. Ein static-Puffer hält den Rest zwischen den Aufrufen.",
+      gnl_b1:"Zustand zwischen Funktionsaufrufen mit static-Variablen",
+      gnl_b2:"Lesen in Blöcken mit read() und BUFFER_SIZE",
+      gnl_b3:"Sauber mit malloc und free umgehen",
+      pf_p:"Eigener Nachbau von printf mit variadischen Argumenten.",
+      pf_b1:"Variadische Funktionen mit va_list",
+      pf_b2:"Zahlen in Dezimal und Hexadezimal umwandeln",
+      pf_b3:"Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)",
+      ps_p:"Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.",
+      sk_h:"Skills", sk_mem:"Speicherverwaltung",
+      ct_h:"Kontakt"
+    },
+    en:{
+      nav_about:"About", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
+      email:"Email",
+      about_h:"About me",
+      about_1:"I trained as an architectural draughtsman. But I always wanted to write code.",
+      about_2:"The detour was useful. A draughtsman plans before building. You read technical drawings. You keep structure and details in view. And you work by clear rules.",
+      about_3:"Today I bring that mindset into code. At 42 Heilbronn I write C on Unix. Understand first, then plan, then build.",
+      tl_h:"Timeline",
+      tl_42_when:"Since 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
+      tl_42_p:"Projects in C with no teachers and no lectures. Work is checked in peer evaluations by other students.",
+      tl_bz_h:"Apprenticeship as architectural draughtsman",
+      pr_h:"Projects", st_done:"✅ Completed", st_wip:"🔄 In progress", code:"View code →",
+      libft_p:"My own C library: reimplemented libc functions, string helpers and linked lists, built as libft.a.",
+      libft_b1:"Got a close look at pointers and memory",
+      libft_b2:"Built linked lists with pointers",
+      libft_b3:"Building a library with a Makefile (libft.a)",
+      gnl_p:"Reads a file descriptor line by line. A static buffer keeps the leftover between calls.",
+      gnl_b1:"Keeping state between function calls with static variables",
+      gnl_b2:"Reading in chunks with read() and BUFFER_SIZE",
+      gnl_b3:"Handling malloc and free cleanly",
+      pf_p:"My own reimplementation of printf using variadic arguments.",
+      pf_b1:"Variadic functions with va_list",
+      pf_b2:"Converting numbers to decimal and hexadecimal",
+      pf_b3:"Splitting code into small functions, one per conversion (Norm: max. 25 lines)",
+      ps_p:"Sorts a list of integers using two stacks and a limited set of operations, in as few moves as possible.",
+      sk_h:"Skills", sk_mem:"Memory management",
+      ct_h:"Contact"
+    }
+  };
+
+  var lang = "de";
+  try { var s = localStorage.getItem("cv-lang"); if (s === "de" || s === "en") lang = s; } catch(e){}
+
+  function apply(l){
+    lang = l;
+    document.documentElement.lang = l;
+    var els = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < els.length; i++){
+      var k = els[i].getAttribute("data-i18n");
+      if (T[l][k] != null) els[i].textContent = T[l][k];
+    }
+    document.getElementById("l-de").className = l === "de" ? "on" : "";
+    document.getElementById("l-en").className = l === "en" ? "on" : "";
+    try { localStorage.setItem("cv-lang", l); } catch(e){}
+  }
+  document.getElementById("lang").addEventListener("click", function(){ apply(lang === "de" ? "en" : "de"); });
+  document.getElementById("pdf").addEventListener("click", function(){ window.print(); });
+  apply(lang);
+
+  var items = document.querySelectorAll(".reveal");
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)){
+    for (var j = 0; j < items.length; j++) items[j].classList.add("in");
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:.08});
+    for (var m = 0; m < items.length; m++) io.observe(items[m]);
+  }
+})();
+</script>
+</body>
+</html>
