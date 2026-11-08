@@ -8,25 +8,25 @@
 <meta name="color-scheme" content="light dark">
 <style>
 :root{
-  --bg:#f2f3f8; --surface:rgba(255,255,255,.7); --cardline:rgba(255,255,255,.9); --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
+  --bg:#f5f6f8; --surface:rgba(255,255,255,.7); --cardline:rgba(255,255,255,.9); --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
   --accent:#0071e3; --accent-text:#ffffff; --glass:rgba(255,255,255,.72);
   --shadow:0 1px 2px rgba(20,20,60,.04),0 16px 40px rgba(40,50,120,.10);
-  --g1:rgba(10,132,255,.28); --g2:rgba(191,90,242,.22); --g3:rgba(255,55,95,.14);
-  --grad:linear-gradient(100deg,#0a84ff 0%,#7d5cff 50%,#ff375f 100%);
+  --g1:rgba(80,130,220,.14); --g2:rgba(130,120,230,.10); --g3:rgba(120,140,200,.07);
+  --grad:linear-gradient(100deg,#4f86e8 0%,#7f84ec 100%);
   --ok:#1a7f37; --wip:#b25e00; --chip:rgba(0,0,0,.05);
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#0f1020; --surface:rgba(255,255,255,.07); --cardline:rgba(255,255,255,.12); --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
-    --accent:#2997ff; --accent-text:#000000; --glass:rgba(24,24,44,.6);
+    --bg:#0f1115; --surface:rgba(255,255,255,.07); --cardline:rgba(255,255,255,.12); --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
+    --accent:#6ea8fe; --accent-text:#000000; --glass:rgba(24,26,32,.65);
     --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px rgba(0,0,0,.35);
-    --g1:rgba(10,132,255,.38); --g2:rgba(191,90,242,.30); --g3:rgba(255,55,95,.18);
+    --g1:rgba(80,130,220,.20); --g2:rgba(130,120,230,.14); --g3:rgba(120,140,200,.08);
     --ok:#30d158; --wip:#ff9f0a; --chip:rgba(255,255,255,.08);
   }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);
+body{font-size:16px;margin:0;background:var(--bg);color:var(--text);
   font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;
   line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -57,10 +57,10 @@ a:hover{text-decoration:underline}
   background:var(--grad);color:#fff;border:3px solid var(--cardline);
   font-size:44px;font-weight:700;letter-spacing:.02em;box-shadow:var(--shadow)}
 /* Später Foto einbinden: das div.avatar durch <img class="avatar" src="assets/photo.jpg" alt="Berke Alca" style="object-fit:cover"> ersetzen */
-h1{font-size:clamp(46px,12vw,92px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px;font-weight:700;
+h1{font-size:clamp(40px,10.5vw,76px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px;font-weight:700;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .hero42{max-width:46ch;margin:0 auto 14px;color:var(--muted);font-size:17px}
-.sub{font-size:clamp(19px,4.5vw,28px);color:var(--muted);margin:0 0 6px;font-weight:500}
+.sub{font-size:clamp(17px,4vw,24px);color:var(--muted);margin:0 0 6px;font-weight:500}
 .loc{color:var(--muted);margin:0 0 28px}
 .cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;
@@ -70,12 +70,12 @@ h1{font-size:clamp(46px,12vw,92px);line-height:1.02;letter-spacing:-.04em;margin
 
 /* sections */
 section{padding:56px 0}
-h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-height:1.08;font-weight:700}
+h2{font-size:clamp(26px,5.5vw,38px);letter-spacing:-.02em;margin:0 0 28px;line-height:1.15;font-weight:700;text-align:center}
 .card{background:var(--surface);border:1px solid var(--cardline);border-radius:28px;box-shadow:var(--shadow);padding:26px;
   -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);transition:transform .3s ease}
 .grid .card:hover{transform:translateY(-3px)}
-.about p{margin:0 0 14px;font-size:18px;max-width:62ch}
-.about .lead{font-size:clamp(20px,4.6vw,26px);line-height:1.35;font-weight:600;letter-spacing:-.01em;max-width:34ch;margin-bottom:22px}
+.about p{margin:0 0 14px;font-size:16px;max-width:62ch}
+.about .lead{font-size:clamp(18px,4vw,22px);line-height:1.4;font-weight:600;letter-spacing:-.01em;max-width:36ch;margin:0 auto 18px;text-align:center}
 .about h3{margin:26px 0 8px;font-size:20px;letter-spacing:-.01em}
 .about .box{background:var(--chip);border-radius:20px;padding:18px 20px;margin:0 0 16px}
 .about .box h3{margin-top:0}
@@ -90,7 +90,8 @@ h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-hei
 .timeline p{margin:0;color:var(--muted)}
 .timeline ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
 .timeline ul li{margin-bottom:3px}
-.goal{display:inline-block;margin:0 0 24px;padding:9px 18px;border-radius:999px;background:var(--surface);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--shadow);font-weight:600;font-size:15px}
+.loc{text-align:center}
+.goal{display:inline-block;margin:6px 0 24px;padding:9px 18px;border-radius:22px;background:var(--surface);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--shadow);font-weight:600;font-size:15px}
 
 .road{list-style:none;margin:0;padding:0;display:grid}
 .road li{position:relative;padding:0 0 28px 44px}
@@ -115,7 +116,7 @@ h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-hei
 .tab{flex:1;min-width:0;font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:10px 6px;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}
 .tab:hover{color:var(--text)}
 .tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
-.hint{font-size:13px;color:var(--muted);margin:0 0 10px}
+.hint{font-size:13px;color:var(--muted);margin:0 0 10px;text-align:center}
 .panel{display:none}
 .panel.on{display:block;animation:pop .45s ease both}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
@@ -123,20 +124,20 @@ h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-hei
 .mini div{background:var(--chip);border-radius:20px;padding:16px 18px;transition:transform .25s ease}
 .mini div:hover{transform:translateY(-3px)}
 .mini .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
-.mini h4{margin:0 0 2px;font-size:17px;letter-spacing:-.01em}
-.mini p{margin:0;color:var(--muted);font-size:15px}
+.mini h4{margin:0 0 2px;font-size:16px;letter-spacing:-.01em}
+.mini p{margin:0;color:var(--muted);font-size:14px}
 .tags{display:flex;flex-wrap:wrap;gap:10px}
 .tags span{background:var(--chip);border-radius:999px;padding:10px 18px;font-weight:600;transition:transform .25s}
 .tags span:hover{transform:scale(1.06)}
 .fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
 .fx span{position:absolute;bottom:-30px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:14px;color:var(--accent);opacity:0;animation:rise 14s linear infinite}
-@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.4}85%{opacity:.25}100%{transform:translateY(-520px) rotate(8deg);opacity:0}}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.22}85%{opacity:.25}100%{transform:translateY(-520px) rotate(8deg);opacity:0}}
 .hero{position:relative}
 @media (min-width:720px){.mini{grid-template-columns:repeat(4,1fr)}}
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 .proj{display:flex;flex-direction:column}
 .proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
-.proj h3{margin:0;font-size:22px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.proj h3{margin:0;font-size:19px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
 .status{font-size:13px;font-weight:600;white-space:nowrap}
 .status.ok{color:var(--ok)} .status.wip{color:var(--wip)}
 .proj p{margin:0 0 10px;color:var(--muted)}
@@ -144,7 +145,7 @@ h2{font-size:clamp(30px,7vw,52px);letter-spacing:-.03em;margin:0 0 24px;line-hei
 .proj li{margin-bottom:4px}
 .proj .more{margin-top:auto;font-weight:600;font-size:15px}
 
-.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0;margin:0;list-style:none}
 .chips li{background:var(--surface);border:1px solid var(--cardline);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:999px;padding:9px 18px;font-weight:500}
 
 footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
@@ -229,9 +230,8 @@ footer small{color:var(--muted)}
     <div class="avatar" aria-hidden="true">BA</div>
     <h1>Berke Alca</h1>
     <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
-    <p class="hero42" data-i18n="hero42">Die 42 ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.</p>
-    <p class="loc">Mannheim</p>
-    <p class="goal" data-i18n="goal">Ziel: Praktikum nach der 42, anschließend Einstieg als Junior Developer</p>
+    <p class="hero42" data-i18n="hero42">42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.</p>
+    <p class="goal" data-i18n="intro">Ich bin Berke, 22 Jahre alt und wohne in Mannheim.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
@@ -245,7 +245,7 @@ footer small{color:var(--muted)}
       <p class="lead" data-i18n="ab_lead">Student an der 42 Heilbronn. Schwerpunkt C und Unix. Danach: Praktikum, dann Junior Developer.</p>
       <p class="hint" data-i18n="ab_hint">Tippe einen Reiter an:</p>
       <div class="tabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" data-tab="p1" data-i18n="tab1" type="button">Was ist die 42?</button>
+        <button class="tab" role="tab" aria-selected="true" data-tab="p1" data-i18n="tab1" type="button">Was ist 42 Heilbronn?</button>
         <button class="tab" role="tab" aria-selected="false" data-tab="p2" data-i18n="tab2" type="button">Mein Weg</button>
       </div>
       <div class="panel on" id="p1" role="tabpanel">
@@ -306,7 +306,7 @@ footer small{color:var(--muted)}
       <li>
         <div class="when" data-i18n="tl_st_when">2025 – 2026</div>
         <h3 data-i18n="tl_st_h">Informatik (B.Sc.), Hochschule Mannheim</h3>
-        <p data-i18n="tl_st_p">Informatik-Grundlagen. Wechsel zur 42 aufgrund des stärkeren Praxisbezugs.</p>
+        <p data-i18n="tl_st_p">Informatik-Grundlagen. Wechsel zu 42 Heilbronn aufgrund des stärkeren Praxisbezugs.</p>
       </li>
       <li>
         <div class="when" data-i18n="tl_bk_when">2023 – 2025</div>
@@ -416,9 +416,9 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       rm3_when:"Als Nächstes", rm3_h:"Praktikum", rm3_p:"Erste Berufserfahrung in der Softwareentwicklung",
       rm4_when:"Ziel", rm4_h:"Junior Developer", rm4_p:"Einstieg als Entwickler",
       about_h:"Über mich",
-      hero42:"Die 42 ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.",
+      hero42:"42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.",
       ab_lead:"Student an der 42 Heilbronn. Schwerpunkt C und Unix. Danach: Praktikum, dann Junior Developer.",
-      ab_hint:"Tippe einen Reiter an:", tab1:"Was ist die 42?", tab2:"Mein Weg",
+      ab_hint:"Tippe einen Reiter an:", tab1:"Was ist 42 Heilbronn?", tab2:"Mein Weg",
       s1_h:"Aufgabe lesen", s1_p:"Jedes Projekt beginnt mit einer schriftlichen Aufgabe.",
       s2_h:"In C lösen", s2_p:"Selbstständig, ohne Lehrkräfte und ohne Vorlesungen.",
       s3_h:"Peer-Review", s3_p:"Andere Studierende bewerten den Code.",
@@ -427,9 +427,9 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       w2_h:"Berufskolleg IT", w2_p:"Ulm, 2023–2025, Fachhochschulreife",
       w3_h:"Informatik", w3_p:"Mannheim, zu theoretisch",
       w4_h:"42 Heilbronn", w4_p:"Seit 05.10.2026, praxisnah in C",
-      goal:"Ziel: Praktikum nach der 42, anschließend Einstieg als Junior Developer",
+      intro:"Ich bin Berke, 22 Jahre alt und wohne in Mannheim.",
       tl_st_when:"2025 – 2026", tl_st_h:"Informatik (B.Sc.), Hochschule Mannheim",
-      tl_st_p:"Informatik-Grundlagen. Wechsel zur 42 aufgrund des stärkeren Praxisbezugs.",
+      tl_st_p:"Informatik-Grundlagen. Wechsel zu 42 Heilbronn aufgrund des stärkeren Praxisbezugs.",
       tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Informationstechnik, Ulm", tl_bk_p:"Mit Fachhochschulreife abgeschlossen.",
       tl_bk_b2:"Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau",
       sk_next:"Geplant: Python",
@@ -463,9 +463,9 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       rm3_when:"Next", rm3_h:"Internship", rm3_p:"First professional experience in software development",
       rm4_when:"Goal", rm4_h:"Junior Developer", rm4_p:"Starting out as a developer",
       about_h:"About me",
-      hero42:"42 is a project-based coding school with no teachers and no lectures.",
+      hero42:"42 Heilbronn is a project-based coding school with no teachers and no lectures.",
       ab_lead:"Student at 42 Heilbronn. Focus on C and Unix. Next: an internship, then Junior Developer.",
-      ab_hint:"Tap a tab:", tab1:"What is 42?", tab2:"My path",
+      ab_hint:"Tap a tab:", tab1:"What is 42 Heilbronn?", tab2:"My path",
       s1_h:"Read the subject", s1_p:"Every project starts with a written assignment.",
       s2_h:"Solve it in C", s2_p:"On my own, with no teachers and no lectures.",
       s3_h:"Peer review", s3_p:"Other students assess the code.",
@@ -474,9 +474,9 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       w2_h:"Berufskolleg IT", w2_p:"Ulm, 2023–2025, Fachhochschulreife",
       w3_h:"Computer science", w3_p:"Mannheim, too theoretical",
       w4_h:"42 Heilbronn", w4_p:"Since 05.10.2026, hands-on in C",
-      goal:"Goal: an internship after 42, then a start as Junior Developer",
+      intro:"I'm Berke, 22 years old, and I live in Mannheim.",
       tl_st_when:"2025 – 2026", tl_st_h:"Computer Science (B.Sc.), Hochschule Mannheim",
-      tl_st_p:"Computer science fundamentals. Moved to 42 for the stronger focus on practice.",
+      tl_st_p:"Computer science fundamentals. Moved to 42 Heilbronn for the stronger focus on practice.",
       tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Information Technology, Ulm", tl_bk_p:"Completed with the Fachhochschulreife.",
       tl_bk_b2:"Linux at a deeper level: installation and partitions, shell and scripts, users and permissions, network and services, system structure",
       sk_next:"Planned: Python",
