@@ -67,10 +67,13 @@ h2{font-size:clamp(28px,6vw,44px);letter-spacing:-.02em;margin:0 0 24px;line-hei
 .about p:last-child{margin:0}
 
 .timeline{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.timeline li{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:20px 24px}
+.timeline>li{background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:20px 24px}
 .timeline .when{color:var(--accent);font-weight:600;font-size:14px}
 .timeline h3{margin:2px 0 4px;font-size:20px}
 .timeline p{margin:0;color:var(--muted)}
+.timeline ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+.timeline ul li{margin-bottom:3px}
+.goal{display:inline-block;margin:0 0 24px;padding:8px 16px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-weight:600;font-size:15px}
 
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 .proj{display:flex;flex-direction:column}
@@ -156,6 +159,7 @@ footer small{color:var(--muted)}
     <h1>Berke Alca</h1>
     <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
     <p class="loc">Mannheim</p>
+    <p class="goal" data-i18n="goal">Ziel: nach 42 ein Praktikum, danach Junior Developer</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
@@ -168,6 +172,7 @@ footer small{color:var(--muted)}
     <div class="card about">
       <p data-i18n="about_1">Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.</p>
       <p data-i18n="about_2">Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.</p>
+      <p data-i18n="about_4">Danach habe ich das Berufskolleg Informationstechnik in Ulm gemacht und dort C#, Datenbanken, Webentwicklung und Linux auf tieferer Ebene gelernt. Mit Fachhochschulreife bin ich nach Mannheim gezogen und habe Informatik studiert. Das war mir zu theoretisch und zu wenig praxisnah. Ich wollte programmieren. Deshalb jetzt 42.</p>
       <p data-i18n="about_3">Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.</p>
     </div>
   </section>
@@ -179,6 +184,22 @@ footer small{color:var(--muted)}
         <div class="when" data-i18n="tl_42_when">Seit 05.10.2026</div>
         <h3 data-i18n="tl_42_h">42 Heilbronn (Common Core)</h3>
         <p data-i18n="tl_42_p">Projekte in C ohne Lehrer und Vorlesungen. Geprüft wird per Peer-Evaluation durch andere Studierende.</p>
+      </li>
+      <li>
+        <div class="when" data-i18n="tl_st_when">2025 – 2026</div>
+        <h3 data-i18n="tl_st_h">Informatik (B.Sc.), Hochschule Mannheim</h3>
+        <p data-i18n="tl_st_p">Informatik-Grundlagen. Mir war das Studium zu theoretisch und zu wenig praxisnah, ich wollte programmieren.</p>
+      </li>
+      <li>
+        <div class="when" data-i18n="tl_bk_when">2023 – 2025</div>
+        <h3 data-i18n="tl_bk_h">Berufskolleg Informationstechnik, Ulm</h3>
+        <p data-i18n="tl_bk_p">Mit Fachhochschulreife abgeschlossen.</p>
+        <ul>
+          <li data-i18n="tl_bk_b1">C#: Konsolenprogramme</li>
+          <li data-i18n="tl_bk_b2">Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau</li>
+          <li data-i18n="tl_bk_b3">Datenbanken / SQL</li>
+          <li data-i18n="tl_bk_b4">Webentwicklung (HTML, CSS, JavaScript)</li>
+        </ul>
       </li>
       <li>
         <h3 data-i18n="tl_bz_h">Ausbildung zum Bauzeichner</h3>
@@ -236,11 +257,25 @@ footer small{color:var(--muted)}
     <h2 data-i18n="sk_h">Skills</h2>
     <ul class="chips">
       <li>C</li>
+      <li>C#</li>
+      <li>Java</li>
       <li>Unix / Linux</li>
       <li>Git</li>
       <li>Makefiles</li>
       <li>Shell</li>
       <li data-i18n="sk_mem">Speicherverwaltung</li>
+      <li>SQL</li>
+      <li>HTML / CSS / JavaScript</li>
+    </ul>
+    <p class="loc" style="margin-top:16px" data-i18n="sk_next">Als Nächstes bei 42: Python</p>
+  </section>
+
+  <section id="languages" class="reveal">
+    <h2 data-i18n="lg_h">Sprachen</h2>
+    <ul class="chips">
+      <li data-i18n="lg_de">Deutsch</li>
+      <li data-i18n="lg_en">Englisch</li>
+      <li data-i18n="lg_tr">Türkisch</li>
     </ul>
   </section>
 
@@ -268,6 +303,16 @@ footer small{color:var(--muted)}
       about_h:"Über mich",
       about_1:"Ich habe eine Ausbildung als Bauzeichner gemacht. Eigentlich wollte ich aber immer programmieren.",
       about_2:"Der Umweg war nützlich. Als Bauzeichner plant man, bevor man baut. Man liest technische Pläne. Man behält Struktur und Details im Blick. Und man arbeitet nach klaren Regeln.",
+      about_4:"Danach habe ich das Berufskolleg Informationstechnik in Ulm gemacht und dort C#, Datenbanken, Webentwicklung und Linux auf tieferer Ebene gelernt. Mit Fachhochschulreife bin ich nach Mannheim gezogen und habe Informatik studiert. Das war mir zu theoretisch und zu wenig praxisnah. Ich wollte programmieren. Deshalb jetzt 42.",
+      goal:"Ziel: nach 42 ein Praktikum, danach Junior Developer",
+      tl_st_when:"2025 – 2026", tl_st_h:"Informatik (B.Sc.), Hochschule Mannheim",
+      tl_st_p:"Informatik-Grundlagen. Mir war das Studium zu theoretisch und zu wenig praxisnah, ich wollte programmieren.",
+      tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Informationstechnik, Ulm", tl_bk_p:"Mit Fachhochschulreife abgeschlossen.",
+      tl_bk_b1:"C#: Konsolenprogramme",
+      tl_bk_b2:"Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau",
+      tl_bk_b3:"Datenbanken / SQL", tl_bk_b4:"Webentwicklung (HTML, CSS, JavaScript)",
+      sk_next:"Als Nächstes bei 42: Python",
+      lg_h:"Sprachen", lg_de:"Deutsch", lg_en:"Englisch", lg_tr:"Türkisch",
       about_3:"Diese Denkweise setze ich heute in Code um. Bei 42 Heilbronn schreibe ich C unter Unix. Erst verstehen, dann planen, dann bauen.",
       tl_h:"Werdegang",
       tl_42_when:"Seit 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
@@ -296,6 +341,16 @@ footer small{color:var(--muted)}
       about_h:"About me",
       about_1:"I trained as an architectural draughtsman. But I always wanted to write code.",
       about_2:"The detour was useful. A draughtsman plans before building. You read technical drawings. You keep structure and details in view. And you work by clear rules.",
+      about_4:"After that I did the Berufskolleg for information technology in Ulm. There I learned C#, databases, web development and Linux at a deeper level. With my Fachhochschulreife (university of applied sciences entrance qualification) I moved to Mannheim and studied computer science. It was too theoretical and too little hands-on for me. I wanted to program. That is why I am at 42 now.",
+      goal:"Goal: an internship after 42, then Junior Developer",
+      tl_st_when:"2025 – 2026", tl_st_h:"Computer Science (B.Sc.), Hochschule Mannheim",
+      tl_st_p:"Computer science fundamentals. The degree was too theoretical and too little hands-on for me. I wanted to program.",
+      tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Information Technology, Ulm", tl_bk_p:"Completed with the Fachhochschulreife.",
+      tl_bk_b1:"C#: console programs",
+      tl_bk_b2:"Linux at a deeper level: installation and partitions, shell and scripts, users and permissions, network and services, system structure",
+      tl_bk_b3:"Databases / SQL", tl_bk_b4:"Web development (HTML, CSS, JavaScript)",
+      sk_next:"Next at 42: Python",
+      lg_h:"Languages", lg_de:"German", lg_en:"English", lg_tr:"Turkish",
       about_3:"Today I bring that mindset into code. At 42 Heilbronn I write C on Unix. Understand first, then plan, then build.",
       tl_h:"Timeline",
       tl_42_when:"Since 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
