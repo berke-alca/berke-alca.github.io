@@ -188,38 +188,30 @@ h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;bord
 .links{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
 .links .more{margin-top:0}
 .dm-intro{max-width:52ch;margin:-12px auto 22px;color:var(--muted)}
-.dtabs .tab{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;flex:auto;font-size:12px;padding:10px 8px}
-.dm-txt{margin:0 0 16px;color:var(--muted);font-size:15px}
-.dm-txt code,.dm-txt b{color:var(--text);font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:14px;font-weight:600}
-.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 10px}
+.demo h3{margin:0;font-size:19px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.demo .dsub{margin:4px 0 14px;color:var(--muted)}
+.term{background:#0d1117;color:#e6edf3;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13px;line-height:1.75;min-height:200px;overflow:hidden}
+.term .ln{white-space:pre}
+.term .c{color:#6e7681;border-radius:2px;transition:color .2s,background .2s}
+.term .c.r{color:#e6edf3}
+.term .c.cur{background:rgba(110,168,254,.4)}
+.term .nl{color:#6e7681!important;font-size:11px}
+.term .ok .c{color:#3fb950}
+.term .bd{color:#3fb950;margin-left:8px;opacity:0;transition:opacity .3s}
+.term .ok .bd{opacity:1}
+#dp-term{white-space:pre-wrap;word-break:break-word;min-height:130px}
+.term .dim{color:#7d8590}
+.term .cursor{display:inline-block;width:7px;height:1.1em;background:#e6edf3;vertical-align:-3px;margin-left:1px;animation:blink 1s steps(1) infinite}
+.drow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.bsg{display:inline-flex;align-items:center;gap:6px}
+.drow .lbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;color:var(--muted);margin-left:6px}
 .cbtn{font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:transform .15s,filter .2s}
 .cbtn:hover{filter:brightness(.95)}
 .cbtn:active{transform:scale(.96)}
-.cbtn.pri{background:var(--grad);color:#fff;border-color:transparent}
-.cbtn:disabled{opacity:.5;cursor:default}
-.ps-info{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:8px}
-.ps-info b{color:var(--text)}
-.gl-lbl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:12px 0 5px;text-transform:uppercase;letter-spacing:.04em}
-.gl-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px}
-.gl-row input{flex:1;min-width:140px;accent-color:var(--accent)}
-.gl-file,.gl-chars,.pf-out{background:var(--chip);border-radius:14px;padding:10px 12px;font-size:13px;line-height:1.75;word-break:break-all;min-height:44px}
-.gl-file span{color:var(--muted);opacity:.55;transition:opacity .2s,color .2s,background .2s;border-radius:3px}
-.gl-file span.rd{opacity:1;color:var(--text)}
-.gl-file span.cur{background:rgba(110,140,255,.28);color:var(--text);opacity:1}
-.gl-chars span{display:inline-block;min-width:1.05em;text-align:center;margin:1px;border-radius:5px;background:var(--surface);border:1px solid var(--line);padding:0 3px}
-.gl-chars .nl,.gl-file .nl{color:var(--wip);font-weight:700}
-.gl-chars .em{color:var(--muted);border:0;background:none;font-style:italic}
-.gl-out{margin:10px 0 0;padding-left:26px;font-size:13px}
-.gl-out li{margin:4px 0;animation:pop .35s ease both}
-.gl-out .ln{background:rgba(48,160,90,.14);border-radius:6px;padding:1px 6px;white-space:pre-wrap}
-.gl-out .nul{color:var(--muted)}
-.pf-pre{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
-.pf-pre .cbtn{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;font-weight:500;padding:6px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pf-out{font-size:15px;white-space:pre-wrap}
-.pf-out .nl{color:var(--wip);font-weight:700}
-.pf-call{font-size:13px;color:var(--text);word-break:break-word}
-.pf-pre .cbtn[aria-pressed="true"]{background:var(--grad);color:#fff;border-color:transparent}
-.okline{margin:12px 0 0;font-size:13px;font-weight:600;color:var(--ok)}
+.cbtn.pri,.cbtn[aria-pressed="true"]{background:var(--grad);color:#fff;border-color:transparent}
+.cbtn.sm{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;padding:6px 11px}
+.dstat{margin:12px 0 0;font-size:14px;color:var(--muted);min-height:1.5em}
+.dstat b{color:var(--ok)}
 
 footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
 footer h2{font-size:28px}
@@ -236,7 +228,7 @@ footer small{color:var(--muted)}
   h1,.orb,.caret,.road li.now::before{animation:none}
   .road li{opacity:1;transform:none;animation:none!important}
   .panel.on{animation:none}
-  .gl-out li{animation:none}
+  .term .cursor{animation:none}
 }
 
 @media (min-width:720px){
@@ -436,7 +428,7 @@ footer small{color:var(--muted)}
         </ul>
         <div class="links">
           <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-          <a class="more" href="#demos" data-demo="d-gnl" data-i18n="try">▶ Live-Demo</a>
+          <a class="more" href="#demo-gnl" data-i18n="try">▶ Live-Demo</a>
         </div>
       </article>
 
@@ -450,7 +442,7 @@ footer small{color:var(--muted)}
         </ul>
         <div class="links">
           <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-          <a class="more" href="#demos" data-demo="d-pf" data-i18n="try">▶ Live-Demo</a>
+          <a class="more" href="#demo-pf" data-i18n="try">▶ Live-Demo</a>
         </div>
       </article>
 
@@ -465,41 +457,30 @@ footer small{color:var(--muted)}
 
   <section id="demos" class="reveal">
     <h2 data-i18n="dm_h">Live-Demos</h2>
-    <p class="loc dm-intro" data-i18n="dm_p">Echte Läufe meines C-Codes, kompiliert mit cc -Wall -Wextra -Werror. Die Ausgaben sind aufgezeichnet und hier abspielbar.</p>
-    <div class="card">
-      <div class="tabs dtabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" data-tab="d-gnl" type="button">get_next_line</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="d-pf" type="button">ft_printf</button>
-      </div>
-
-      <div class="panel on" id="d-gnl" role="tabpanel">
-        <p class="dm-txt" data-i18n="gnl_d1">Echter Lauf meines get_next_line, jedes read() mitgeschnitten. Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.</p>
-        <div class="gl-row"><label for="gl-bs" class="mono">BUFFER_SIZE = <b id="gl-bsv">5</b></label><input type="range" id="gl-bs" min="1" max="24" value="5"></div>
-        <span class="gl-lbl" data-i18n="gl_file">Datei</span>
-        <div class="gl-file mono" id="gl-file"></div>
-        <span class="gl-lbl">buffer &larr; read()</span>
-        <div class="gl-chars mono" id="gl-buf"></div>
-        <span class="gl-lbl">static char *stash</span>
-        <div class="gl-chars mono" id="gl-stash"></div>
-        <div class="ctrl">
-          <button class="cbtn pri mono" id="gl-call" type="button">get_next_line(fd)</button>
-          <button class="cbtn" id="gl-reset" type="button" data-i18n="reset">Zurücksetzen</button>
+    <p class="loc dm-intro" data-i18n="dm_p">Echte Ausgabe meines C-Codes. Einfach antippen.</p>
+    <div class="grid">
+      <article class="card demo" id="demo-gnl">
+        <h3>get_next_line</h3>
+        <p class="dsub" data-i18n="dg_sub">Liest eine Datei Stück für Stück und gibt sie Zeile für Zeile zurück.</p>
+        <div class="term" id="dg-term"></div>
+        <div class="drow">
+          <button class="cbtn pri" id="dg-play" type="button" data-i18n="d_play">▶ Abspielen</button>
+          <span class="bsg"><span class="lbl">BUFFER_SIZE</span>
+          <button class="cbtn sm" type="button" data-bs="1" aria-pressed="false">1</button>
+          <button class="cbtn sm" type="button" data-bs="5" aria-pressed="true">5</button>
+          <button class="cbtn sm" type="button" data-bs="42" aria-pressed="false">42</button></span>
         </div>
-        <div class="ps-info"><span><span data-i18n="gl_reads">read()-Aufrufe</span>: <b id="gl-r">0</b></span></div>
-        <ol class="gl-out mono" id="gl-out"></ol>
-        <p class="okline" data-i18n="gl_check">✅ Richtige Zeilen bei jeder BUFFER_SIZE von 1 bis 24 und 42 · valgrind: keine Speicherlecks</p>
-      </div>
-
-      <div class="panel" id="d-pf" role="tabpanel">
-        <p class="dm-txt" data-i18n="pf_d1">Echte Ausgabe meiner ft_printf. Jedes Beispiel lief auch mit dem originalen printf, Ausgabe und Rückgabewert werden verglichen. Tipp ein Beispiel an.</p>
-        <div class="pf-pre" id="pf-pre"></div>
-        <span class="gl-lbl" data-i18n="pf_callh">Aufruf</span>
-        <div class="pf-call mono" id="pf-call"></div>
-        <span class="gl-lbl" data-i18n="pf_out">Ausgabe</span>
-        <div class="pf-out mono" id="pf-out"></div>
-        <div class="ps-info"><span><span data-i18n="pf_ret">Rückgabewert</span>: <b id="pf-ret">0</b></span></div>
-        <p class="okline" id="pf-ok"></p>
-      </div>
+        <p class="dstat" id="dg-stat"></p>
+      </article>
+      <article class="card demo" id="demo-pf">
+        <h3>ft_printf</h3>
+        <p class="dsub" data-i18n="dp_sub">Mein eigenes printf.</p>
+        <div class="term" id="dp-term"></div>
+        <div class="drow">
+          <button class="cbtn pri" id="dp-play" type="button" data-i18n="d_next">▶ Nächstes Beispiel</button>
+        </div>
+        <p class="dstat" id="dp-stat"></p>
+      </article>
     </div>
   </section>
 
@@ -591,12 +572,10 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       sk_h:"Skills", sk_mem:"Speicherverwaltung",
       ct_h:"Kontakt",
       nav_demos:"Live-Demos", try:"▶ Live-Demo", dm_h:"Live-Demos",
-      dm_p:"Echte Läufe meines C-Codes, kompiliert mit cc -Wall -Wextra -Werror. Die Ausgaben sind aufgezeichnet und hier abspielbar.",
-      gnl_d1:"Echter Lauf meines get_next_line, jedes read() mitgeschnitten. Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.",
-      gl_file:"Datei", reset:"Zurücksetzen", gl_reads:"read()-Aufrufe", gl_empty:"leer", gl_eof:"read() gibt 0 zurück: Dateiende",
-      gl_check:"✅ Richtige Zeilen bei jeder BUFFER_SIZE von 1 bis 24 und 42 · valgrind: keine Speicherlecks",
-      pf_d1:"Echte Ausgabe meiner ft_printf. Jedes Beispiel lief auch mit dem originalen printf, Ausgabe und Rückgabewert werden verglichen. Tipp ein Beispiel an.",
-      pf_callh:"Aufruf", pf_out:"Ausgabe", pf_ret:"Rückgabewert", pf_same:"✅ Identisch mit printf: gleiche Ausgabe, gleicher Rückgabewert", pf_diff:"⚠ Weicht von printf ab"
+      dm_p:"Echte Ausgabe meines C-Codes. Einfach antippen.",
+      dg_sub:"Liest eine Datei Stück für Stück und gibt sie Zeile für Zeile zurück.", dp_sub:"Mein eigenes printf.",
+      d_play:"▶ Abspielen", d_next:"▶ Nächstes Beispiel", dg_hint:"Tipp auf ▶ Abspielen.", dg_lines:"Zeilen",
+      dg_leak:"✅ keine Speicherlecks", dp_ok:"✅ Gleiche Ausgabe wie printf", dp_bad:"⚠ Anders als printf"
     },
     en:{
       nav_about:"About", nav_roadmap:"Roadmap", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
@@ -646,12 +625,10 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       sk_h:"Skills", sk_mem:"Memory management",
       ct_h:"Contact",
       nav_demos:"Live demos", try:"▶ Live demo", dm_h:"Live demos",
-      dm_p:"Real runs of my C code, compiled with cc -Wall -Wextra -Werror. The output is recorded and can be replayed here.",
-      gnl_d1:"A real run of my get_next_line, with every read() traced. The file is read in chunks of BUFFER_SIZE bytes. Whatever was read past the end of the line waits in the static stash for the next call.",
-      gl_file:"File", reset:"Reset", gl_reads:"read() calls", gl_empty:"empty", gl_eof:"read() returns 0: end of file",
-      gl_check:"✅ Correct lines for every BUFFER_SIZE from 1 to 24 and 42 · valgrind: no memory leaks",
-      pf_d1:"Real output of my ft_printf. Every example also ran with the original printf, and output and return value are compared. Tap an example.",
-      pf_callh:"Call", pf_out:"Output", pf_ret:"Return value", pf_same:"✅ Same as printf: same output, same return value", pf_diff:"⚠ Differs from printf"
+      dm_p:"Real output of my C code. Just tap.",
+      dg_sub:"Reads a file chunk by chunk and returns it line by line.", dp_sub:"My own printf.",
+      d_play:"▶ Play", d_next:"▶ Next example", dg_hint:"Tap ▶ Play.", dg_lines:"lines",
+      dg_leak:"✅ no memory leaks", dp_ok:"✅ Same output as printf", dp_bad:"⚠ Differs from printf"
     }
   };
 
@@ -760,95 +737,88 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
 
   // ---------- live demos ----------
   // Recorded runs of the original C code from github.com/berke-alca/CoreCurriculum
-  // (compiled with cc -Wall -Wextra -Werror; read() traced with -Wl,--wrap=read; ft_printf compared with libc printf)
-  var DEMO = {"gnl":{"file":"#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n","runs":{"1":[["R",1,"#"],["R",1,"i"],["R",1,"n"],["R",1,"c"],["R",1,"l"],["R",1,"u"],["R",1,"d"],["R",1,"e"],["R",1," "],["R",1,"<"],["R",1,"u"],["R",1,"n"],["R",1,"i"],["R",1,"s"],["R",1,"t"],["R",1,"d"],["R",1,"."],["R",1,"h"],["R",1,">"],["R",1,"\n"],["L","#include <unistd.h>\n"],["R",1,"i"],["R",1,"n"],["R",1,"t"],["R",1," "],["R",1,"m"],["R",1,"a"],["R",1,"i"],["R",1,"n"],["R",1,"("],["R",1,"v"],["R",1,"o"],["R",1,"i"],["R",1,"d"],["R",1,")"],["R",1,"\n"],["L","int main(void)\n"],["R",1,"{"],["R",1,"\n"],["L","{\n"],["R",1," "],["R",1," "],["R",1,"w"],["R",1,"r"],["R",1,"i"],["R",1,"t"],["R",1,"e"],["R",1,"("],["R",1,"1"],["R",1,","],["R",1," "],["R",1,"\""],["R",1,"4"],["R",1,"2"],["R",1,"\\"],["R",1,"n"],["R",1,"\""],["R",1,","],["R",1," "],["R",1,"3"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",1," "],["R",1," "],["R",1,"r"],["R",1,"e"],["R",1,"t"],["R",1,"u"],["R",1,"r"],["R",1,"n"],["R",1," "],["R",1,"("],["R",1,"0"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  return (0);\n"],["R",1,"}"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"2":[["R",2,"#i"],["R",2,"nc"],["R",2,"lu"],["R",2,"de"],["R",2," <"],["R",2,"un"],["R",2,"is"],["R",2,"td"],["R",2,".h"],["R",2,">\n"],["L","#include <unistd.h>\n"],["R",2,"in"],["R",2,"t "],["R",2,"ma"],["R",2,"in"],["R",2,"(v"],["R",2,"oi"],["R",2,"d)"],["R",2,"\n{"],["L","int main(void)\n"],["R",2,"\n "],["L","{\n"],["R",2," w"],["R",2,"ri"],["R",2,"te"],["R",2,"(1"],["R",2,", "],["R",2,"\"4"],["R",2,"2\\"],["R",2,"n\""],["R",2,", "],["R",2,"3)"],["R",2,";\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",2,"  "],["R",2,"re"],["R",2,"tu"],["R",2,"rn"],["R",2," ("],["R",2,"0)"],["R",2,";\n"],["L","  return (0);\n"],["R",2,"}\n"],["L","}\n"],["R",0,""],["N"]],"3":[["R",3,"#in"],["R",3,"clu"],["R",3,"de "],["R",3,"<un"],["R",3,"ist"],["R",3,"d.h"],["R",3,">\ni"],["L","#include <unistd.h>\n"],["R",3,"nt "],["R",3,"mai"],["R",3,"n(v"],["R",3,"oid"],["R",3,")\n{"],["L","int main(void)\n"],["R",3,"\n  "],["L","{\n"],["R",3,"wri"],["R",3,"te("],["R",3,"1, "],["R",3,"\"42"],["R",3,"\\n\""],["R",3,", 3"],["R",3,");\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",3,"  r"],["R",3,"etu"],["R",3,"rn "],["R",3,"(0)"],["R",3,";\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"4":[["R",4,"#inc"],["R",4,"lude"],["R",4," <un"],["R",4,"istd"],["R",4,".h>\n"],["L","#include <unistd.h>\n"],["R",4,"int "],["R",4,"main"],["R",4,"(voi"],["R",4,"d)\n{"],["L","int main(void)\n"],["R",4,"\n  w"],["L","{\n"],["R",4,"rite"],["R",4,"(1, "],["R",4,"\"42\\"],["R",4,"n\", "],["R",4,"3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,"  re"],["R",4,"turn"],["R",4," (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"5":[["R",5,"#incl"],["R",5,"ude <"],["R",5,"unist"],["R",5,"d.h>\n"],["L","#include <unistd.h>\n"],["R",5,"int m"],["R",5,"ain(v"],["R",5,"oid)\n"],["L","int main(void)\n"],["R",5,"{\n  w"],["L","{\n"],["R",5,"rite("],["R",5,"1, \"4"],["R",5,"2\\n\","],["R",5," 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",5,"  ret"],["R",5,"urn ("],["R",5,"0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"6":[["R",6,"#inclu"],["R",6,"de <un"],["R",6,"istd.h"],["R",6,">\nint "],["L","#include <unistd.h>\n"],["R",6,"main(v"],["R",6,"oid)\n{"],["L","int main(void)\n"],["R",6,"\n  wri"],["L","{\n"],["R",6,"te(1, "],["R",6,"\"42\\n\""],["R",6,", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",6,"  retu"],["R",6,"rn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"7":[["R",7,"#includ"],["R",7,"e <unis"],["R",7,"td.h>\ni"],["L","#include <unistd.h>\n"],["R",7,"nt main"],["R",7,"(void)\n"],["L","int main(void)\n"],["R",7,"{\n  wri"],["L","{\n"],["R",7,"te(1, \""],["R",7,"42\\n\", "],["R",7,"3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",7,"eturn ("],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"8":[["R",8,"#include"],["R",8," <unistd"],["R",8,".h>\nint "],["L","#include <unistd.h>\n"],["R",8,"main(voi"],["R",8,"d)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",8,"rite(1, "],["R",8,"\"42\\n\", "],["R",8,"3);\n  re"],["L","  write(1, \"42\\n\", 3);\n"],["R",8,"turn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"9":[["R",9,"#include "],["R",9,"<unistd.h"],["R",9,">\nint mai"],["L","#include <unistd.h>\n"],["R",9,"n(void)\n{"],["L","int main(void)\n"],["R",9,"\n  write("],["L","{\n"],["R",9,"1, \"42\\n\""],["R",9,", 3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",9,"eturn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"10":[["R",10,"#include <"],["R",10,"unistd.h>\n"],["L","#include <unistd.h>\n"],["R",10,"int main(v"],["R",10,"oid)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",10,"rite(1, \"4"],["R",10,"2\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"  return ("],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"11":[["R",11,"#include <u"],["R",11,"nistd.h>\nin"],["L","#include <unistd.h>\n"],["R",11,"t main(void"],["R",11,")\n{\n  write"],["L","int main(void)\n"],["L","{\n"],["R",11,"(1, \"42\\n\","],["R",11," 3);\n  retu"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"rn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"12":[["R",12,"#include <un"],["R",12,"istd.h>\nint "],["L","#include <unistd.h>\n"],["R",12,"main(void)\n{"],["L","int main(void)\n"],["R",12,"\n  write(1, "],["L","{\n"],["R",12,"\"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",12,"  return (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"13":[["R",13,"#include <uni"],["R",13,"std.h>\nint ma"],["L","#include <unistd.h>\n"],["R",13,"in(void)\n{\n  "],["L","int main(void)\n"],["L","{\n"],["R",13,"write(1, \"42\\"],["R",13,"n\", 3);\n  ret"],["L","  write(1, \"42\\n\", 3);\n"],["R",11,"urn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"14":[["R",14,"#include <unis"],["R",14,"td.h>\nint main"],["L","#include <unistd.h>\n"],["R",14,"(void)\n{\n  wri"],["L","int main(void)\n"],["L","{\n"],["R",14,"te(1, \"42\\n\", "],["R",14,"3);\n  return ("],["L","  write(1, \"42\\n\", 3);\n"],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"15":[["R",15,"#include <unist"],["R",15,"d.h>\nint main(v"],["L","#include <unistd.h>\n"],["R",15,"oid)\n{\n  write("],["L","int main(void)\n"],["L","{\n"],["R",15,"1, \"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",15,"  return (0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"16":[["R",16,"#include <unistd"],["R",16,".h>\nint main(voi"],["L","#include <unistd.h>\n"],["R",16,"d)\n{\n  write(1, "],["L","int main(void)\n"],["L","{\n"],["R",16,"\"42\\n\", 3);\n  re"],["L","  write(1, \"42\\n\", 3);\n"],["R",12,"turn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"17":[["R",17,"#include <unistd."],["R",17,"h>\nint main(void)"],["L","#include <unistd.h>\n"],["R",17,"\n{\n  write(1, \"42"],["L","int main(void)\n"],["L","{\n"],["R",17,"\\n\", 3);\n  return"],["L","  write(1, \"42\\n\", 3);\n"],["R",8," (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"18":[["R",18,"#include <unistd.h"],["R",18,">\nint main(void)\n{"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["R",18,"\n  write(1, \"42\\n\""],["L","{\n"],["R",18,", 3);\n  return (0)"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"19":[["R",19,"#include <unistd.h>"],["R",19,"\nint main(void)\n{\n "],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",19," write(1, \"42\\n\", 3"],["R",19,");\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"20":[["R",20,"#include <unistd.h>\n"],["L","#include <unistd.h>\n"],["R",20,"int main(void)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",20,"rite(1, \"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",16,"  return (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"21":[["R",21,"#include <unistd.h>\ni"],["L","#include <unistd.h>\n"],["R",21,"nt main(void)\n{\n  wri"],["L","int main(void)\n"],["L","{\n"],["R",21,"te(1, \"42\\n\", 3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",13,"eturn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"22":[["R",22,"#include <unistd.h>\nin"],["L","#include <unistd.h>\n"],["R",22,"t main(void)\n{\n  write"],["L","int main(void)\n"],["L","{\n"],["R",22,"(1, \"42\\n\", 3);\n  retu"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"rn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"23":[["R",23,"#include <unistd.h>\nint"],["L","#include <unistd.h>\n"],["R",23," main(void)\n{\n  write(1"],["L","int main(void)\n"],["L","{\n"],["R",23,", \"42\\n\", 3);\n  return "],["L","  write(1, \"42\\n\", 3);\n"],["R",7,"(0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"24":[["R",24,"#include <unistd.h>\nint "],["L","#include <unistd.h>\n"],["R",24,"main(void)\n{\n  write(1, "],["L","int main(void)\n"],["L","{\n"],["R",24,"\"42\\n\", 3);\n  return (0)"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"42":[["R",42,"#include <unistd.h>\nint main(void)\n{\n  wri"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",34,"te(1, \"42\\n\", 3);\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]]},"leaks":true},"pf":[{"fmt":"\"Hello %s, 42 = 0x%x\\n\"","args":"\"Berke\", 42","out":"Hello Berke, 42 = 0x2a\n","ret":23,"same":true},{"fmt":"\"%d | %u | %x | %X\\n\"","args":"-1, -1, -1, -1","out":"-1 | 4294967295 | ffffffff | FFFFFFFF\n","ret":38,"same":true},{"fmt":"\"%c%c = %i%%\\n\"","args":"'4', '2', 100","out":"42 = 100%\n","ret":10,"same":true},{"fmt":"\"INT_MIN %d, INT_MAX %i\\n\"","args":"INT_MIN, INT_MAX","out":"INT_MIN -2147483648, INT_MAX 2147483647\n","ret":40,"same":true},{"fmt":"\"%p | %p\\n\"","args":"(void *)0x7ffd42a0, NULL","out":"0x7ffd42a0 | (nil)\n","ret":19,"same":true},{"fmt":"\"[%s] [%s]\\n\"","args":"\"\", \"C\"","out":"[] [C]\n","ret":7,"same":true}]};
+  var DEMO = {"gnl":{"file":"#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n","runs":{"1":[["R",1,"#"],["R",1,"i"],["R",1,"n"],["R",1,"c"],["R",1,"l"],["R",1,"u"],["R",1,"d"],["R",1,"e"],["R",1," "],["R",1,"<"],["R",1,"u"],["R",1,"n"],["R",1,"i"],["R",1,"s"],["R",1,"t"],["R",1,"d"],["R",1,"."],["R",1,"h"],["R",1,">"],["R",1,"\n"],["L","#include <unistd.h>\n"],["R",1,"i"],["R",1,"n"],["R",1,"t"],["R",1," "],["R",1,"m"],["R",1,"a"],["R",1,"i"],["R",1,"n"],["R",1,"("],["R",1,"v"],["R",1,"o"],["R",1,"i"],["R",1,"d"],["R",1,")"],["R",1,"\n"],["L","int main(void)\n"],["R",1,"{"],["R",1,"\n"],["L","{\n"],["R",1," "],["R",1," "],["R",1,"w"],["R",1,"r"],["R",1,"i"],["R",1,"t"],["R",1,"e"],["R",1,"("],["R",1,"1"],["R",1,","],["R",1," "],["R",1,"\""],["R",1,"4"],["R",1,"2"],["R",1,"\\"],["R",1,"n"],["R",1,"\""],["R",1,","],["R",1," "],["R",1,"3"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",1," "],["R",1," "],["R",1,"r"],["R",1,"e"],["R",1,"t"],["R",1,"u"],["R",1,"r"],["R",1,"n"],["R",1," "],["R",1,"("],["R",1,"0"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  return (0);\n"],["R",1,"}"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"5":[["R",5,"#incl"],["R",5,"ude <"],["R",5,"unist"],["R",5,"d.h>\n"],["L","#include <unistd.h>\n"],["R",5,"int m"],["R",5,"ain(v"],["R",5,"oid)\n"],["L","int main(void)\n"],["R",5,"{\n  w"],["L","{\n"],["R",5,"rite("],["R",5,"1, \"4"],["R",5,"2\\n\","],["R",5," 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",5,"  ret"],["R",5,"urn ("],["R",5,"0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"42":[["R",42,"#include <unistd.h>\nint main(void)\n{\n  wri"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",34,"te(1, \"42\\n\", 3);\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]]}},"pf":[{"fmt":"\"Hello %s, 42 = 0x%x\\n\"","args":"\"Berke\", 42","out":"Hello Berke, 42 = 0x2a\n","ret":23,"same":true},{"fmt":"\"%d | %u | %x | %X\\n\"","args":"-1, -1, -1, -1","out":"-1 | 4294967295 | ffffffff | FFFFFFFF\n","ret":38,"same":true},{"fmt":"\"%c%c = %i%%\\n\"","args":"'4', '2', 100","out":"42 = 100%\n","ret":10,"same":true},{"fmt":"\"INT_MIN %d, INT_MAX %i\\n\"","args":"INT_MIN, INT_MAX","out":"INT_MIN -2147483648, INT_MAX 2147483647\n","ret":40,"same":true},{"fmt":"\"%p | %p\\n\"","args":"(void *)0x7ffd42a0, NULL","out":"0x7ffd42a0 | (nil)\n","ret":19,"same":true},{"fmt":"\"[%s] [%s]\\n\"","args":"\"\", \"C\"","out":"[] [C]\n","ret":7,"same":true}]};
   function tr(k){ return T[lang][k]; }
-  function esc(c){ return c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : c; }
-  function vis(str){ return str.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>' : c === " " ? "&nbsp;" : esc(c); }).join(""); }
+  function esc(c){ return String(c).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-  var dls = document.querySelectorAll("[data-demo]");
-  for (var q = 0; q < dls.length; q++){
-    dls[q].addEventListener("click", function(){
-      var b = document.querySelector('.dtabs [data-tab="' + this.getAttribute("data-demo") + '"]');
-      if (b) b.click();
-    });
-  }
-
-  // get_next_line: replays the recorded events of the real program
+  // get_next_line: the file gets read chunk by chunk, finished lines turn green
   (function(){
-    var FILE = DEMO.gnl.file, bs = 5, ev = [], pos = 0, off = 0, stash = "", buf = null, reads = 0, busy = false, lastFrom = 0;
-    var fileEl = document.getElementById("gl-file"), bufEl = document.getElementById("gl-buf"), stEl = document.getElementById("gl-stash");
-    var outEl = document.getElementById("gl-out"), rEl = document.getElementById("gl-r"), callB = document.getElementById("gl-call");
-    var range = document.getElementById("gl-bs"), bsv = document.getElementById("gl-bsv");
-    function chips(str){
-      if (!str.length) return '<span class="em">' + tr("gl_empty") + "</span>";
-      var h = "";
-      for (var i = 0; i < str.length; i++){
-        var c = str[i];
-        h += c === "\n" ? '<span class="nl">\\n</span>' : "<span>" + (c === " " ? "&nbsp;" : esc(c)) + "</span>";
-      }
-      return h;
+    var FILE = DEMO.gnl.file, term = document.getElementById("dg-term"), stat = document.getElementById("dg-stat");
+    var playB = document.getElementById("dg-play"), bsB = document.querySelectorAll("[data-bs]");
+    var bs = 5, timer = null, chars = [], rows = [], done = false, info = "";
+    var parts = FILE.split(/(?<=\n)/), h = "", k = 0;
+    parts.forEach(function(line){
+      h += '<div class="ln">';
+      for (var i = 0; i < line.length; i++, k++) h += '<span class="c' + (line[i] === "\n" ? " nl" : "") + '">' + (line[i] === "\n" ? "↵" : esc(line[i])) + "</span>";
+      h += '<span class="bd">✓</span></div>';
+    });
+    term.innerHTML = h;
+    chars = term.querySelectorAll(".c"); rows = term.querySelectorAll(".ln");
+    function msg(){ stat.innerHTML = done ? info : timer ? info : tr("dg_hint"); }
+    function clear(){
+      if (timer){ clearTimeout(timer); timer = null; }
+      for (var i = 0; i < chars.length; i++) chars[i].className = chars[i].className.replace(/ (r|cur)/g, "");
+      for (var j = 0; j < rows.length; j++) rows[j].className = "ln";
+      done = false; info = "";
     }
-    function draw(){
-      var h = "";
-      for (var i = 0; i < FILE.length; i++){
-        var c = FILE[i], cls = i < off ? (i >= lastFrom ? "rd cur" : "rd") : "";
-        if (c === "\n") h += '<span class="nl ' + cls + '">↵</span><br>';
-        else h += '<span class="' + cls + '">' + (c === " " ? "&nbsp;" : esc(c)) + "</span>";
-      }
-      fileEl.innerHTML = h;
-      bufEl.innerHTML = buf === null ? '<span class="em">–</span>' : buf === "" ? '<span class="em">' + tr("gl_eof") + "</span>" : chips(buf);
-      stEl.innerHTML = chips(stash);
-      rEl.textContent = reads;
-      callB.disabled = busy || pos >= ev.length;
-    }
-    function reset(){ ev = DEMO.gnl.runs[bs]; pos = 0; off = 0; stash = ""; buf = null; reads = 0; busy = false; lastFrom = 0; outEl.innerHTML = ""; draw(); }
-    function emit(line){
-      var li = document.createElement("li");
-      li.innerHTML = line === null ? '<span class="nul">NULL</span>' : '<span class="ln">' + vis(line) + "</span>";
-      outEl.appendChild(li);
-    }
-    function call(){
-      if (busy || pos >= ev.length) return;
-      busy = true; draw();
-      (function stepEv(){
-        var e = ev[pos++];
+    function run(){
+      clear();
+      var ev = DEMO.gnl.runs[bs], i = 0, off = 0, reads = 0, li = 0;
+      var nr = ev.filter(function(e){ return e[0] === "R"; }).length, d = rm ? 30 : Math.max(70, Math.min(650, 4200 / nr));
+      (function step(){
+        var e = ev[i++];
+        if (!e) return;
+        var cur = term.querySelectorAll(".cur");
+        for (var c = 0; c < cur.length; c++) cur[c].className = cur[c].className.replace(" cur", "");
         if (e[0] === "R"){
-          lastFrom = off; buf = e[1] > 0 ? e[2] : ""; off += buf.length; stash += buf; reads++;
-          draw(); setTimeout(stepEv, rm ? 60 : 520); return;
+          reads++;
+          for (var j = off; j < off + e[2].length; j++) chars[j].className += " r cur";
+          off += e[2].length;
+          info = "read() × " + reads;
+        } else if (e[0] === "L"){
+          rows[li++].className = "ln ok";
+        } else {
+          done = true;
+          info = li + " " + tr("dg_lines") + " · read() × " + reads + " · <b>" + tr("dg_leak") + "</b>";
         }
-        if (e[0] === "L"){ stash = stash.slice(e[1].length); emit(e[1]); }
-        else { stash = ""; emit(null); }
-        busy = false; lastFrom = off; draw();
+        timer = done ? null : setTimeout(step, e[0] === "L" ? d / 2 : d);
+        msg();
       })();
     }
-    callB.addEventListener("click", call);
-    document.getElementById("gl-reset").addEventListener("click", function(){ if (!busy) reset(); });
-    range.addEventListener("input", function(){ if (busy) return; bs = +this.value; bsv.textContent = bs; reset(); });
-    hooks.push(draw);
-    reset();
+    playB.addEventListener("click", run);
+    for (var b = 0; b < bsB.length; b++){
+      bsB[b].addEventListener("click", function(){
+        bs = +this.getAttribute("data-bs");
+        for (var x = 0; x < bsB.length; x++) bsB[x].setAttribute("aria-pressed", bsB[x] === this ? "true" : "false");
+        run();
+      });
+    }
+    hooks.push(function(){
+      if (done){ var m = info.match(/^(\d+) .*?read\(\) × (\d+)/); if (m) info = m[1] + " " + tr("dg_lines") + " · read() × " + m[2] + " · <b>" + tr("dg_leak") + "</b>"; }
+      msg();
+    });
+    msg();
   })();
 
-  // ft_printf: recorded output of the real ft_printf, checked against printf
+  // ft_printf: the call, then the real output typed out
   (function(){
-    var preEl = document.getElementById("pf-pre"), callEl = document.getElementById("pf-call"), outEl = document.getElementById("pf-out");
-    var retEl = document.getElementById("pf-ret"), okEl = document.getElementById("pf-ok"), cur = 0, btns = [];
-    function show(i){
+    var term = document.getElementById("dp-term"), stat = document.getElementById("dp-stat"), cur = 0, timer = null;
+    function show(i, anim){
+      if (timer){ clearTimeout(timer); timer = null; }
       cur = i; var c = DEMO.pf[i];
-      for (var k = 0; k < btns.length; k++) btns[k].setAttribute("aria-pressed", k === i ? "true" : "false");
-      callEl.textContent = "ft_printf(" + c.fmt + ", " + c.args + ");";
-      outEl.innerHTML = vis(c.out);
-      retEl.textContent = c.ret;
-      okEl.textContent = c.same ? tr("pf_same") : tr("pf_diff");
+      term.innerHTML = '<span class="dim">' + esc("ft_printf(" + c.fmt + ", " + c.args + ");") + '</span>\n<span class="out"></span><span class="cursor"></span>';
+      var out = term.querySelector(".out"), n = anim && !rm ? 0 : c.out.length;
+      stat.innerHTML = "";
+      (function type(){
+        out.textContent = c.out.slice(0, n);
+        if (n < c.out.length){ n++; timer = setTimeout(type, 35); return; }
+        timer = null;
+        stat.innerHTML = "<b>" + (c.same ? tr("dp_ok") : tr("dp_bad")) + "</b>";
+      })();
     }
-    DEMO.pf.forEach(function(c, i){
-      var b = document.createElement("button");
-      b.className = "cbtn"; b.type = "button"; b.textContent = c.fmt;
-      b.addEventListener("click", function(){ show(i); });
-      preEl.appendChild(b); btns.push(b);
-    });
-    hooks.push(function(){ show(cur); });
-    show(0);
+    document.getElementById("dp-play").addEventListener("click", function(){ show((cur + 1) % DEMO.pf.length, true); });
+    hooks.push(function(){ if (!timer) show(cur, false); });
+    show(0, false);
   })();
 
   var items = document.querySelectorAll(".reveal");
