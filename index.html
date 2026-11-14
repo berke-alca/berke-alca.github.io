@@ -197,20 +197,8 @@ h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;bord
 .cbtn:active{transform:scale(.96)}
 .cbtn.pri{background:var(--grad);color:#fff;border-color:transparent}
 .cbtn:disabled{opacity:.5;cursor:default}
-.ops{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 10px}
-.ops .cbtn{padding:8px 0;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13px}
-@media (min-width:600px){.ops{grid-template-columns:repeat(11,1fr)}}
-.ps-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
-.ps-box{position:relative;background:var(--chip);border-radius:18px;padding:10px;overflow:hidden}
-.ps-in{position:relative}
-.ps-in::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line)}
-.ps-bar{position:absolute;width:calc(50% - 8px);transition:left .28s ease,top .28s ease;display:flex;align-items:center}
-.ps-bar i{display:block;height:calc(100% - 3px);border-radius:7px;min-width:28px;display:flex;align-items:center;padding:0 7px;color:#fff;font-style:normal;font-size:12px;font-weight:600;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;transition:box-shadow .2s}
-.ps-bar.hit i{box-shadow:0 0 0 2px var(--text)}
 .ps-info{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:8px}
 .ps-info b{color:var(--text)}
-#ps-op{color:var(--accent);font-weight:700}
-.ps-log{font-size:12px;color:var(--muted);margin:4px 0 0;word-break:break-word;min-height:1.5em}
 .gl-lbl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:12px 0 5px;text-transform:uppercase;letter-spacing:.04em}
 .gl-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px}
 .gl-row input{flex:1;min-width:140px;accent-color:var(--accent)}
@@ -227,15 +215,11 @@ h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;bord
 .gl-out .nul{color:var(--muted)}
 .pf-pre{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
 .pf-pre .cbtn{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;font-weight:500;padding:6px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pf-in{width:100%;font-size:15px;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.pf-in:focus{outline:2px solid var(--accent);outline-offset:1px}
 .pf-out{font-size:15px;white-space:pre-wrap}
-.pf-out .cv{border-radius:5px;padding:0 2px;background:rgba(110,140,255,.22);color:var(--text);animation:pop .35s ease both}
-.pf-out .bad{background:rgba(255,120,60,.25)}
 .pf-out .nl{color:var(--wip);font-weight:700}
-.pf-steps{list-style:none;margin:10px 0 0;padding:0;font-size:13px;color:var(--muted)}
-.pf-steps li{padding:4px 0;border-top:1px solid var(--line)}
-.pf-steps b{color:var(--accent)}
+.pf-call{font-size:13px;color:var(--text);word-break:break-word}
+.pf-pre .cbtn[aria-pressed="true"]{background:var(--grad);color:#fff;border-color:transparent}
+.okline{margin:12px 0 0;font-size:13px;font-weight:600;color:var(--ok)}
 
 footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
 footer h2{font-size:28px}
@@ -252,7 +236,7 @@ footer small{color:var(--muted)}
   h1,.orb,.caret,.road li.now::before{animation:none}
   .road li{opacity:1;transform:none;animation:none!important}
   .panel.on{animation:none}
-  .ps-bar,.gl-out li,.pf-out .cv{transition:none;animation:none}
+  .gl-out li{animation:none}
 }
 
 @media (min-width:720px){
@@ -473,10 +457,7 @@ footer small{color:var(--muted)}
       <article class="card proj">
         <div class="top"><h3>push_swap</h3><span class="status wip" data-i18n="st_wip">🔄 In Arbeit</span></div>
         <p data-i18n="ps_p">Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.</p>
-        <div class="links">
-          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-          <a class="more" href="#demos" data-demo="d-ps" data-i18n="try">▶ Live-Demo</a>
-        </div>
+        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
       </article>
 
     </div>
@@ -484,32 +465,15 @@ footer small{color:var(--muted)}
 
   <section id="demos" class="reveal">
     <h2 data-i18n="dm_h">Live-Demos</h2>
-    <p class="loc dm-intro" data-i18n="dm_p">Was in meinem C-Code passiert, hier im Browser nachgebaut. Zum Ausprobieren.</p>
+    <p class="loc dm-intro" data-i18n="dm_p">Echte Läufe meines C-Codes, kompiliert mit cc -Wall -Wextra -Werror. Die Ausgaben sind aufgezeichnet und hier abspielbar.</p>
     <div class="card">
       <div class="tabs dtabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" data-tab="d-ps" type="button">push_swap</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="d-gnl" type="button">get_next_line</button>
+        <button class="tab" role="tab" aria-selected="true" data-tab="d-gnl" type="button">get_next_line</button>
         <button class="tab" role="tab" aria-selected="false" data-tab="d-pf" type="button">ft_printf</button>
       </div>
 
-      <div class="panel on" id="d-ps" role="tabpanel">
-        <p class="dm-txt" data-i18n="ps_d1">Zwei Stacks, A und B. Erlaubt sind nur wenige Operationen wie sa, pb oder ra. Diese Demo zeigt die Idee hinter meinem einfachen Sortierverfahren, an dem ich gerade arbeite: kleinste Zahl suchen, mit ra oder rra nach oben drehen, mit pb auf B legen. Am Ende alles mit pa zurück.</p>
-        <div class="ps-head"><span>Stack A</span><span>Stack B</span></div>
-        <div class="ps-box"><div class="ps-in" id="ps-in"></div></div>
-        <div class="ps-info"><span><span data-i18n="ps_last">Letzte Operation</span>: <span id="ps-op" class="mono">–</span></span><span><span data-i18n="ps_moves">Züge</span>: <b id="ps-n">0</b></span></div>
-        <div class="ctrl">
-          <button class="cbtn pri" id="ps-play" type="button">▶</button>
-          <button class="cbtn" id="ps-step" type="button" data-i18n="ps_step">Ein Schritt</button>
-          <button class="cbtn" id="ps-new" type="button" data-i18n="ps_new">Neu mischen</button>
-          <select class="cbtn" id="ps-size" aria-label="Anzahl"><option value="5">5</option><option value="8" selected>8</option><option value="12">12</option></select>
-        </div>
-        <p class="dm-txt" style="margin:8px 0 8px" data-i18n="ps_d2">Oder selbst sortieren:</p>
-        <div class="ops" id="ps-ops"></div>
-        <p class="ps-log mono" id="ps-log"></p>
-      </div>
-
-      <div class="panel" id="d-gnl" role="tabpanel">
-        <p class="dm-txt" data-i18n="gnl_d1">Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.</p>
+      <div class="panel on" id="d-gnl" role="tabpanel">
+        <p class="dm-txt" data-i18n="gnl_d1">Echter Lauf meines get_next_line, jedes read() mitgeschnitten. Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.</p>
         <div class="gl-row"><label for="gl-bs" class="mono">BUFFER_SIZE = <b id="gl-bsv">5</b></label><input type="range" id="gl-bs" min="1" max="24" value="5"></div>
         <span class="gl-lbl" data-i18n="gl_file">Datei</span>
         <div class="gl-file mono" id="gl-file"></div>
@@ -523,19 +487,18 @@ footer small{color:var(--muted)}
         </div>
         <div class="ps-info"><span><span data-i18n="gl_reads">read()-Aufrufe</span>: <b id="gl-r">0</b></span></div>
         <ol class="gl-out mono" id="gl-out"></ol>
+        <p class="okline" data-i18n="gl_check">✅ Richtige Zeilen bei jeder BUFFER_SIZE von 1 bis 24 und 42 · valgrind: keine Speicherlecks</p>
       </div>
 
       <div class="panel" id="d-pf" role="tabpanel">
-        <p class="dm-txt" data-i18n="pf_d1">ft_printf geht den Format-String Zeichen für Zeichen durch. Normale Zeichen gehen direkt raus. Bei % holt es das nächste Argument aus der va_list und wandelt es um. Tipp ein Beispiel an oder schreib selbst.</p>
+        <p class="dm-txt" data-i18n="pf_d1">Echte Ausgabe meiner ft_printf. Jedes Beispiel lief auch mit dem originalen printf, Ausgabe und Rückgabewert werden verglichen. Tipp ein Beispiel an.</p>
         <div class="pf-pre" id="pf-pre"></div>
-        <label class="gl-lbl" for="pf-fmt">format</label>
-        <input id="pf-fmt" class="pf-in mono" spellcheck="false" autocomplete="off" autocapitalize="off">
-        <label class="gl-lbl" for="pf-args" data-i18n="pf_args">Argumente, mit Komma getrennt</label>
-        <input id="pf-args" class="pf-in mono" spellcheck="false" autocomplete="off" autocapitalize="off">
+        <span class="gl-lbl" data-i18n="pf_callh">Aufruf</span>
+        <div class="pf-call mono" id="pf-call"></div>
         <span class="gl-lbl" data-i18n="pf_out">Ausgabe</span>
         <div class="pf-out mono" id="pf-out"></div>
         <div class="ps-info"><span><span data-i18n="pf_ret">Rückgabewert</span>: <b id="pf-ret">0</b></span></div>
-        <ul class="pf-steps mono" id="pf-steps"></ul>
+        <p class="okline" id="pf-ok"></p>
       </div>
     </div>
   </section>
@@ -628,14 +591,12 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       sk_h:"Skills", sk_mem:"Speicherverwaltung",
       ct_h:"Kontakt",
       nav_demos:"Live-Demos", try:"▶ Live-Demo", dm_h:"Live-Demos",
-      dm_p:"Was in meinem C-Code passiert, hier im Browser nachgebaut. Zum Ausprobieren.",
-      ps_d1:"Zwei Stacks, A und B. Erlaubt sind nur wenige Operationen wie sa, pb oder ra. Diese Demo zeigt die Idee hinter meinem einfachen Sortierverfahren, an dem ich gerade arbeite: kleinste Zahl suchen, mit ra oder rra nach oben drehen, mit pb auf B legen. Am Ende alles mit pa zurück.",
-      ps_d2:"Oder selbst sortieren:", ps_last:"Letzte Operation", ps_moves:"Züge", ps_step:"Ein Schritt", ps_new:"Neu mischen",
-      ps_play:"▶ Sortieren", ps_pause:"⏸ Pause", ps_done:"✅ Sortiert",
-      gnl_d1:"Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.",
+      dm_p:"Echte Läufe meines C-Codes, kompiliert mit cc -Wall -Wextra -Werror. Die Ausgaben sind aufgezeichnet und hier abspielbar.",
+      gnl_d1:"Echter Lauf meines get_next_line, jedes read() mitgeschnitten. Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.",
       gl_file:"Datei", reset:"Zurücksetzen", gl_reads:"read()-Aufrufe", gl_empty:"leer", gl_eof:"read() gibt 0 zurück: Dateiende",
-      pf_d1:"ft_printf geht den Format-String Zeichen für Zeichen durch. Normale Zeichen gehen direkt raus. Bei % holt es das nächste Argument aus der va_list und wandelt es um. Tipp ein Beispiel an oder schreib selbst.",
-      pf_args:"Argumente, mit Komma getrennt", pf_out:"Ausgabe", pf_ret:"Rückgabewert", pf_miss:"Argument fehlt", pf_unk:"unbekannt, wird übersprungen", pf_chars:"Zeichen"
+      gl_check:"✅ Richtige Zeilen bei jeder BUFFER_SIZE von 1 bis 24 und 42 · valgrind: keine Speicherlecks",
+      pf_d1:"Echte Ausgabe meiner ft_printf. Jedes Beispiel lief auch mit dem originalen printf, Ausgabe und Rückgabewert werden verglichen. Tipp ein Beispiel an.",
+      pf_callh:"Aufruf", pf_out:"Ausgabe", pf_ret:"Rückgabewert", pf_same:"✅ Identisch mit printf: gleiche Ausgabe, gleicher Rückgabewert", pf_diff:"⚠ Weicht von printf ab"
     },
     en:{
       nav_about:"About", nav_roadmap:"Roadmap", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
@@ -685,14 +646,12 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       sk_h:"Skills", sk_mem:"Memory management",
       ct_h:"Contact",
       nav_demos:"Live demos", try:"▶ Live demo", dm_h:"Live demos",
-      dm_p:"What happens in my C code, rebuilt here in the browser. Try it out.",
-      ps_d1:"Two stacks, A and B. Only a few operations are allowed, like sa, pb or ra. This demo shows the idea behind the simple sort I'm working on right now: find the smallest number, rotate it to the top with ra or rra, move it to B with pb. At the end, pa everything back.",
-      ps_d2:"Or sort it yourself:", ps_last:"Last operation", ps_moves:"Moves", ps_step:"One step", ps_new:"Shuffle",
-      ps_play:"▶ Sort", ps_pause:"⏸ Pause", ps_done:"✅ Sorted",
-      gnl_d1:"The file is read in chunks of BUFFER_SIZE bytes. Whatever was read past the end of the line waits in the static stash for the next call.",
+      dm_p:"Real runs of my C code, compiled with cc -Wall -Wextra -Werror. The output is recorded and can be replayed here.",
+      gnl_d1:"A real run of my get_next_line, with every read() traced. The file is read in chunks of BUFFER_SIZE bytes. Whatever was read past the end of the line waits in the static stash for the next call.",
       gl_file:"File", reset:"Reset", gl_reads:"read() calls", gl_empty:"empty", gl_eof:"read() returns 0: end of file",
-      pf_d1:"ft_printf walks through the format string character by character. Normal characters go straight out. On % it takes the next argument from the va_list and converts it. Tap an example or write your own.",
-      pf_args:"Arguments, comma separated", pf_out:"Output", pf_ret:"Return value", pf_miss:"argument missing", pf_unk:"unknown, skipped", pf_chars:"chars"
+      gl_check:"✅ Correct lines for every BUFFER_SIZE from 1 to 24 and 42 · valgrind: no memory leaks",
+      pf_d1:"Real output of my ft_printf. Every example also ran with the original printf, and output and return value are compared. Tap an example.",
+      pf_callh:"Call", pf_out:"Output", pf_ret:"Return value", pf_same:"✅ Same as printf: same output, same return value", pf_diff:"⚠ Differs from printf"
     }
   };
 
@@ -800,10 +759,13 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
   }
 
   // ---------- live demos ----------
+  // Recorded runs of the original C code from github.com/berke-alca/CoreCurriculum
+  // (compiled with cc -Wall -Wextra -Werror; read() traced with -Wl,--wrap=read; ft_printf compared with libc printf)
+  var DEMO = {"gnl":{"file":"#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n","runs":{"1":[["R",1,"#"],["R",1,"i"],["R",1,"n"],["R",1,"c"],["R",1,"l"],["R",1,"u"],["R",1,"d"],["R",1,"e"],["R",1," "],["R",1,"<"],["R",1,"u"],["R",1,"n"],["R",1,"i"],["R",1,"s"],["R",1,"t"],["R",1,"d"],["R",1,"."],["R",1,"h"],["R",1,">"],["R",1,"\n"],["L","#include <unistd.h>\n"],["R",1,"i"],["R",1,"n"],["R",1,"t"],["R",1," "],["R",1,"m"],["R",1,"a"],["R",1,"i"],["R",1,"n"],["R",1,"("],["R",1,"v"],["R",1,"o"],["R",1,"i"],["R",1,"d"],["R",1,")"],["R",1,"\n"],["L","int main(void)\n"],["R",1,"{"],["R",1,"\n"],["L","{\n"],["R",1," "],["R",1," "],["R",1,"w"],["R",1,"r"],["R",1,"i"],["R",1,"t"],["R",1,"e"],["R",1,"("],["R",1,"1"],["R",1,","],["R",1," "],["R",1,"\""],["R",1,"4"],["R",1,"2"],["R",1,"\\"],["R",1,"n"],["R",1,"\""],["R",1,","],["R",1," "],["R",1,"3"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",1," "],["R",1," "],["R",1,"r"],["R",1,"e"],["R",1,"t"],["R",1,"u"],["R",1,"r"],["R",1,"n"],["R",1," "],["R",1,"("],["R",1,"0"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  return (0);\n"],["R",1,"}"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"2":[["R",2,"#i"],["R",2,"nc"],["R",2,"lu"],["R",2,"de"],["R",2," <"],["R",2,"un"],["R",2,"is"],["R",2,"td"],["R",2,".h"],["R",2,">\n"],["L","#include <unistd.h>\n"],["R",2,"in"],["R",2,"t "],["R",2,"ma"],["R",2,"in"],["R",2,"(v"],["R",2,"oi"],["R",2,"d)"],["R",2,"\n{"],["L","int main(void)\n"],["R",2,"\n "],["L","{\n"],["R",2," w"],["R",2,"ri"],["R",2,"te"],["R",2,"(1"],["R",2,", "],["R",2,"\"4"],["R",2,"2\\"],["R",2,"n\""],["R",2,", "],["R",2,"3)"],["R",2,";\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",2,"  "],["R",2,"re"],["R",2,"tu"],["R",2,"rn"],["R",2," ("],["R",2,"0)"],["R",2,";\n"],["L","  return (0);\n"],["R",2,"}\n"],["L","}\n"],["R",0,""],["N"]],"3":[["R",3,"#in"],["R",3,"clu"],["R",3,"de "],["R",3,"<un"],["R",3,"ist"],["R",3,"d.h"],["R",3,">\ni"],["L","#include <unistd.h>\n"],["R",3,"nt "],["R",3,"mai"],["R",3,"n(v"],["R",3,"oid"],["R",3,")\n{"],["L","int main(void)\n"],["R",3,"\n  "],["L","{\n"],["R",3,"wri"],["R",3,"te("],["R",3,"1, "],["R",3,"\"42"],["R",3,"\\n\""],["R",3,", 3"],["R",3,");\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",3,"  r"],["R",3,"etu"],["R",3,"rn "],["R",3,"(0)"],["R",3,";\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"4":[["R",4,"#inc"],["R",4,"lude"],["R",4," <un"],["R",4,"istd"],["R",4,".h>\n"],["L","#include <unistd.h>\n"],["R",4,"int "],["R",4,"main"],["R",4,"(voi"],["R",4,"d)\n{"],["L","int main(void)\n"],["R",4,"\n  w"],["L","{\n"],["R",4,"rite"],["R",4,"(1, "],["R",4,"\"42\\"],["R",4,"n\", "],["R",4,"3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,"  re"],["R",4,"turn"],["R",4," (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"5":[["R",5,"#incl"],["R",5,"ude <"],["R",5,"unist"],["R",5,"d.h>\n"],["L","#include <unistd.h>\n"],["R",5,"int m"],["R",5,"ain(v"],["R",5,"oid)\n"],["L","int main(void)\n"],["R",5,"{\n  w"],["L","{\n"],["R",5,"rite("],["R",5,"1, \"4"],["R",5,"2\\n\","],["R",5," 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",5,"  ret"],["R",5,"urn ("],["R",5,"0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"6":[["R",6,"#inclu"],["R",6,"de <un"],["R",6,"istd.h"],["R",6,">\nint "],["L","#include <unistd.h>\n"],["R",6,"main(v"],["R",6,"oid)\n{"],["L","int main(void)\n"],["R",6,"\n  wri"],["L","{\n"],["R",6,"te(1, "],["R",6,"\"42\\n\""],["R",6,", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",6,"  retu"],["R",6,"rn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"7":[["R",7,"#includ"],["R",7,"e <unis"],["R",7,"td.h>\ni"],["L","#include <unistd.h>\n"],["R",7,"nt main"],["R",7,"(void)\n"],["L","int main(void)\n"],["R",7,"{\n  wri"],["L","{\n"],["R",7,"te(1, \""],["R",7,"42\\n\", "],["R",7,"3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",7,"eturn ("],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"8":[["R",8,"#include"],["R",8," <unistd"],["R",8,".h>\nint "],["L","#include <unistd.h>\n"],["R",8,"main(voi"],["R",8,"d)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",8,"rite(1, "],["R",8,"\"42\\n\", "],["R",8,"3);\n  re"],["L","  write(1, \"42\\n\", 3);\n"],["R",8,"turn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"9":[["R",9,"#include "],["R",9,"<unistd.h"],["R",9,">\nint mai"],["L","#include <unistd.h>\n"],["R",9,"n(void)\n{"],["L","int main(void)\n"],["R",9,"\n  write("],["L","{\n"],["R",9,"1, \"42\\n\""],["R",9,", 3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",9,"eturn (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"10":[["R",10,"#include <"],["R",10,"unistd.h>\n"],["L","#include <unistd.h>\n"],["R",10,"int main(v"],["R",10,"oid)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",10,"rite(1, \"4"],["R",10,"2\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"  return ("],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"11":[["R",11,"#include <u"],["R",11,"nistd.h>\nin"],["L","#include <unistd.h>\n"],["R",11,"t main(void"],["R",11,")\n{\n  write"],["L","int main(void)\n"],["L","{\n"],["R",11,"(1, \"42\\n\","],["R",11," 3);\n  retu"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"rn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"12":[["R",12,"#include <un"],["R",12,"istd.h>\nint "],["L","#include <unistd.h>\n"],["R",12,"main(void)\n{"],["L","int main(void)\n"],["R",12,"\n  write(1, "],["L","{\n"],["R",12,"\"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",12,"  return (0)"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"13":[["R",13,"#include <uni"],["R",13,"std.h>\nint ma"],["L","#include <unistd.h>\n"],["R",13,"in(void)\n{\n  "],["L","int main(void)\n"],["L","{\n"],["R",13,"write(1, \"42\\"],["R",13,"n\", 3);\n  ret"],["L","  write(1, \"42\\n\", 3);\n"],["R",11,"urn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"14":[["R",14,"#include <unis"],["R",14,"td.h>\nint main"],["L","#include <unistd.h>\n"],["R",14,"(void)\n{\n  wri"],["L","int main(void)\n"],["L","{\n"],["R",14,"te(1, \"42\\n\", "],["R",14,"3);\n  return ("],["L","  write(1, \"42\\n\", 3);\n"],["R",6,"0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"15":[["R",15,"#include <unist"],["R",15,"d.h>\nint main(v"],["L","#include <unistd.h>\n"],["R",15,"oid)\n{\n  write("],["L","int main(void)\n"],["L","{\n"],["R",15,"1, \"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",15,"  return (0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"16":[["R",16,"#include <unistd"],["R",16,".h>\nint main(voi"],["L","#include <unistd.h>\n"],["R",16,"d)\n{\n  write(1, "],["L","int main(void)\n"],["L","{\n"],["R",16,"\"42\\n\", 3);\n  re"],["L","  write(1, \"42\\n\", 3);\n"],["R",12,"turn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"17":[["R",17,"#include <unistd."],["R",17,"h>\nint main(void)"],["L","#include <unistd.h>\n"],["R",17,"\n{\n  write(1, \"42"],["L","int main(void)\n"],["L","{\n"],["R",17,"\\n\", 3);\n  return"],["L","  write(1, \"42\\n\", 3);\n"],["R",8," (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"18":[["R",18,"#include <unistd.h"],["R",18,">\nint main(void)\n{"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["R",18,"\n  write(1, \"42\\n\""],["L","{\n"],["R",18,", 3);\n  return (0)"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"19":[["R",19,"#include <unistd.h>"],["R",19,"\nint main(void)\n{\n "],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",19," write(1, \"42\\n\", 3"],["R",19,");\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"20":[["R",20,"#include <unistd.h>\n"],["L","#include <unistd.h>\n"],["R",20,"int main(void)\n{\n  w"],["L","int main(void)\n"],["L","{\n"],["R",20,"rite(1, \"42\\n\", 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",16,"  return (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"21":[["R",21,"#include <unistd.h>\ni"],["L","#include <unistd.h>\n"],["R",21,"nt main(void)\n{\n  wri"],["L","int main(void)\n"],["L","{\n"],["R",21,"te(1, \"42\\n\", 3);\n  r"],["L","  write(1, \"42\\n\", 3);\n"],["R",13,"eturn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"22":[["R",22,"#include <unistd.h>\nin"],["L","#include <unistd.h>\n"],["R",22,"t main(void)\n{\n  write"],["L","int main(void)\n"],["L","{\n"],["R",22,"(1, \"42\\n\", 3);\n  retu"],["L","  write(1, \"42\\n\", 3);\n"],["R",10,"rn (0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"23":[["R",23,"#include <unistd.h>\nint"],["L","#include <unistd.h>\n"],["R",23," main(void)\n{\n  write(1"],["L","int main(void)\n"],["L","{\n"],["R",23,", \"42\\n\", 3);\n  return "],["L","  write(1, \"42\\n\", 3);\n"],["R",7,"(0);\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"24":[["R",24,"#include <unistd.h>\nint "],["L","#include <unistd.h>\n"],["R",24,"main(void)\n{\n  write(1, "],["L","int main(void)\n"],["L","{\n"],["R",24,"\"42\\n\", 3);\n  return (0)"],["L","  write(1, \"42\\n\", 3);\n"],["R",4,";\n}\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]],"42":[["R",42,"#include <unistd.h>\nint main(void)\n{\n  wri"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",34,"te(1, \"42\\n\", 3);\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]]},"leaks":true},"pf":[{"fmt":"\"Hello %s, 42 = 0x%x\\n\"","args":"\"Berke\", 42","out":"Hello Berke, 42 = 0x2a\n","ret":23,"same":true},{"fmt":"\"%d | %u | %x | %X\\n\"","args":"-1, -1, -1, -1","out":"-1 | 4294967295 | ffffffff | FFFFFFFF\n","ret":38,"same":true},{"fmt":"\"%c%c = %i%%\\n\"","args":"'4', '2', 100","out":"42 = 100%\n","ret":10,"same":true},{"fmt":"\"INT_MIN %d, INT_MAX %i\\n\"","args":"INT_MIN, INT_MAX","out":"INT_MIN -2147483648, INT_MAX 2147483647\n","ret":40,"same":true},{"fmt":"\"%p | %p\\n\"","args":"(void *)0x7ffd42a0, NULL","out":"0x7ffd42a0 | (nil)\n","ret":19,"same":true},{"fmt":"\"[%s] [%s]\\n\"","args":"\"\", \"C\"","out":"[] [C]\n","ret":7,"same":true}]};
   function tr(k){ return T[lang][k]; }
   function esc(c){ return c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : c; }
+  function vis(str){ return str.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>' : c === " " ? "&nbsp;" : esc(c); }).join(""); }
 
-  // demo links on project cards open the right tab
   var dls = document.querySelectorAll("[data-demo]");
   for (var q = 0; q < dls.length; q++){
     dls[q].addEventListener("click", function(){
@@ -812,100 +774,14 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
     });
   }
 
-  // push_swap
+  // get_next_line: replays the recorded events of the real program
   (function(){
-    var box = document.getElementById("ps-in"), A = [], B = [], N = 8, els = {}, moves = 0, log = [], timer = null, rowH = 30;
-    var playB = document.getElementById("ps-play"), opEl = document.getElementById("ps-op"), nEl = document.getElementById("ps-n"), logEl = document.getElementById("ps-log");
-    function sorted(s){ for (var i = 1; i < s.length; i++) if (s[i - 1] > s[i]) return false; return true; }
-    function shuffle(){
-      var pool = [];
-      while (pool.length < N){ var v = Math.floor(Math.random() * 199) - 99; if (pool.indexOf(v) < 0) pool.push(v); }
-      if (sorted(pool)) pool.reverse();
-      A = pool; B = []; moves = 0; log = []; opEl.textContent = "–";
-      var all = pool.slice().sort(function(a, b){ return a - b; });
-      box.innerHTML = ""; els = {};
-      rowH = N > 8 ? 24 : 30;
-      box.style.height = (N * rowH) + "px";
-      pool.forEach(function(v){
-        var r = all.indexOf(v), d = document.createElement("div"), f = document.createElement("i");
-        d.className = "ps-bar"; d.style.height = rowH + "px";
-        f.style.width = (30 + 70 * r / Math.max(1, N - 1)) + "%";
-        f.style.background = "hsl(" + (205 + 70 * r / Math.max(1, N - 1)) + ",70%,56%)";
-        f.textContent = v; d.appendChild(f); box.appendChild(d); els[v] = d;
-      });
-      draw([]);
-    }
-    function draw(hit){
-      A.forEach(function(v, i){ els[v].style.left = "0"; els[v].style.top = (i * rowH) + "px"; });
-      B.forEach(function(v, i){ els[v].style.left = "calc(50% + 8px)"; els[v].style.top = (i * rowH) + "px"; });
-      for (var k in els) els[k].className = hit.indexOf(+k) >= 0 ? "ps-bar hit" : "ps-bar";
-      nEl.textContent = moves;
-      logEl.textContent = log.slice(-48).join(" ");
-    }
-    function sw(s){ if (s.length > 1){ var t = s[0]; s[0] = s[1]; s[1] = t; return [s[0], s[1]]; } return []; }
-    function rot(s){ if (s.length > 1){ s.push(s.shift()); return [s[s.length - 1]]; } return []; }
-    function rrot(s){ if (s.length > 1){ s.unshift(s.pop()); return [s[0]]; } return []; }
-    function op(name){
-      var h = [];
-      if (name === "sa") h = sw(A); else if (name === "sb") h = sw(B);
-      else if (name === "ss") h = sw(A).concat(sw(B));
-      else if (name === "pa"){ if (B.length){ A.unshift(B.shift()); h = [A[0]]; } }
-      else if (name === "pb"){ if (A.length){ B.unshift(A.shift()); h = [B[0]]; } }
-      else if (name === "ra") h = rot(A); else if (name === "rb") h = rot(B);
-      else if (name === "rr") h = rot(A).concat(rot(B));
-      else if (name === "rra") h = rrot(A); else if (name === "rrb") h = rrot(B);
-      else if (name === "rrr") h = rrot(A).concat(rrot(B));
-      moves++; log.push(name); opEl.textContent = name;
-      draw(h);
-      if (!B.length && sorted(A)) opEl.textContent = name + "  " + tr("ps_done");
-    }
-    // simple sort: smallest to the top (ra/rra), pb; when A is sorted, pa everything back
-    function next(){
-      var bReady = sorted(B.slice().reverse()) && (!A.length || !B.length || B[0] < Math.min.apply(null, A));
-      if (B.length && !bReady) return "pa";
-      if (sorted(A)) return B.length ? "pa" : null;
-      var m = 0;
-      for (var i = 1; i < A.length; i++) if (A[i] < A[m]) m = i;
-      if (m === 0) return "pb";
-      return m <= A.length / 2 ? "ra" : "rra";
-    }
-    function stepAuto(){
-      var o = next();
-      if (!o){ stop(); opEl.textContent = tr("ps_done"); return false; }
-      op(o); return true;
-    }
-    function stop(){ if (timer){ clearInterval(timer); timer = null; } playB.textContent = tr("ps_play"); }
-    playB.addEventListener("click", function(){
-      if (timer){ stop(); return; }
-      if (!next()) shuffle();
-      playB.textContent = tr("ps_pause");
-      timer = setInterval(stepAuto, rm ? 120 : (N > 8 ? 260 : 380));
-    });
-    document.getElementById("ps-step").addEventListener("click", function(){ stop(); stepAuto(); });
-    document.getElementById("ps-new").addEventListener("click", function(){ stop(); shuffle(); });
-    document.getElementById("ps-size").addEventListener("change", function(){ stop(); N = +this.value; shuffle(); });
-    var opsEl = document.getElementById("ps-ops");
-    ["sa","sb","ss","pa","pb","ra","rb","rr","rra","rrb","rrr"].forEach(function(n){
-      var b = document.createElement("button");
-      b.className = "cbtn"; b.type = "button"; b.textContent = n;
-      b.addEventListener("click", function(){ stop(); op(n); });
-      opsEl.appendChild(b);
-    });
-    hooks.push(function(){ if (!timer) playB.textContent = tr("ps_play"); else playB.textContent = tr("ps_pause"); });
-    playB.textContent = tr("ps_play");
-    shuffle();
-  })();
-
-  // get_next_line
-  (function(){
-    var FILE = "#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n";
-    var bs = 5, off = 0, stash = "", buf = null, reads = 0, eof = false, busy = false, finished = false, lastFrom = 0;
+    var FILE = DEMO.gnl.file, bs = 5, ev = [], pos = 0, off = 0, stash = "", buf = null, reads = 0, busy = false, lastFrom = 0;
     var fileEl = document.getElementById("gl-file"), bufEl = document.getElementById("gl-buf"), stEl = document.getElementById("gl-stash");
     var outEl = document.getElementById("gl-out"), rEl = document.getElementById("gl-r"), callB = document.getElementById("gl-call");
     var range = document.getElementById("gl-bs"), bsv = document.getElementById("gl-bsv");
     function chips(str){
-      if (str === null) return '<span class="em">–</span>';
-      if (!str.length) return '<span class="em">' + tr("gl_empty") + '</span>';
+      if (!str.length) return '<span class="em">' + tr("gl_empty") + "</span>";
       var h = "";
       for (var i = 0; i < str.length; i++){
         var c = str[i];
@@ -921,100 +797,58 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
         else h += '<span class="' + cls + '">' + (c === " " ? "&nbsp;" : esc(c)) + "</span>";
       }
       fileEl.innerHTML = h;
-      bufEl.innerHTML = buf === "" ? '<span class="em">' + tr("gl_eof") + "</span>" : chips(buf);
-      stEl.innerHTML = chips(stash === null ? "" : stash);
+      bufEl.innerHTML = buf === null ? '<span class="em">–</span>' : buf === "" ? '<span class="em">' + tr("gl_eof") + "</span>" : chips(buf);
+      stEl.innerHTML = chips(stash);
       rEl.textContent = reads;
-      callB.disabled = busy || finished;
+      callB.disabled = busy || pos >= ev.length;
     }
-    function reset(){ off = 0; stash = ""; buf = null; reads = 0; eof = false; busy = false; finished = false; lastFrom = 0; outEl.innerHTML = ""; draw(); }
+    function reset(){ ev = DEMO.gnl.runs[bs]; pos = 0; off = 0; stash = ""; buf = null; reads = 0; busy = false; lastFrom = 0; outEl.innerHTML = ""; draw(); }
     function emit(line){
       var li = document.createElement("li");
-      if (line === null){ li.innerHTML = '<span class="nul">NULL</span>'; }
-      else { li.innerHTML = '<span class="ln">' + line.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>' : esc(c); }).join("") + "</span>"; }
+      li.innerHTML = line === null ? '<span class="nul">NULL</span>' : '<span class="ln">' + vis(line) + "</span>";
       outEl.appendChild(li);
     }
     function call(){
-      if (busy || finished) return;
+      if (busy || pos >= ev.length) return;
       busy = true; draw();
-      (function readStep(){
-        if (stash.indexOf("\n") < 0 && !eof){
-          lastFrom = off;
-          buf = FILE.substr(off, bs);
-          off += buf.length; reads++;
-          if (!buf.length) eof = true;
-          stash += buf;
-          draw();
-          setTimeout(readStep, rm ? 60 : 520);
-          return;
+      (function stepEv(){
+        var e = ev[pos++];
+        if (e[0] === "R"){
+          lastFrom = off; buf = e[1] > 0 ? e[2] : ""; off += buf.length; stash += buf; reads++;
+          draw(); setTimeout(stepEv, rm ? 60 : 520); return;
         }
-        if (!stash.length){ emit(null); finished = true; busy = false; draw(); return; }
-        var k = stash.indexOf("\n"), line = k < 0 ? stash : stash.slice(0, k + 1);
-        stash = k < 0 ? "" : stash.slice(k + 1);
-        emit(line); busy = false; lastFrom = off; draw();
+        if (e[0] === "L"){ stash = stash.slice(e[1].length); emit(e[1]); }
+        else { stash = ""; emit(null); }
+        busy = false; lastFrom = off; draw();
       })();
     }
     callB.addEventListener("click", call);
     document.getElementById("gl-reset").addEventListener("click", function(){ if (!busy) reset(); });
-    range.addEventListener("input", function(){ bs = +this.value; bsv.textContent = bs; if (!busy) reset(); });
+    range.addEventListener("input", function(){ if (busy) return; bs = +this.value; bsv.textContent = bs; reset(); });
     hooks.push(draw);
     reset();
   })();
 
-  // ft_printf
+  // ft_printf: recorded output of the real ft_printf, checked against printf
   (function(){
-    var PRE = [
-      ["Hello %s, 42 = 0x%x\\n", "Berke, 42"],
-      ["%d | %u | %x | %X", "-1, -1, -1, -1"],
-      ["%c%c = %i%%", "4, 2, 100"],
-      ["%p %p %s", "0x7ffd42a0, NULL, NULL"]
-    ];
-    var fmtI = document.getElementById("pf-fmt"), argI = document.getElementById("pf-args");
-    var outEl = document.getElementById("pf-out"), retEl = document.getElementById("pf-ret"), stEl = document.getElementById("pf-steps"), preEl = document.getElementById("pf-pre");
-    function unq(a){ a = a.trim(); var m = a.match(/^(["'])(.*)\1$/); return m ? m[2] : a; }
-    function num(a){ a = unq(a); var n = /^-?0x/i.test(a) ? (a[0] === "-" ? -parseInt(a.slice(3), 16) : parseInt(a, 16)) : parseInt(a, 10); return isNaN(n) ? null : n; }
-    function hex(n){ return (n >>> 0).toString(16); }
-    function conv(c, a){
-      if (c === "%") return "%";
-      if (a === undefined) return null;
-      var raw = unq(a);
-      if (c === "s") return raw === "NULL" ? "(null)" : raw;
-      if (c === "c"){ if (a.trim().length === 1 || /^'.'$/.test(a.trim())) return raw[0]; var cn = num(a); return cn === null ? (raw[0] || "") : String.fromCharCode(cn & 255); }
-      if (c === "p"){ if (raw === "NULL" || raw === "0") return "(nil)"; var pn = num(a); return pn === null ? null : "0x" + Math.abs(pn).toString(16); }
-      var n = num(a); if (n === null) return null;
-      if (c === "d" || c === "i") return String(n | 0);
-      if (c === "u") return String(n >>> 0);
-      if (c === "x") return hex(n);
-      if (c === "X") return hex(n).toUpperCase();
-      return null;
+    var preEl = document.getElementById("pf-pre"), callEl = document.getElementById("pf-call"), outEl = document.getElementById("pf-out");
+    var retEl = document.getElementById("pf-ret"), okEl = document.getElementById("pf-ok"), cur = 0, btns = [];
+    function show(i){
+      cur = i; var c = DEMO.pf[i];
+      for (var k = 0; k < btns.length; k++) btns[k].setAttribute("aria-pressed", k === i ? "true" : "false");
+      callEl.textContent = "ft_printf(" + c.fmt + ", " + c.args + ");";
+      outEl.innerHTML = vis(c.out);
+      retEl.textContent = c.ret;
+      okEl.textContent = c.same ? tr("pf_same") : tr("pf_diff");
     }
-    function vis(str){ return str.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>\n' : c === "\t" ? "&nbsp;&nbsp;&nbsp;&nbsp;" : esc(c); }).join(""); }
-    function run(){
-      var f = fmtI.value.replace(/\\(n|t|\\)/g, function(_, x){ return x === "n" ? "\n" : x === "t" ? "\t" : "\\"; });
-      var args = argI.value.trim() === "" ? [] : argI.value.split(","), ix = 0, html = "", plain = "", steps = "";
-      for (var i = 0; i < f.length; i++){
-        if (f[i] === "%" && i + 1 < f.length){
-          var c = f[++i];
-          if ("cspdiuxX%".indexOf(c) < 0){ steps += "<li><b>%" + esc(c) + "</b> → " + tr("pf_unk") + "</li>"; continue; }
-          var a = c === "%" ? undefined : args[ix++], r = conv(c, a);
-          if (r === null){ html += '<span class="cv bad">?</span>'; steps += "<li><b>%" + c + "</b> → " + tr("pf_miss") + "</li>"; continue; }
-          html += '<span class="cv" title="%' + c + '">' + vis(r) + "</span>"; plain += r;
-          steps += "<li><b>%" + c + "</b>" + (a !== undefined ? " ← " + esc(a.trim()) : "") + ' → "' + vis(r).replace(/\n/g, "") + '" (' + new TextEncoder().encode(r).length + " " + tr("pf_chars") + ")</li>";
-        } else { html += vis(f[i]); plain += f[i]; }
-      }
-      outEl.innerHTML = html || "&nbsp;";
-      retEl.textContent = new TextEncoder().encode(plain).length;
-      stEl.innerHTML = steps;
-    }
-    PRE.forEach(function(p){
+    DEMO.pf.forEach(function(c, i){
       var b = document.createElement("button");
-      b.className = "cbtn"; b.type = "button"; b.textContent = '"' + p[0] + '"';
-      b.addEventListener("click", function(){ fmtI.value = p[0]; argI.value = p[1]; run(); });
-      preEl.appendChild(b);
+      b.className = "cbtn"; b.type = "button"; b.textContent = c.fmt;
+      b.addEventListener("click", function(){ show(i); });
+      preEl.appendChild(b); btns.push(b);
     });
-    fmtI.addEventListener("input", run); argI.addEventListener("input", run);
-    fmtI.value = PRE[0][0]; argI.value = PRE[0][1];
-    hooks.push(run);
-    run();
+    hooks.push(function(){ show(cur); });
+    show(0);
   })();
 
   var items = document.querySelectorAll(".reveal");
