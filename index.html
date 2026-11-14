@@ -183,6 +183,60 @@ h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;bord
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0;margin:0;list-style:none}
 .chips li{background:var(--surface);border:1px solid var(--cardline);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:999px;padding:9px 18px;font-weight:500}
 
+/* live demos */
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.links{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
+.links .more{margin-top:0}
+.dm-intro{max-width:52ch;margin:-12px auto 22px;color:var(--muted)}
+.dtabs .tab{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;flex:auto;font-size:12px;padding:10px 8px}
+.dm-txt{margin:0 0 16px;color:var(--muted);font-size:15px}
+.dm-txt code,.dm-txt b{color:var(--text);font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:14px;font-weight:600}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 10px}
+.cbtn{font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:transform .15s,filter .2s}
+.cbtn:hover{filter:brightness(.95)}
+.cbtn:active{transform:scale(.96)}
+.cbtn.pri{background:var(--grad);color:#fff;border-color:transparent}
+.cbtn:disabled{opacity:.5;cursor:default}
+.ops{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 10px}
+.ops .cbtn{padding:8px 0;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13px}
+@media (min-width:600px){.ops{grid-template-columns:repeat(11,1fr)}}
+.ps-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.ps-box{position:relative;background:var(--chip);border-radius:18px;padding:10px;overflow:hidden}
+.ps-in{position:relative}
+.ps-in::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line)}
+.ps-bar{position:absolute;width:calc(50% - 8px);transition:left .28s ease,top .28s ease;display:flex;align-items:center}
+.ps-bar i{display:block;height:calc(100% - 3px);border-radius:7px;min-width:28px;display:flex;align-items:center;padding:0 7px;color:#fff;font-style:normal;font-size:12px;font-weight:600;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;transition:box-shadow .2s}
+.ps-bar.hit i{box-shadow:0 0 0 2px var(--text)}
+.ps-info{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:8px}
+.ps-info b{color:var(--text)}
+#ps-op{color:var(--accent);font-weight:700}
+.ps-log{font-size:12px;color:var(--muted);margin:4px 0 0;word-break:break-word;min-height:1.5em}
+.gl-lbl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:12px 0 5px;text-transform:uppercase;letter-spacing:.04em}
+.gl-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px}
+.gl-row input{flex:1;min-width:140px;accent-color:var(--accent)}
+.gl-file,.gl-chars,.pf-out{background:var(--chip);border-radius:14px;padding:10px 12px;font-size:13px;line-height:1.75;word-break:break-all;min-height:44px}
+.gl-file span{color:var(--muted);opacity:.55;transition:opacity .2s,color .2s,background .2s;border-radius:3px}
+.gl-file span.rd{opacity:1;color:var(--text)}
+.gl-file span.cur{background:rgba(110,140,255,.28);color:var(--text);opacity:1}
+.gl-chars span{display:inline-block;min-width:1.05em;text-align:center;margin:1px;border-radius:5px;background:var(--surface);border:1px solid var(--line);padding:0 3px}
+.gl-chars .nl,.gl-file .nl{color:var(--wip);font-weight:700}
+.gl-chars .em{color:var(--muted);border:0;background:none;font-style:italic}
+.gl-out{margin:10px 0 0;padding-left:26px;font-size:13px}
+.gl-out li{margin:4px 0;animation:pop .35s ease both}
+.gl-out .ln{background:rgba(48,160,90,.14);border-radius:6px;padding:1px 6px;white-space:pre-wrap}
+.gl-out .nul{color:var(--muted)}
+.pf-pre{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
+.pf-pre .cbtn{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;font-weight:500;padding:6px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pf-in{width:100%;font-size:15px;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.pf-in:focus{outline:2px solid var(--accent);outline-offset:1px}
+.pf-out{font-size:15px;white-space:pre-wrap}
+.pf-out .cv{border-radius:5px;padding:0 2px;background:rgba(110,140,255,.22);color:var(--text);animation:pop .35s ease both}
+.pf-out .bad{background:rgba(255,120,60,.25)}
+.pf-out .nl{color:var(--wip);font-weight:700}
+.pf-steps{list-style:none;margin:10px 0 0;padding:0;font-size:13px;color:var(--muted)}
+.pf-steps li{padding:4px 0;border-top:1px solid var(--line)}
+.pf-steps b{color:var(--accent)}
+
 footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
 footer h2{font-size:28px}
 footer .cta{margin-bottom:20px}
@@ -198,6 +252,7 @@ footer small{color:var(--muted)}
   h1,.orb,.caret,.road li.now::before{animation:none}
   .road li{opacity:1;transform:none;animation:none!important}
   .panel.on{animation:none}
+  .ps-bar,.gl-out li,.pf-out .cv{transition:none;animation:none}
 }
 
 @media (min-width:720px){
@@ -223,7 +278,7 @@ footer small{color:var(--muted)}
   .panel{display:block!important;margin-bottom:8pt}
   .mini{grid-template-columns:repeat(4,1fr)}
   .mini div,.tags span{background:#fff!important;border:1px solid #ccc}
-  .bar,.avatar,.cta,.proj .more,body::before,.hero42{display:none!important}
+  .bar,.avatar,.cta,.proj .more,body::before,.hero42,#demos{display:none!important}
   h1{background:none!important;-webkit-text-fill-color:#000!important;color:#000!important}
   .card,.timeline>li,.chips li,.goal{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
   .reveal{opacity:1!important;transform:none!important;transition:none!important}
@@ -255,6 +310,7 @@ footer small{color:var(--muted)}
       <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
       <a href="#timeline" data-i18n="nav_timeline">Werdegang</a>
       <a href="#projects" data-i18n="nav_projects">Projekte</a>
+      <a href="#demos" data-i18n="nav_demos">Live-Demos</a>
       <a href="#skills" data-i18n="nav_skills">Skills</a>
       <a href="#contact" data-i18n="nav_contact">Kontakt</a>
     </nav>
@@ -394,7 +450,10 @@ footer small{color:var(--muted)}
           <li data-i18n="gnl_b2">Lesen in Blöcken mit read() und BUFFER_SIZE</li>
           <li data-i18n="gnl_b3">Sauber mit malloc und free umgehen</li>
         </ul>
-        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+        <div class="links">
+          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+          <a class="more" href="#demos" data-demo="d-gnl" data-i18n="try">▶ Live-Demo</a>
+        </div>
       </article>
 
       <article class="card proj">
@@ -405,15 +464,79 @@ footer small{color:var(--muted)}
           <li data-i18n="pf_b2">Zahlen in Dezimal und Hexadezimal umwandeln</li>
           <li data-i18n="pf_b3">Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)</li>
         </ul>
-        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+        <div class="links">
+          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+          <a class="more" href="#demos" data-demo="d-pf" data-i18n="try">▶ Live-Demo</a>
+        </div>
       </article>
 
       <article class="card proj">
         <div class="top"><h3>push_swap</h3><span class="status wip" data-i18n="st_wip">🔄 In Arbeit</span></div>
         <p data-i18n="ps_p">Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.</p>
-        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+        <div class="links">
+          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
+          <a class="more" href="#demos" data-demo="d-ps" data-i18n="try">▶ Live-Demo</a>
+        </div>
       </article>
 
+    </div>
+  </section>
+
+  <section id="demos" class="reveal">
+    <h2 data-i18n="dm_h">Live-Demos</h2>
+    <p class="loc dm-intro" data-i18n="dm_p">Was in meinem C-Code passiert, hier im Browser nachgebaut. Zum Ausprobieren.</p>
+    <div class="card">
+      <div class="tabs dtabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-tab="d-ps" type="button">push_swap</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="d-gnl" type="button">get_next_line</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="d-pf" type="button">ft_printf</button>
+      </div>
+
+      <div class="panel on" id="d-ps" role="tabpanel">
+        <p class="dm-txt" data-i18n="ps_d1">Zwei Stacks, A und B. Erlaubt sind nur wenige Operationen wie sa, pb oder ra. Diese Demo zeigt die Idee hinter meinem einfachen Sortierverfahren, an dem ich gerade arbeite: kleinste Zahl suchen, mit ra oder rra nach oben drehen, mit pb auf B legen. Am Ende alles mit pa zurück.</p>
+        <div class="ps-head"><span>Stack A</span><span>Stack B</span></div>
+        <div class="ps-box"><div class="ps-in" id="ps-in"></div></div>
+        <div class="ps-info"><span><span data-i18n="ps_last">Letzte Operation</span>: <span id="ps-op" class="mono">–</span></span><span><span data-i18n="ps_moves">Züge</span>: <b id="ps-n">0</b></span></div>
+        <div class="ctrl">
+          <button class="cbtn pri" id="ps-play" type="button">▶</button>
+          <button class="cbtn" id="ps-step" type="button" data-i18n="ps_step">Ein Schritt</button>
+          <button class="cbtn" id="ps-new" type="button" data-i18n="ps_new">Neu mischen</button>
+          <select class="cbtn" id="ps-size" aria-label="Anzahl"><option value="5">5</option><option value="8" selected>8</option><option value="12">12</option></select>
+        </div>
+        <p class="dm-txt" style="margin:8px 0 8px" data-i18n="ps_d2">Oder selbst sortieren:</p>
+        <div class="ops" id="ps-ops"></div>
+        <p class="ps-log mono" id="ps-log"></p>
+      </div>
+
+      <div class="panel" id="d-gnl" role="tabpanel">
+        <p class="dm-txt" data-i18n="gnl_d1">Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.</p>
+        <div class="gl-row"><label for="gl-bs" class="mono">BUFFER_SIZE = <b id="gl-bsv">5</b></label><input type="range" id="gl-bs" min="1" max="24" value="5"></div>
+        <span class="gl-lbl" data-i18n="gl_file">Datei</span>
+        <div class="gl-file mono" id="gl-file"></div>
+        <span class="gl-lbl">buffer &larr; read()</span>
+        <div class="gl-chars mono" id="gl-buf"></div>
+        <span class="gl-lbl">static char *stash</span>
+        <div class="gl-chars mono" id="gl-stash"></div>
+        <div class="ctrl">
+          <button class="cbtn pri mono" id="gl-call" type="button">get_next_line(fd)</button>
+          <button class="cbtn" id="gl-reset" type="button" data-i18n="reset">Zurücksetzen</button>
+        </div>
+        <div class="ps-info"><span><span data-i18n="gl_reads">read()-Aufrufe</span>: <b id="gl-r">0</b></span></div>
+        <ol class="gl-out mono" id="gl-out"></ol>
+      </div>
+
+      <div class="panel" id="d-pf" role="tabpanel">
+        <p class="dm-txt" data-i18n="pf_d1">ft_printf geht den Format-String Zeichen für Zeichen durch. Normale Zeichen gehen direkt raus. Bei % holt es das nächste Argument aus der va_list und wandelt es um. Tipp ein Beispiel an oder schreib selbst.</p>
+        <div class="pf-pre" id="pf-pre"></div>
+        <label class="gl-lbl" for="pf-fmt">format</label>
+        <input id="pf-fmt" class="pf-in mono" spellcheck="false" autocomplete="off" autocapitalize="off">
+        <label class="gl-lbl" for="pf-args" data-i18n="pf_args">Argumente, mit Komma getrennt</label>
+        <input id="pf-args" class="pf-in mono" spellcheck="false" autocomplete="off" autocapitalize="off">
+        <span class="gl-lbl" data-i18n="pf_out">Ausgabe</span>
+        <div class="pf-out mono" id="pf-out"></div>
+        <div class="ps-info"><span><span data-i18n="pf_ret">Rückgabewert</span>: <b id="pf-ret">0</b></span></div>
+        <ul class="pf-steps mono" id="pf-steps"></ul>
+      </div>
     </div>
   </section>
 
@@ -503,7 +626,16 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 
       pf_b3:"Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)",
       ps_p:"Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.",
       sk_h:"Skills", sk_mem:"Speicherverwaltung",
-      ct_h:"Kontakt"
+      ct_h:"Kontakt",
+      nav_demos:"Live-Demos", try:"▶ Live-Demo", dm_h:"Live-Demos",
+      dm_p:"Was in meinem C-Code passiert, hier im Browser nachgebaut. Zum Ausprobieren.",
+      ps_d1:"Zwei Stacks, A und B. Erlaubt sind nur wenige Operationen wie sa, pb oder ra. Diese Demo zeigt die Idee hinter meinem einfachen Sortierverfahren, an dem ich gerade arbeite: kleinste Zahl suchen, mit ra oder rra nach oben drehen, mit pb auf B legen. Am Ende alles mit pa zurück.",
+      ps_d2:"Oder selbst sortieren:", ps_last:"Letzte Operation", ps_moves:"Züge", ps_step:"Ein Schritt", ps_new:"Neu mischen",
+      ps_play:"▶ Sortieren", ps_pause:"⏸ Pause", ps_done:"✅ Sortiert",
+      gnl_d1:"Die Datei wird in Stücken von BUFFER_SIZE Bytes gelesen. Was über das Zeilenende hinaus gelesen wurde, wartet im static stash auf den nächsten Aufruf.",
+      gl_file:"Datei", reset:"Zurücksetzen", gl_reads:"read()-Aufrufe", gl_empty:"leer", gl_eof:"read() gibt 0 zurück: Dateiende",
+      pf_d1:"ft_printf geht den Format-String Zeichen für Zeichen durch. Normale Zeichen gehen direkt raus. Bei % holt es das nächste Argument aus der va_list und wandelt es um. Tipp ein Beispiel an oder schreib selbst.",
+      pf_args:"Argumente, mit Komma getrennt", pf_out:"Ausgabe", pf_ret:"Rückgabewert", pf_miss:"Argument fehlt", pf_unk:"unbekannt, wird übersprungen", pf_chars:"Zeichen"
     },
     en:{
       nav_about:"About", nav_roadmap:"Roadmap", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
@@ -551,13 +683,23 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       pf_b3:"Splitting code into small functions, one per conversion (Norm: max. 25 lines)",
       ps_p:"Sorts a list of integers using two stacks and a limited set of operations, in as few moves as possible.",
       sk_h:"Skills", sk_mem:"Memory management",
-      ct_h:"Contact"
+      ct_h:"Contact",
+      nav_demos:"Live demos", try:"▶ Live demo", dm_h:"Live demos",
+      dm_p:"What happens in my C code, rebuilt here in the browser. Try it out.",
+      ps_d1:"Two stacks, A and B. Only a few operations are allowed, like sa, pb or ra. This demo shows the idea behind the simple sort I'm working on right now: find the smallest number, rotate it to the top with ra or rra, move it to B with pb. At the end, pa everything back.",
+      ps_d2:"Or sort it yourself:", ps_last:"Last operation", ps_moves:"Moves", ps_step:"One step", ps_new:"Shuffle",
+      ps_play:"▶ Sort", ps_pause:"⏸ Pause", ps_done:"✅ Sorted",
+      gnl_d1:"The file is read in chunks of BUFFER_SIZE bytes. Whatever was read past the end of the line waits in the static stash for the next call.",
+      gl_file:"File", reset:"Reset", gl_reads:"read() calls", gl_empty:"empty", gl_eof:"read() returns 0: end of file",
+      pf_d1:"ft_printf walks through the format string character by character. Normal characters go straight out. On % it takes the next argument from the va_list and converts it. Tap an example or write your own.",
+      pf_args:"Arguments, comma separated", pf_out:"Output", pf_ret:"Return value", pf_miss:"argument missing", pf_unk:"unknown, skipped", pf_chars:"chars"
     }
   };
 
   var lang = "de";
   try { var s = localStorage.getItem("cv-lang"); if (s === "de" || s === "en") lang = s; } catch(e){}
 
+  var hooks = [];
   function apply(l){
     lang = l;
     document.documentElement.lang = l;
@@ -569,6 +711,7 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
     document.getElementById("l-de").className = l === "de" ? "on" : "";
     document.getElementById("l-en").className = l === "en" ? "on" : "";
     try { localStorage.setItem("cv-lang", l); } catch(e){}
+    for (var h = 0; h < hooks.length; h++) hooks[h]();
   }
   document.getElementById("lang").addEventListener("click", function(){ apply(lang === "de" ? "en" : "de"); });
   document.getElementById("pdf").addEventListener("click", function(){ window.print(); });
@@ -577,10 +720,11 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
   var tabs = document.querySelectorAll(".tab");
   for (var t = 0; t < tabs.length; t++){
     tabs[t].addEventListener("click", function(){
-      for (var u = 0; u < tabs.length; u++){
-        var on = tabs[u] === this;
-        tabs[u].setAttribute("aria-selected", on ? "true" : "false");
-        document.getElementById(tabs[u].getAttribute("data-tab")).className = on ? "panel on" : "panel";
+      var sib = this.parentNode.querySelectorAll(".tab");
+      for (var u = 0; u < sib.length; u++){
+        var on = sib[u] === this;
+        sib[u].setAttribute("aria-selected", on ? "true" : "false");
+        document.getElementById(sib[u].getAttribute("data-tab")).className = on ? "panel on" : "panel";
       }
     });
   }
@@ -654,6 +798,224 @@ rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"
       c.addEventListener("mouseleave", function(){ if (c.classList.contains("proj")) c.style.transform = ""; });
     });
   }
+
+  // ---------- live demos ----------
+  function tr(k){ return T[lang][k]; }
+  function esc(c){ return c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : c; }
+
+  // demo links on project cards open the right tab
+  var dls = document.querySelectorAll("[data-demo]");
+  for (var q = 0; q < dls.length; q++){
+    dls[q].addEventListener("click", function(){
+      var b = document.querySelector('.dtabs [data-tab="' + this.getAttribute("data-demo") + '"]');
+      if (b) b.click();
+    });
+  }
+
+  // push_swap
+  (function(){
+    var box = document.getElementById("ps-in"), A = [], B = [], N = 8, els = {}, moves = 0, log = [], timer = null, rowH = 30;
+    var playB = document.getElementById("ps-play"), opEl = document.getElementById("ps-op"), nEl = document.getElementById("ps-n"), logEl = document.getElementById("ps-log");
+    function sorted(s){ for (var i = 1; i < s.length; i++) if (s[i - 1] > s[i]) return false; return true; }
+    function shuffle(){
+      var pool = [];
+      while (pool.length < N){ var v = Math.floor(Math.random() * 199) - 99; if (pool.indexOf(v) < 0) pool.push(v); }
+      if (sorted(pool)) pool.reverse();
+      A = pool; B = []; moves = 0; log = []; opEl.textContent = "–";
+      var all = pool.slice().sort(function(a, b){ return a - b; });
+      box.innerHTML = ""; els = {};
+      rowH = N > 8 ? 24 : 30;
+      box.style.height = (N * rowH) + "px";
+      pool.forEach(function(v){
+        var r = all.indexOf(v), d = document.createElement("div"), f = document.createElement("i");
+        d.className = "ps-bar"; d.style.height = rowH + "px";
+        f.style.width = (30 + 70 * r / Math.max(1, N - 1)) + "%";
+        f.style.background = "hsl(" + (205 + 70 * r / Math.max(1, N - 1)) + ",70%,56%)";
+        f.textContent = v; d.appendChild(f); box.appendChild(d); els[v] = d;
+      });
+      draw([]);
+    }
+    function draw(hit){
+      A.forEach(function(v, i){ els[v].style.left = "0"; els[v].style.top = (i * rowH) + "px"; });
+      B.forEach(function(v, i){ els[v].style.left = "calc(50% + 8px)"; els[v].style.top = (i * rowH) + "px"; });
+      for (var k in els) els[k].className = hit.indexOf(+k) >= 0 ? "ps-bar hit" : "ps-bar";
+      nEl.textContent = moves;
+      logEl.textContent = log.slice(-48).join(" ");
+    }
+    function sw(s){ if (s.length > 1){ var t = s[0]; s[0] = s[1]; s[1] = t; return [s[0], s[1]]; } return []; }
+    function rot(s){ if (s.length > 1){ s.push(s.shift()); return [s[s.length - 1]]; } return []; }
+    function rrot(s){ if (s.length > 1){ s.unshift(s.pop()); return [s[0]]; } return []; }
+    function op(name){
+      var h = [];
+      if (name === "sa") h = sw(A); else if (name === "sb") h = sw(B);
+      else if (name === "ss") h = sw(A).concat(sw(B));
+      else if (name === "pa"){ if (B.length){ A.unshift(B.shift()); h = [A[0]]; } }
+      else if (name === "pb"){ if (A.length){ B.unshift(A.shift()); h = [B[0]]; } }
+      else if (name === "ra") h = rot(A); else if (name === "rb") h = rot(B);
+      else if (name === "rr") h = rot(A).concat(rot(B));
+      else if (name === "rra") h = rrot(A); else if (name === "rrb") h = rrot(B);
+      else if (name === "rrr") h = rrot(A).concat(rrot(B));
+      moves++; log.push(name); opEl.textContent = name;
+      draw(h);
+      if (!B.length && sorted(A)) opEl.textContent = name + "  " + tr("ps_done");
+    }
+    // simple sort: smallest to the top (ra/rra), pb; when A is sorted, pa everything back
+    function next(){
+      var bReady = sorted(B.slice().reverse()) && (!A.length || !B.length || B[0] < Math.min.apply(null, A));
+      if (B.length && !bReady) return "pa";
+      if (sorted(A)) return B.length ? "pa" : null;
+      var m = 0;
+      for (var i = 1; i < A.length; i++) if (A[i] < A[m]) m = i;
+      if (m === 0) return "pb";
+      return m <= A.length / 2 ? "ra" : "rra";
+    }
+    function stepAuto(){
+      var o = next();
+      if (!o){ stop(); opEl.textContent = tr("ps_done"); return false; }
+      op(o); return true;
+    }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } playB.textContent = tr("ps_play"); }
+    playB.addEventListener("click", function(){
+      if (timer){ stop(); return; }
+      if (!next()) shuffle();
+      playB.textContent = tr("ps_pause");
+      timer = setInterval(stepAuto, rm ? 120 : (N > 8 ? 260 : 380));
+    });
+    document.getElementById("ps-step").addEventListener("click", function(){ stop(); stepAuto(); });
+    document.getElementById("ps-new").addEventListener("click", function(){ stop(); shuffle(); });
+    document.getElementById("ps-size").addEventListener("change", function(){ stop(); N = +this.value; shuffle(); });
+    var opsEl = document.getElementById("ps-ops");
+    ["sa","sb","ss","pa","pb","ra","rb","rr","rra","rrb","rrr"].forEach(function(n){
+      var b = document.createElement("button");
+      b.className = "cbtn"; b.type = "button"; b.textContent = n;
+      b.addEventListener("click", function(){ stop(); op(n); });
+      opsEl.appendChild(b);
+    });
+    hooks.push(function(){ if (!timer) playB.textContent = tr("ps_play"); else playB.textContent = tr("ps_pause"); });
+    playB.textContent = tr("ps_play");
+    shuffle();
+  })();
+
+  // get_next_line
+  (function(){
+    var FILE = "#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n";
+    var bs = 5, off = 0, stash = "", buf = null, reads = 0, eof = false, busy = false, finished = false, lastFrom = 0;
+    var fileEl = document.getElementById("gl-file"), bufEl = document.getElementById("gl-buf"), stEl = document.getElementById("gl-stash");
+    var outEl = document.getElementById("gl-out"), rEl = document.getElementById("gl-r"), callB = document.getElementById("gl-call");
+    var range = document.getElementById("gl-bs"), bsv = document.getElementById("gl-bsv");
+    function chips(str){
+      if (str === null) return '<span class="em">–</span>';
+      if (!str.length) return '<span class="em">' + tr("gl_empty") + '</span>';
+      var h = "";
+      for (var i = 0; i < str.length; i++){
+        var c = str[i];
+        h += c === "\n" ? '<span class="nl">\\n</span>' : "<span>" + (c === " " ? "&nbsp;" : esc(c)) + "</span>";
+      }
+      return h;
+    }
+    function draw(){
+      var h = "";
+      for (var i = 0; i < FILE.length; i++){
+        var c = FILE[i], cls = i < off ? (i >= lastFrom ? "rd cur" : "rd") : "";
+        if (c === "\n") h += '<span class="nl ' + cls + '">↵</span><br>';
+        else h += '<span class="' + cls + '">' + (c === " " ? "&nbsp;" : esc(c)) + "</span>";
+      }
+      fileEl.innerHTML = h;
+      bufEl.innerHTML = buf === "" ? '<span class="em">' + tr("gl_eof") + "</span>" : chips(buf);
+      stEl.innerHTML = chips(stash === null ? "" : stash);
+      rEl.textContent = reads;
+      callB.disabled = busy || finished;
+    }
+    function reset(){ off = 0; stash = ""; buf = null; reads = 0; eof = false; busy = false; finished = false; lastFrom = 0; outEl.innerHTML = ""; draw(); }
+    function emit(line){
+      var li = document.createElement("li");
+      if (line === null){ li.innerHTML = '<span class="nul">NULL</span>'; }
+      else { li.innerHTML = '<span class="ln">' + line.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>' : esc(c); }).join("") + "</span>"; }
+      outEl.appendChild(li);
+    }
+    function call(){
+      if (busy || finished) return;
+      busy = true; draw();
+      (function readStep(){
+        if (stash.indexOf("\n") < 0 && !eof){
+          lastFrom = off;
+          buf = FILE.substr(off, bs);
+          off += buf.length; reads++;
+          if (!buf.length) eof = true;
+          stash += buf;
+          draw();
+          setTimeout(readStep, rm ? 60 : 520);
+          return;
+        }
+        if (!stash.length){ emit(null); finished = true; busy = false; draw(); return; }
+        var k = stash.indexOf("\n"), line = k < 0 ? stash : stash.slice(0, k + 1);
+        stash = k < 0 ? "" : stash.slice(k + 1);
+        emit(line); busy = false; lastFrom = off; draw();
+      })();
+    }
+    callB.addEventListener("click", call);
+    document.getElementById("gl-reset").addEventListener("click", function(){ if (!busy) reset(); });
+    range.addEventListener("input", function(){ bs = +this.value; bsv.textContent = bs; if (!busy) reset(); });
+    hooks.push(draw);
+    reset();
+  })();
+
+  // ft_printf
+  (function(){
+    var PRE = [
+      ["Hello %s, 42 = 0x%x\\n", "Berke, 42"],
+      ["%d | %u | %x | %X", "-1, -1, -1, -1"],
+      ["%c%c = %i%%", "4, 2, 100"],
+      ["%p %p %s", "0x7ffd42a0, NULL, NULL"]
+    ];
+    var fmtI = document.getElementById("pf-fmt"), argI = document.getElementById("pf-args");
+    var outEl = document.getElementById("pf-out"), retEl = document.getElementById("pf-ret"), stEl = document.getElementById("pf-steps"), preEl = document.getElementById("pf-pre");
+    function unq(a){ a = a.trim(); var m = a.match(/^(["'])(.*)\1$/); return m ? m[2] : a; }
+    function num(a){ a = unq(a); var n = /^-?0x/i.test(a) ? (a[0] === "-" ? -parseInt(a.slice(3), 16) : parseInt(a, 16)) : parseInt(a, 10); return isNaN(n) ? null : n; }
+    function hex(n){ return (n >>> 0).toString(16); }
+    function conv(c, a){
+      if (c === "%") return "%";
+      if (a === undefined) return null;
+      var raw = unq(a);
+      if (c === "s") return raw === "NULL" ? "(null)" : raw;
+      if (c === "c"){ if (a.trim().length === 1 || /^'.'$/.test(a.trim())) return raw[0]; var cn = num(a); return cn === null ? (raw[0] || "") : String.fromCharCode(cn & 255); }
+      if (c === "p"){ if (raw === "NULL" || raw === "0") return "(nil)"; var pn = num(a); return pn === null ? null : "0x" + Math.abs(pn).toString(16); }
+      var n = num(a); if (n === null) return null;
+      if (c === "d" || c === "i") return String(n | 0);
+      if (c === "u") return String(n >>> 0);
+      if (c === "x") return hex(n);
+      if (c === "X") return hex(n).toUpperCase();
+      return null;
+    }
+    function vis(str){ return str.split("").map(function(c){ return c === "\n" ? '<span class="nl">\\n</span>\n' : c === "\t" ? "&nbsp;&nbsp;&nbsp;&nbsp;" : esc(c); }).join(""); }
+    function run(){
+      var f = fmtI.value.replace(/\\(n|t|\\)/g, function(_, x){ return x === "n" ? "\n" : x === "t" ? "\t" : "\\"; });
+      var args = argI.value.trim() === "" ? [] : argI.value.split(","), ix = 0, html = "", plain = "", steps = "";
+      for (var i = 0; i < f.length; i++){
+        if (f[i] === "%" && i + 1 < f.length){
+          var c = f[++i];
+          if ("cspdiuxX%".indexOf(c) < 0){ steps += "<li><b>%" + esc(c) + "</b> → " + tr("pf_unk") + "</li>"; continue; }
+          var a = c === "%" ? undefined : args[ix++], r = conv(c, a);
+          if (r === null){ html += '<span class="cv bad">?</span>'; steps += "<li><b>%" + c + "</b> → " + tr("pf_miss") + "</li>"; continue; }
+          html += '<span class="cv" title="%' + c + '">' + vis(r) + "</span>"; plain += r;
+          steps += "<li><b>%" + c + "</b>" + (a !== undefined ? " ← " + esc(a.trim()) : "") + ' → "' + vis(r).replace(/\n/g, "") + '" (' + new TextEncoder().encode(r).length + " " + tr("pf_chars") + ")</li>";
+        } else { html += vis(f[i]); plain += f[i]; }
+      }
+      outEl.innerHTML = html || "&nbsp;";
+      retEl.textContent = new TextEncoder().encode(plain).length;
+      stEl.innerHTML = steps;
+    }
+    PRE.forEach(function(p){
+      var b = document.createElement("button");
+      b.className = "cbtn"; b.type = "button"; b.textContent = '"' + p[0] + '"';
+      b.addEventListener("click", function(){ fmtI.value = p[0]; argI.value = p[1]; run(); });
+      preEl.appendChild(b);
+    });
+    fmtI.addEventListener("input", run); argI.addEventListener("input", run);
+    fmtI.value = PRE[0][0]; argI.value = PRE[0][1];
+    hooks.push(run);
+    run();
+  })();
 
   var items = document.querySelectorAll(".reveal");
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
