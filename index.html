@@ -3,507 +3,508 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Berke Alca</title>
-<meta name="description" content="Berke Alca – Software Engineering Student @ 42 Heilbronn">
+<title>Berke Alca – Lebenslauf</title>
+<meta name="description" content="Berke Alca, Software Engineering Student an der 42 Heilbronn. Lebenslauf, Projekte in C und Live-Demos.">
 <meta name="color-scheme" content="light dark">
 <style>
 :root{
-  --bg:#f5f6f8; --surface:rgba(255,255,255,.7); --cardline:rgba(255,255,255,.9); --text:#1d1d1f; --muted:#6e6e73; --line:rgba(0,0,0,.08);
-  --accent:#0071e3; --accent-text:#ffffff; --glass:rgba(255,255,255,.72);
-  --shadow:0 1px 2px rgba(20,20,60,.04),0 16px 40px rgba(40,50,120,.10);
-  --g1:rgba(80,130,220,.14); --g2:rgba(130,120,230,.10); --g3:rgba(120,140,200,.07);
-  --grad:linear-gradient(100deg,#4f86e8 0%,#7f84ec 100%);
-  --ok:#1a7f37; --wip:#b25e00; --chip:rgba(0,0,0,.05);
+  --paper:#f4eedf; --paper2:#ebe3cf; --card:#fbf7ec; --ink:#1d1b16; --muted:#6a6252; --line:#1d1b16; --hair:rgba(29,27,22,.16);
+  --green:#2ad46b; --green-ink:#127a3a; --green-soft:#d3f5dc; --wip:#b5651d; --wip-soft:#f6e3c8;
+  --bar:rgba(244,238,223,.72); --shadow:0 1px 0 rgba(29,27,22,.06),0 14px 34px rgba(60,48,20,.10);
+  --term:#10140f; --term-ink:#c9f7d6; --term-dim:#6f8f78;
+  --grain:.07;
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#0f1115; --surface:rgba(255,255,255,.07); --cardline:rgba(255,255,255,.12); --text:#f5f5f7; --muted:#a1a1a6; --line:rgba(255,255,255,.12);
-    --accent:#6ea8fe; --accent-text:#000000; --glass:rgba(24,26,32,.65);
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px rgba(0,0,0,.35);
-    --g1:rgba(80,130,220,.20); --g2:rgba(130,120,230,.14); --g3:rgba(120,140,200,.08);
-    --ok:#30d158; --wip:#ff9f0a; --chip:rgba(255,255,255,.08);
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14150f; --paper2:#1b1c15; --card:#1e2018; --ink:#efe8d6; --muted:#a49c88; --line:#efe8d6; --hair:rgba(239,232,214,.16);
+    --green:#5df294; --green-ink:#6ff5a0; --green-soft:rgba(93,242,148,.13); --wip:#f0b46a; --wip-soft:rgba(240,180,106,.14);
+    --bar:rgba(20,21,15,.7); --shadow:0 1px 0 rgba(0,0,0,.3),0 14px 34px rgba(0,0,0,.4);
+    --term:#0a0d09; --grain:.05;
   }
+}
+:root[data-theme="dark"]{
+  --paper:#14150f; --paper2:#1b1c15; --card:#1e2018; --ink:#efe8d6; --muted:#a49c88; --line:#efe8d6; --hair:rgba(239,232,214,.16);
+  --green:#5df294; --green-ink:#6ff5a0; --green-soft:rgba(93,242,148,.13); --wip:#f0b46a; --wip-soft:rgba(240,180,106,.14);
+  --bar:rgba(20,21,15,.7); --shadow:0 1px 0 rgba(0,0,0,.3),0 14px 34px rgba(0,0,0,.4);
+  --term:#0a0d09; --grain:.05;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-size:16px;margin:0;background:var(--bg);color:var(--text);
-  font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;
-  line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(60vmax 50vmax at 15% -5%,var(--g1),transparent 60%),
-             radial-gradient(55vmax 45vmax at 95% 10%,var(--g2),transparent 60%),
-             radial-gradient(50vmax 40vmax at 50% 105%,var(--g3),transparent 60%)}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.6 -apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;overflow-x:hidden;
+  transition:background-color .4s,color .4s}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.serif,h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;font-weight:600}
+.mono,code,.term{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.wrap{padding:0 32px}}
+::selection{background:var(--green);color:#10140f}
 
 /* top bar */
-.bar{position:sticky;top:0;z-index:10;background:var(--glass);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--line)}
-.bar .wrap{display:flex;align-items:center;gap:8px;height:52px}
-.bar nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
-.bar nav::-webkit-scrollbar{display:none}
-.bar nav a{color:var(--text);font-size:14px;padding:6px 10px;border-radius:999px;white-space:nowrap}
-.bar nav a:hover{background:var(--chip);text-decoration:none}
-.btn-s{font:inherit;font-size:13px;font-weight:600;color:var(--text);background:var(--chip);
-  border:0;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap}
-.btn-s:hover{background:var(--line)}
-.btn-s .on{color:var(--accent)}
+.bar{position:sticky;top:0;z-index:50;background:var(--bar);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--hair)}
+.bar .wrap{display:flex;align-items:center;gap:8px;height:54px}
+.bar .logo{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-weight:700;font-style:italic;font-size:20px;text-decoration:none;margin-right:auto;white-space:nowrap}
+.bar .logo b{color:var(--green-ink);font-style:normal}
+.bar nav{display:none;gap:18px;margin-right:12px}
+.bar nav a{text-decoration:none;font-size:14px;color:var(--muted);transition:color .2s}
+.bar nav a:hover{color:var(--ink)}
+@media (min-width:900px){.bar nav{display:flex}}
+.tb{font:600 12px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.06em;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 11px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,transform .15s}
+.tb:hover{background:var(--ink);color:var(--paper)}
+.tb:active{transform:scale(.95)}
+.tb .on{color:var(--green-ink);text-decoration:underline;text-underline-offset:3px}
+.tb:hover .on{color:var(--green)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--green)}
 
-/* hero */
-.hero{text-align:center;padding:72px 0 56px}
-.avatar{width:128px;height:128px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
-  background:var(--grad);color:#fff;border:3px solid var(--cardline);
-  font-size:44px;font-weight:700;letter-spacing:.02em;box-shadow:var(--shadow)}
-/* Später Foto einbinden: das div.avatar durch <img class="avatar" src="assets/photo.jpg" alt="Berke Alca" style="object-fit:cover"> ersetzen */
-h1{font-size:clamp(40px,10.5vw,76px);line-height:1.02;letter-spacing:-.04em;margin:0 0 14px;font-weight:700;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.hero42{max-width:46ch;margin:0 auto 14px;color:var(--muted);font-size:17px}
-.sub{font-size:clamp(17px,4vw,24px);color:var(--muted);margin:0 0 6px;font-weight:500}
-.loc{color:var(--muted);margin:0 0 28px}
-.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;
-  background:var(--surface);color:var(--text);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
-.btn.primary{background:var(--grad);color:#fff;border-color:transparent}
-.btn:hover{text-decoration:none;filter:brightness(.96)}
+/* masthead */
+.mast{padding:26px 0 0;text-align:center}
+.mast .rule{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:600 11px/1.4 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:3px double var(--line);border-bottom:1px solid var(--line);padding:8px 0}
+.mast h1{font-size:clamp(56px,17vw,168px);line-height:.9;letter-spacing:-.03em;margin:30px 0 8px;font-weight:700}
+.mast h1 .w{display:inline-block}
+.mast h1 i{font-style:italic;font-weight:500;color:var(--green-ink)}
+.mast .tag{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-style:italic;font-size:clamp(20px,4.6vw,28px);margin:6px auto 0;max-width:640px;line-height:1.35}
+.mast .tag mark{background:var(--green);color:#10140f;padding:0 6px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mast .meta{margin:14px 0 0;color:var(--muted);font-size:15px}
+.avatar{width:108px;height:108px;margin:26px auto 0;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#10140f;
+  font:700 38px/1 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;border:2px solid var(--line);box-shadow:6px 6px 0 var(--line);transition:transform .3s}
+.avatar:hover{transform:rotate(-6deg) scale(1.04)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 0}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);transition:transform .15s,box-shadow .15s,background .2s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--line)}
+.btn.pri{background:var(--green);color:#10140f}
+
+/* ticker */
+.ticker{margin:40px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--paper2)}
+.ticker .run{display:inline-block;padding:10px 0;font:600 13px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;animation:tick 32s linear infinite}
+.ticker .run span{margin:0 18px}
+.ticker .run span.g{color:var(--green-ink)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin:0;border-bottom:1px solid var(--line)}
+.stat{padding:22px 6px;text-align:center}
+.stat+.stat{border-left:1px solid var(--hair)}
+.stat .num{display:block;font:700 clamp(40px,11vw,64px)/1 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.stat .lbl{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
 
 /* sections */
-section{padding:56px 0}
-h2{font-size:clamp(26px,5.5vw,38px);letter-spacing:-.02em;margin:0 0 28px;line-height:1.15;font-weight:700;text-align:center}
-.card{background:var(--surface);border:1px solid var(--cardline);border-radius:28px;box-shadow:var(--shadow);padding:26px;
-  -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);transition:transform .3s ease}
-.grid .card:hover{transform:translateY(-3px)}
-.about p{margin:0 0 14px;font-size:16px;max-width:62ch}
-.about .lead{font-size:clamp(18px,4vw,22px);line-height:1.4;font-weight:600;letter-spacing:-.01em;max-width:36ch;margin:0 auto 18px;text-align:center}
-.about h3{margin:26px 0 8px;font-size:20px;letter-spacing:-.01em}
-.about .box{background:var(--chip);border-radius:20px;padding:18px 20px;margin:0 0 16px}
-.about .box h3{margin-top:0}
-.about .box p{margin:0}
-.about p:last-child{margin:0}
+section{padding:64px 0 0}
+.sh{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:26px}
+.sh .no{font:600 12px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;color:var(--green-ink)}
+.sh h2{margin:0;font-size:clamp(32px,8vw,52px);line-height:1;letter-spacing:-.02em}
+.sh h2 i{font-weight:500}
+.kicker{font:600 11px/1.3 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-.timeline{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.timeline>li{background:var(--surface);border:1px solid var(--cardline);border-radius:24px;box-shadow:var(--shadow);padding:20px 24px;
-  -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
-.timeline .when{color:var(--accent);font-weight:600;font-size:14px}
-.timeline h3{margin:2px 0 4px;font-size:20px}
-.timeline p{margin:0;color:var(--muted)}
-.timeline ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
-.timeline ul li{margin-bottom:3px}
-.loc{text-align:center}
-.goal{display:inline-block;margin:6px 0 24px;padding:9px 18px;border-radius:22px;background:var(--surface);border:1px solid var(--cardline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:var(--shadow);font-weight:600;font-size:15px}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:20px;box-shadow:var(--shadow);padding:22px}
+@media (min-width:720px){.card{padding:28px}}
 
-.road{list-style:none;margin:0;padding:0;display:grid}
-.road li{position:relative;padding:0 0 28px 44px}
-.road li:last-child{padding-bottom:0}
-.road li::before{content:"";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
-.road li::after{content:"";position:absolute;left:10px;top:28px;bottom:2px;width:2px;background:var(--line)}
-.road li:last-child::after{display:none}
-.road li.done::before{background:var(--grad);border-color:transparent}
-.road li.done::after{background:var(--grad)}
-.road li.now::before{background:var(--bg);border:6px solid var(--accent)}
-.road li.goal-end::before{background:var(--grad);border-color:transparent;box-shadow:0 0 0 4px var(--chip)}
-.road .when{font-size:13px;font-weight:600;color:var(--accent)}
-.road h3{margin:2px 0 4px;font-size:19px;letter-spacing:-.01em}
-.road p{margin:0;color:var(--muted);font-size:15px}
-@media (min-width:720px){
+/* about */
+.about{display:grid;gap:22px}
+@media (min-width:860px){.about{grid-template-columns:1.25fr 1fr;gap:40px}}
+.story p{margin:0 0 14px;font-size:18px}
+.story p:first-child::first-letter{float:left;font:700 64px/.8 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;margin:6px 10px 0 0;color:var(--green-ink)}
+.story .pull{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-style:italic;font-size:22px;line-height:1.35;border-left:4px solid var(--green);padding:2px 0 2px 16px;margin:20px 0}
+.how h3{margin:4px 0 14px;font-size:22px}
+.how ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.how li{counter-increment:s;position:relative;padding:0 0 14px 46px}
+.how li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font:700 15px/1 "Iowan Old Style",Palatino,Georgia,serif;background:var(--paper)}
+.how li b{display:block}
+.how li span{color:var(--muted);font-size:15px}
+
+/* roadmap */
+.road{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.road li{position:relative;padding:0 0 24px 40px}
+.road li::before{content:"";position:absolute;left:9px;top:8px;bottom:-8px;width:2px;background:repeating-linear-gradient(var(--line) 0 5px,transparent 5px 10px)}
+.road li:last-child::before{display:none}
+.road li::after{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);background:var(--paper)}
+.road li.done::after{background:var(--ink)}
+.road li.now::after{background:var(--green);animation:pulse 1.8s ease-out infinite}
+.road li.goal::after{background:var(--paper);box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 10px var(--green)}
+.road h3{margin:2px 0 0;font-size:22px}
+.road p{margin:2px 0 0;color:var(--muted);font-size:15px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,212,107,.6)}100%{box-shadow:0 0 0 14px rgba(42,212,107,0)}}
+@media (min-width:860px){
   .road{grid-template-columns:repeat(4,1fr)}
-  .road li{padding:44px 20px 0 0}
-  .road li::after{left:28px;right:0;top:10px;bottom:auto;width:auto;height:2px}
+  .road li{padding:40px 16px 0 0}
+  .road li::before{left:22px;right:0;top:9px;bottom:auto;width:auto;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 10px)}
+  .road li::after{top:0}
 }
-.tabs{display:flex;gap:6px;padding:5px;background:var(--chip);border-radius:999px;margin:0 0 20px;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:1;min-width:0;font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:10px 6px;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}
-.tab:hover{color:var(--text)}
-.tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
-.hint{font-size:13px;color:var(--muted);margin:0 0 10px;text-align:center}
-.panel{display:none}
-.panel.on{display:block;animation:pop .45s ease both}
-@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
-.mini{display:grid;gap:12px;grid-template-columns:1fr}
-.mini div{background:var(--chip);border-radius:20px;padding:16px 18px;transition:transform .25s ease}
-.mini div:hover{transform:translateY(-3px)}
-.mini .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--grad);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
-.mini h4{margin:0 0 2px;font-size:16px;letter-spacing:-.01em}
-.mini p{margin:0;color:var(--muted);font-size:14px}
-.tags{display:flex;flex-wrap:wrap;gap:10px}
-.tags span{background:var(--chip);border-radius:999px;padding:10px 18px;font-weight:600;transition:transform .25s}
-.tags span:hover{transform:scale(1.06)}
-.fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
-.fx span{position:absolute;bottom:-30px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:14px;color:var(--accent);opacity:0;animation:rise 14s linear infinite}
-@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.22}85%{opacity:.25}100%{transform:translateY(-520px) rotate(8deg);opacity:0}}
-.hero{position:relative}
-@media (min-width:720px){.mini{grid-template-columns:repeat(4,1fr)}}
-/* life */
-.sp{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--grad);z-index:11}
-.fx{-webkit-mask-image:linear-gradient(#000 65%,transparent);mask-image:linear-gradient(#000 65%,transparent)}
-.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--orb,.35);animation:drift 22s ease-in-out infinite alternate}
-.orb.a{width:300px;height:300px;left:-6%;top:2%;background:#4f86e8}
-.orb.b{width:320px;height:320px;right:-8%;top:20%;background:#8a7ff0;animation-duration:27s;animation-delay:-8s}
-.orb.c{width:240px;height:240px;left:38%;bottom:-8%;background:#4fb3d9;animation-duration:31s;animation-delay:-14s}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(50px,40px) scale(1.18)}}
-@media (prefers-color-scheme:dark){:root{--orb:.28}}
-h1{background-size:220% auto;background-image:linear-gradient(100deg,#4f86e8,#8a7ff0,#4fb3d9,#4f86e8);animation:shine 9s linear infinite}
-@keyframes shine{to{background-position:220% center}}
-.type{margin:0 0 14px;color:var(--muted);font-size:15px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-.type b{color:var(--accent);font-weight:600}
-.caret{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl>li{display:grid;grid-template-columns:1fr;gap:4px;padding:20px 0;border-bottom:1px solid var(--hair)}
+.tl>li:first-child{padding-top:0}
+@media (min-width:720px){.tl>li{grid-template-columns:180px 1fr;gap:24px}}
+.tl .when{font:600 13px/1.6 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--green-ink)}
+.tl h3{margin:0;font-size:23px;line-height:1.25}
+.tl p{margin:6px 0 0;color:var(--muted)}
+
+/* projects */
+.grid{display:grid;gap:18px}
+@media (min-width:720px){.grid{grid-template-columns:1fr 1fr;gap:22px}}
+.proj{position:relative;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.proj:hover{transform:translateY(-4px) rotate(-.3deg);box-shadow:var(--shadow),6px 6px 0 var(--line)}
+.proj .no{font:600 11px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;color:var(--muted)}
+.proj h3{margin:16px 0 10px;font-size:clamp(24px,7.4vw,30px);line-height:1.05;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-weight:700;letter-spacing:-.02em;overflow-wrap:anywhere}
+.proj p{margin:0 0 12px}
+.proj ul{margin:0 0 16px;padding:0;list-style:none}
+.proj ul li{position:relative;padding-left:22px;margin:4px 0;font-size:15px;color:var(--muted)}
+.proj ul li::before{content:"→";position:absolute;left:0;color:var(--green-ink);font-weight:700}
+.stamp{position:absolute;top:14px;right:14px;white-space:nowrap;font:700 10px/1.15 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.04em;text-transform:uppercase;padding:6px 8px;border:2px solid currentColor;border-radius:8px;transform:rotate(4deg)}
+.stamp.ok{color:var(--green-ink);background:var(--green-soft)}
+.stamp.wip{color:var(--wip);background:var(--wip-soft)}
+.in .stamp{animation:stamp .5s cubic-bezier(.2,1.6,.4,1) both .35s}
+@keyframes stamp{from{opacity:0;transform:rotate(-12deg) scale(2.2)}to{opacity:1;transform:rotate(4deg) scale(1)}}
+.links{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
+.lnk{font-size:14px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--green);padding-bottom:1px}
+.lnk:hover{background:var(--green-soft)}
+.lnk+.lnk{margin-left:12px}
+
+/* demos */
+.dintro{max-width:680px;margin:-8px 0 24px;color:var(--muted)}
+.demos{display:grid;gap:22px}
+.demo h3{margin:0;font-size:24px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-weight:700}
+.demo .what{margin:6px 0 16px}
+.term{background:var(--term);color:var(--term-ink);border-radius:14px;padding:14px;font-size:14px;line-height:1.55;overflow-x:auto;
+  box-shadow:inset 0 0 40px rgba(93,242,148,.07),inset 0 0 0 1px rgba(255,255,255,.06);text-shadow:0 0 6px rgba(93,242,148,.35);position:relative}
+.term::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.18) 2px 3px)}
+.term .dim{color:var(--term-dim)}
+.term .hl{color:#10140f;background:#5df294;text-shadow:none;border-radius:3px}
+.term .sp{color:#ffd27a}
+.term .cur::after{content:"▌";animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-h2::after{content:"";display:block;width:36px;height:3px;margin:12px auto 0;border-radius:2px;background:var(--grad)}
-.btn{transition:transform .25s ease,filter .25s}
-.btn:hover{transform:translateY(-2px)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 8px}
-.stat{background:var(--surface);border:1px solid var(--cardline);border-radius:24px;box-shadow:var(--shadow);padding:18px 10px;text-align:center;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
-.stat .num{display:block;font-size:clamp(30px,8vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.stat .lbl{display:block;margin-top:4px;color:var(--muted);font-size:clamp(11px,2.8vw,14px)}
-.card,.timeline>li,.stat{position:relative;overflow:hidden}
-.card::after,.timeline>li::after,.stat::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
-  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(127,140,255,.16),transparent 45%)}
-.card:hover::after,.timeline>li:hover::after,.stat:hover::after{opacity:1}
-.proj{transition:transform .2s ease-out}
-.road li.now::before{animation:ring 2.2s ease-out infinite}
-@keyframes ring{0%{box-shadow:0 0 0 0 rgba(110,168,254,.55)}100%{box-shadow:0 0 0 12px rgba(110,168,254,0)}}
-.road li{opacity:0;transform:translateY(12px)}
-.in .road li{animation:rpop .6s ease both}
-.in .road li:nth-child(2){animation-delay:.25s}.in .road li:nth-child(3){animation-delay:.5s}.in .road li:nth-child(4){animation-delay:.75s}
-@keyframes rpop{to{opacity:1;transform:none}}
-.chips li{transition:transform .25s ease}
-.chips li:hover{transform:translateY(-3px)}
-.grid{display:grid;gap:16px;grid-template-columns:1fr}
-.proj{display:flex;flex-direction:column}
-.proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
-.proj h3{margin:0;font-size:19px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-.status{font-size:13px;font-weight:600;white-space:nowrap}
-.status.ok{color:var(--ok)} .status.wip{color:var(--wip)}
-.proj p{margin:0 0 10px;color:var(--muted)}
-.proj ul{margin:0 0 14px;padding-left:20px}
-.proj li{margin-bottom:4px}
-.proj .more{margin-top:auto;font-weight:600;font-size:15px}
+.dlbl{display:block;font:600 11px/1.3 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.cb{font:600 14px/1 -apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:10px 14px;cursor:pointer;transition:transform .12s,background .2s}
+.cb:active{transform:scale(.95)}
+.cb.pri{background:var(--green);color:#10140f}
+.cb[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cb.fn{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13px;padding:8px 12px}
+.ok-line{margin:12px 0 0;font-weight:600;color:var(--green-ink);min-height:1.6em}
+.small{font-size:13px;color:var(--muted)}
+.file{font:14px/1.7 ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:12px;white-space:pre-wrap;word-break:break-all}
+.file .r{background:var(--hair)}
+.file .c{background:var(--green);color:#10140f;border-radius:2px}
+.file .nl{opacity:.45}
+.two{display:grid;gap:12px}
+@media (min-width:720px){.two{grid-template-columns:1fr 1fr}}
+.stash{font:14px/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace;min-height:48px;padding:12px;border-radius:12px;background:var(--wip-soft);border:1px solid var(--hair);word-break:break-all}
+.lines{list-style:none;margin:0;padding:0;font:14px/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace;min-height:48px}
+.lines li{padding:8px 12px;margin-bottom:6px;border-radius:10px;background:var(--green-soft);animation:pop .35s ease both}
+.lines li b{color:var(--green-ink);margin-right:8px}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.counter{font:600 13px/1.4 ui-monospace,"SF Mono",Menlo,Consolas,monospace;margin-top:10px}
+.swatch{display:inline-block;width:1em;height:1em;border-radius:4px;vertical-align:-2px;margin-left:8px;box-shadow:0 0 0 1px rgba(255,255,255,.4)}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--line);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--green)}
 
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0;margin:0;list-style:none}
-.chips li{background:var(--surface);border:1px solid var(--cardline);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:999px;padding:9px 18px;font-weight:500}
+/* skills & languages */
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{padding:9px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--card);font-weight:600;transition:transform .2s,background .2s}
+.chips li:hover{transform:rotate(-3deg);background:var(--green);color:#10140f}
+.note{margin:16px 0 0;color:var(--muted)}
+.cols{display:grid;gap:40px}
+@media (min-width:860px){.cols{grid-template-columns:1.4fr 1fr}}
 
-/* live demos */
-.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-.links{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
-.links .more{margin-top:0}
-.dm-intro{max-width:52ch;margin:-12px auto 22px;color:var(--muted)}
-.demo h3{margin:0;font-size:19px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-.demo .dsub{margin:4px 0 14px;color:var(--muted)}
-.term{background:#0d1117;color:#e6edf3;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13px;line-height:1.75;min-height:200px;overflow:hidden}
-.term .ln{white-space:pre}
-.term .c{color:#6e7681;border-radius:2px;transition:color .2s,background .2s}
-.term .c.r{color:#e6edf3}
-.term .c.cur{background:rgba(110,168,254,.4)}
-.term .nl{color:#6e7681!important;font-size:11px}
-.term .ok .c{color:#3fb950}
-.term .bd{color:#3fb950;margin-left:8px;opacity:0;transition:opacity .3s}
-.term .ok .bd{opacity:1}
-#dp-term{white-space:pre-wrap;word-break:break-word;min-height:130px}
-.term .dim{color:#7d8590}
-.term .cursor{display:inline-block;width:7px;height:1.1em;background:#e6edf3;vertical-align:-3px;margin-left:1px;animation:blink 1s steps(1) infinite}
-.drow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px}
-.bsg{display:inline-flex;align-items:center;gap:6px}
-.drow .lbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;color:var(--muted);margin-left:6px}
-.cbtn{font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:transform .15s,filter .2s}
-.cbtn:hover{filter:brightness(.95)}
-.cbtn:active{transform:scale(.96)}
-.cbtn.pri,.cbtn[aria-pressed="true"]{background:var(--grad);color:#fff;border-color:transparent}
-.cbtn.sm{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;padding:6px 11px}
-.dstat{margin:12px 0 0;font-size:14px;color:var(--muted);min-height:1.5em}
-.dstat b{color:var(--ok)}
+/* footer */
+footer{margin-top:80px;border-top:3px double var(--line);padding:48px 0 36px;text-align:center}
+footer h2{font-size:clamp(36px,10vw,72px);margin:0;line-height:1;letter-spacing:-.02em}
+footer h2 i{color:var(--green-ink);font-weight:500}
+footer p{color:var(--muted);margin:12px 0 0}
+footer small{display:block;margin-top:36px;color:var(--muted);font:600 11px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
 
-footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
-footer h2{font-size:28px}
-footer .cta{margin-bottom:20px}
-footer small{color:var(--muted)}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+/* motion */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  .fx,.sp{display:none}
-  h1,.orb,.caret,.road li.now::before{animation:none}
-  .road li{opacity:1;transform:none;animation:none!important}
-  .panel.on{animation:none}
-  .term .cursor{animation:none}
+.grid .reveal:nth-child(2n){transition-delay:.12s}
+.mast h1 .w{opacity:0;transform:translateY(40%) rotate(4deg);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.mast h1 .w:nth-child(2){animation-delay:.15s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal,.mast h1 .w{opacity:1!important;transform:none!important}
 }
 
-@media (min-width:720px){
-  .grid{grid-template-columns:1fr 1fr}
-  .wrap{padding:0 24px}
-  .hero{padding:104px 0 72px}
-  section{padding:80px 0}
-}
-
-/* print: clean one-column A4 */
+/* print */
 @media print{
   @page{size:A4;margin:16mm}
-  :root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--line:#ccc;--accent:#000;--ok:#000;--wip:#000;--chip:#eee}
-  body{background:#fff;color:#000;font-size:10.5pt}
-  .road li::before,.road li::after{display:none}
-  .road{grid-template-columns:repeat(4,1fr)}
-  .road li{padding:0 8pt 0 0}
-  .tabs,.hint,.fx,.sp,.type{display:none!important}
-  .road li{opacity:1!important;transform:none!important;animation:none!important}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .card::after,.timeline>li::after,.stat::after{display:none}
-  h1{animation:none!important}
-  .panel{display:block!important;margin-bottom:8pt}
-  .mini{grid-template-columns:repeat(4,1fr)}
-  .mini div,.tags span{background:#fff!important;border:1px solid #ccc}
-  .bar,.avatar,.cta,.proj .more,body::before,.hero42,#demos{display:none!important}
-  h1{background:none!important;-webkit-text-fill-color:#000!important;color:#000!important}
-  .card,.timeline>li,.chips li,.goal{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-  .reveal{opacity:1!important;transform:none!important;transition:none!important}
-  *{animation:none!important;box-shadow:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.45}
+  body::before,.bar,.ticker,.avatar,#demos,.links,.how,.cta,.dots,footer small{display:none!important}
+  .reveal,.mast h1 .w{opacity:1!important;transform:none!important}
+  *{animation:none!important;transition:none!important;box-shadow:none!important}
   .wrap{max-width:none;padding:0}
-  .hero{text-align:left;padding:0 0 10pt}
-  h1{font-size:28pt;margin:0}
-  .sub{font-size:13pt}
-  section{padding:12pt 0;break-inside:avoid}
-  h2{font-size:15pt;margin:0 0 8pt;border-bottom:1px solid #000;padding-bottom:3pt}
-  .card,.timeline li{border:1px solid #ccc;border-radius:6px;padding:8pt 10pt;break-inside:avoid}
-  .grid{grid-template-columns:1fr;gap:8pt}
-  .about p{font-size:10.5pt}
-  footer{border:0;text-align:left;padding:10pt 0 0}
-  footer h2{font-size:15pt}
-  footer .cta{display:block}
-  footer .cta a:after{content:" ("attr(href)")";color:#444;font-size:9pt}
-  footer .cta a{display:block;border:0;padding:0;background:none}
+  .mast{text-align:left;padding:0}
+  .mast .rule{display:none}
+  .mast h1{font-size:30pt;margin:0 0 4pt}
+  .mast .tag{font-size:13pt;margin:0}
+  .mast .tag mark{background:none}
+  section{padding:14pt 0 0;break-inside:avoid-page}
+  .sh{margin-bottom:8pt;padding-bottom:4pt}
+  .sh h2{font-size:16pt}
+  .stats{display:none}
+  .about,.cols,.grid{grid-template-columns:1fr!important;gap:8pt}
+  .card{border:0;padding:0;background:none}
+  .story p{font-size:10.5pt;margin:0 0 6pt}
+  .story p:first-child::first-letter{float:none;font:inherit;margin:0;color:inherit}
+  .story .pull{font-size:11pt;margin:6pt 0}
+  .road{grid-template-columns:repeat(4,1fr)!important}
+  .road li{padding:0 6pt 0 0!important}
+  .road li::before,.road li::after{display:none}
+  .road h3{font-size:11pt}
+  .tl>li{grid-template-columns:110pt 1fr;padding:5pt 0}
+  .tl h3{font-size:11.5pt}
+  .proj{border-bottom:1px solid #ccc!important;padding-bottom:6pt!important;break-inside:avoid}
+  .proj h3{font-size:12pt;margin:0 0 3pt;padding-right:0}
+  .stamp{position:static;display:inline-block;transform:none;border:0;padding:0;background:none!important;max-width:none}
+  .proj ul{margin:0}
+  .chips li{border:0;padding:0 8pt 0 0;background:none}
+  footer{margin-top:14pt;padding:8pt 0 0;text-align:left;border-top:1px solid #000}
+  footer h2{font-size:14pt}
+  footer .pcontact{display:block!important}
 }
+.pcontact{display:none}
 </style>
 </head>
 <body>
 
 <header class="bar">
-  <div class="sp" id="sp"></div>
   <div class="wrap">
+    <a class="logo" href="#top">B<b>.</b>A</a>
     <nav>
-      <a href="#about" data-i18n="nav_about">Über mich</a>
-      <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
-      <a href="#timeline" data-i18n="nav_timeline">Werdegang</a>
-      <a href="#projects" data-i18n="nav_projects">Projekte</a>
-      <a href="#demos" data-i18n="nav_demos">Live-Demos</a>
-      <a href="#skills" data-i18n="nav_skills">Skills</a>
-      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      <a href="#about" data-i18n="n_about">Über mich</a>
+      <a href="#path" data-i18n="n_path">Werdegang</a>
+      <a href="#projects" data-i18n="n_proj">Projekte</a>
+      <a href="#demos" data-i18n="n_demo">Live-Demos</a>
+      <a href="#skills" data-i18n="n_skills">Skills</a>
+      <a href="#contact" data-i18n="n_contact">Kontakt</a>
     </nav>
-    <button class="btn-s" id="lang" type="button" aria-label="Sprache wechseln / Switch language"><span id="l-de" class="on">DE</span> | <span id="l-en">EN</span></button>
-    <button class="btn-s" id="pdf" type="button">PDF</button>
+    <button class="tb" id="lang" type="button" aria-label="Sprache wechseln / Switch language"><span id="l-de" class="on">DE</span> | <span id="l-en">EN</span></button>
+    <button class="tb" id="theme" type="button" aria-label="Hell / Dunkel"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    <button class="tb" id="pdf" type="button">PDF</button>
   </div>
+  <div class="progress" id="progress"></div>
 </header>
 
-<main>
+<main id="top">
 <div class="wrap">
 
-  <div class="hero reveal">
-    <div class="fx" aria-hidden="true"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span style="left:6%;animation-delay:-0s;animation-duration:12s">int main(void)</span><span style="left:14%;animation-delay:-5s;animation-duration:15s">malloc()</span><span style="left:22%;animation-delay:-10s;animation-duration:18s">*ptr</span><span style="left:30%;animation-delay:-1s;animation-duration:14s">0x2A</span><span style="left:38%;animation-delay:-6s;animation-duration:17s">#include</span><span style="left:46%;animation-delay:-11s;animation-duration:13s">NULL</span><span style="left:54%;animation-delay:-2s;animation-duration:16s">git push</span><span style="left:62%;animation-delay:-7s;animation-duration:12s">make</span><span style="left:70%;animation-delay:-12s;animation-duration:15s">free()</span><span style="left:78%;animation-delay:-3s;animation-duration:18s">size_t</span><span style="left:86%;animation-delay:-8s;animation-duration:14s">&amp;x</span><span style="left:94%;animation-delay:-13s;animation-duration:17s">return 0;</span></div>
-    <!-- Foto: später assets/photo.jpg einbinden (siehe Kommentar im CSS bei .avatar) -->
+  <div class="mast">
+    <div class="rule"><span data-i18n="m_left">Lebenslauf</span><span>Mannheim · 2026</span><span data-i18n="m_right">42 Heilbronn</span></div>
+    <h1><span class="w">Berke</span> <span class="w"><i>Alca</i></span></h1>
+    <p class="kicker">Software Engineering Student @ 42 Heilbronn</p>
+    <p class="tag" data-i18n-html="tag">Ich lerne Programmieren an der 42 Heilbronn. <mark>Gerade vor allem C.</mark></p>
+    <p class="meta" data-i18n="meta">22 Jahre · wohnt in Mannheim · sucht ein Praktikum</p>
+    <!-- Foto: später hier einbinden, z. B. <img class="avatar" src="assets/photo.jpg" alt="Berke Alca" style="object-fit:cover"> und das div darunter entfernen -->
     <div class="avatar" aria-hidden="true">BA</div>
-    <h1>Berke Alca</h1>
-    <p class="sub">Software Engineering Student @ 42 Heilbronn</p>
-    <p class="type"><span data-i18n="type_lbl">Schwerpunkt:</span> <b id="tw">C</b><i class="caret"></i></p>
-    <p class="hero42" data-i18n="hero42">42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.</p>
-    <p class="goal" data-i18n="intro">Ich bin Berke, 22 Jahre alt und wohne in Mannheim.</p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="email">E-Mail</a>
+      <a class="btn pri" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="mail">E-Mail schreiben</a>
     </div>
   </div>
 
-  <div class="stats reveal" id="stats">
-    <div class="stat"><span class="num" id="n-done" data-to="3">3</span><span class="lbl" data-i18n="st_l1">Projekte abgeschlossen</span></div>
-    <div class="stat"><span class="num" id="n-wip" data-to="1">1</span><span class="lbl" data-i18n="st_l2">in Arbeit</span></div>
-    <div class="stat"><span class="num" id="n-days" data-to="30">30</span><span class="lbl" data-i18n="st_l3">Tage bei 42 Heilbronn</span></div>
+</div>
+<div class="ticker" aria-hidden="true"><div class="run" id="ticker"></div></div>
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="n-done">3</span><span class="lbl" data-i18n="st1">Projekte fertig</span></div>
+    <div class="stat"><span class="num" id="n-wip">1</span><span class="lbl" data-i18n="st2">gerade dran</span></div>
+    <div class="stat"><span class="num" id="n-days">0</span><span class="lbl" data-i18n="st3">Tage an der 42</span></div>
   </div>
 
-  <section id="about" class="reveal">
-    <h2 data-i18n="about_h">Über mich</h2>
-    <div class="card about">
-      <p class="lead" data-i18n="ab_lead">Student an der 42 Heilbronn. Schwerpunkt C und Unix. Danach: Praktikum, dann Junior Developer.</p>
-      <p class="hint" data-i18n="ab_hint">Tippe einen Reiter an:</p>
-      <div class="tabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" data-tab="p1" data-i18n="tab1" type="button">Was ist 42 Heilbronn?</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="p2" data-i18n="tab2" type="button">Mein Weg</button>
+  <section id="about">
+    <div class="sh reveal"><span class="no">01</span><h2 data-i18n="h_about">Über mich</h2></div>
+    <div class="about">
+      <div class="story reveal">
+        <p data-i18n="ab1">Ich bin Berke, 22, und wohne in Mannheim. Seit Oktober 2026 bin ich an der 42 Heilbronn.</p>
+        <p data-i18n="ab2">Vorher hab ich in Mannheim Informatik studiert. Das war mir zu viel Theorie. Ich will Sachen bauen und sehen, ob sie laufen.</p>
+        <p class="pull" data-i18n="ab3">An der 42 gibt es keine Lehrer und keine Vorlesungen. Du bekommst eine Aufgabe und musst selbst rausfinden, wie es geht.</p>
+        <p data-i18n="ab4">Bis jetzt schreibe ich fast alles in C, auf Linux, mit Makefile und Git. Mein Plan: erst ein Praktikum, dann als Junior Developer anfangen.</p>
       </div>
-      <div class="panel on" id="p1" role="tabpanel">
-        <div class="mini">
-          <div><span class="n">1</span><h4 data-i18n="s1_h">Aufgabe lesen</h4><p data-i18n="s1_p">Jedes Projekt beginnt mit einer schriftlichen Aufgabe.</p></div>
-          <div><span class="n">2</span><h4 data-i18n="s2_h">In C lösen</h4><p data-i18n="s2_p">Selbstständig, ohne Lehrkräfte und ohne Vorlesungen.</p></div>
-          <div><span class="n">3</span><h4 data-i18n="s3_h">Peer-Review</h4><p data-i18n="s3_p">Andere Studierende bewerten den Code.</p></div>
-          <div><span class="n">4</span><h4 data-i18n="s4_h">Norminette</h4><p data-i18n="s4_p">Strenger Coding-Standard, keine Compiler-Warnungen.</p></div>
-        </div>
-      </div>
-      <div class="panel" id="p2" role="tabpanel">
-        <div class="mini">
-          <div><span class="n">1</span><h4 data-i18n="w1_h">Bauzeichner</h4><p data-i18n="w1_p">Ausbildung</p></div>
-          <div><span class="n">2</span><h4 data-i18n="w2_h">Berufskolleg IT</h4><p data-i18n="w2_p">Ulm, 2023–2025, Fachhochschulreife</p></div>
-          <div><span class="n">3</span><h4 data-i18n="w3_h">Informatik</h4><p data-i18n="w3_p">Mannheim, zu theoretisch</p></div>
-          <div><span class="n">4</span><h4 data-i18n="w4_h">42 Heilbronn</h4><p data-i18n="w4_p">Seit 05.10.2026, praxisnah in C</p></div>
-        </div>
+      <div class="card how reveal">
+        <span class="kicker" data-i18n="how_k">Kurz erklärt</span>
+        <h3 data-i18n="how_h">So läuft die 42</h3>
+        <ol>
+          <li><b data-i18n="how1b">Aufgabe</b><span data-i18n="how1">Jedes Projekt startet mit einem PDF, in dem steht, was das Programm können muss.</span></li>
+          <li><b data-i18n="how2b">Selber machen</b><span data-i18n="how2">Keine Lehrer. Man liest man-Pages und fragt die Leute neben sich.</span></li>
+          <li><b data-i18n="how3b">Peer-Review</b><span data-i18n="how3">Andere Studierende testen meinen Code. Ich teste ihren.</span></li>
+          <li><b data-i18n="how4b">Norminette</b><span data-i18n="how4">Strenge Regeln, z. B. max. 25 Zeilen pro Funktion. Eine Compiler-Warnung und es zählt nicht.</span></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section id="roadmap" class="reveal">
-    <h2 data-i18n="rm_h">Roadmap</h2>
-    <div class="card">
-      <ol class="road">
-        <li class="done">
-          <div class="when" data-i18n="rm1_when">05.10.2026</div>
-          <h3 data-i18n="rm1_h">Start Core Curriculum</h3>
-          <p data-i18n="rm1_p">42 Heilbronn</p>
-        </li>
-        <li class="now">
-          <div class="when" data-i18n="rm2_when">Aktuell</div>
-          <h3 data-i18n="rm2_h">Projekte in C</h3>
-          <p data-i18n="rm2_p">Abgeschlossene und laufende Projekte siehe unten</p>
-        </li>
-        <li>
-          <div class="when" data-i18n="rm3_when">Als Nächstes</div>
-          <h3 data-i18n="rm3_h">Praktikum</h3>
-          <p data-i18n="rm3_p">Erste Berufserfahrung in der Softwareentwicklung</p>
-        </li>
-        <li class="goal-end">
-          <div class="when" data-i18n="rm4_when">Ziel</div>
-          <h3 data-i18n="rm4_h">Junior Developer</h3>
-          <p data-i18n="rm4_p">Einstieg als Entwickler</p>
-        </li>
-      </ol>
-    </div>
+  <section id="road">
+    <div class="sh reveal"><span class="no">02</span><h2 data-i18n="h_road">Der Plan</h2></div>
+    <ol class="road reveal">
+      <li class="done"><span class="kicker">05.10.2026</span><h3 data-i18n="r1">Start an der 42</h3><p>42 Heilbronn</p></li>
+      <li class="now"><span class="kicker" data-i18n="r2k">Jetzt</span><h3 data-i18n="r2">Projekte in C</h3><p data-i18n="r2p">Siehe unten</p></li>
+      <li><span class="kicker" data-i18n="r3k">Als Nächstes</span><h3 data-i18n="r3">Praktikum</h3><p data-i18n="r3p">Echte Software in einem Team</p></li>
+      <li class="goal"><span class="kicker" data-i18n="r4k">Ziel</span><h3>Junior Developer</h3><p data-i18n="r4p">Fester Einstieg als Entwickler</p></li>
+    </ol>
   </section>
 
-  <section id="timeline" class="reveal">
-    <h2 data-i18n="tl_h">Werdegang</h2>
-    <ul class="timeline">
-      <li>
-        <div class="when" data-i18n="tl_42_when">Seit 05.10.2026</div>
-        <h3 data-i18n="tl_42_h">42 Heilbronn (Common Core)</h3>
-        <p data-i18n="tl_42_p">Projektbasierte Ausbildung in C, geprüft durch Peer-Evaluation.</p>
+  <section id="path">
+    <div class="sh reveal"><span class="no">03</span><h2 data-i18n="h_path">Werdegang</h2></div>
+    <ul class="tl">
+      <li class="reveal">
+        <span class="when" data-i18n="t1w">seit 05.10.2026</span>
+        <div><h3>42 Heilbronn <span data-i18n="t1s">(Common Core)</span></h3>
+        <p data-i18n="t1p">Projekte in C, bewertet von anderen Studierenden.</p></div>
       </li>
-      <li>
-        <div class="when" data-i18n="tl_st_when">2025 – 2026</div>
-        <h3 data-i18n="tl_st_h">Informatik (B.Sc.), Hochschule Mannheim</h3>
-        <p data-i18n="tl_st_p">Informatik-Grundlagen. Wechsel zu 42 Heilbronn aufgrund des stärkeren Praxisbezugs.</p>
+      <li class="reveal">
+        <span class="when">2025 – 2026</span>
+        <div><h3 data-i18n="t2h">Informatik (B.Sc.), Hochschule Mannheim</h3>
+        <p data-i18n="t2p">Grundlagen gelernt, dann gewechselt. Zu viel Theorie, zu wenig Code.</p></div>
       </li>
-      <li>
-        <div class="when" data-i18n="tl_bk_when">2023 – 2025</div>
-        <h3 data-i18n="tl_bk_h">Berufskolleg Informationstechnik, Ulm</h3>
-        <p data-i18n="tl_bk_p">Mit Fachhochschulreife abgeschlossen.</p>
-        <ul>
-          <li data-i18n="tl_bk_b2">Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau</li>
-        </ul>
+      <li class="reveal">
+        <span class="when">2023 – 2025</span>
+        <div><h3 data-i18n="t3h">Berufskolleg Informationstechnik, Ulm</h3>
+        <p data-i18n="t3p">Fachhochschulreife. Dort viel mit Linux gemacht: installieren, partitionieren, Shell-Skripte, Benutzer und Rechte, Netzwerk und Dienste.</p></div>
       </li>
-      <li>
-        <h3 data-i18n="tl_bz_h">Ausbildung zum Bauzeichner</h3>
+      <li class="reveal">
+        <span class="when" data-i18n="t4w">davor</span>
+        <div><h3 data-i18n="t4h">Ausbildung zum Bauzeichner</h3>
+        <p data-i18n="t4p">Erst planen, dann bauen. Das mach ich beim Programmieren heute noch so.</p></div>
       </li>
     </ul>
   </section>
 
-  <section id="projects" class="reveal">
-    <h2 data-i18n="pr_h">Projekte</h2>
+  <section id="projects">
+    <div class="sh reveal"><span class="no">04</span><h2 data-i18n="h_proj">Projekte</h2></div>
     <div class="grid">
 
-      <article class="card proj">
-        <div class="top"><h3>libft</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
-        <p data-i18n="libft_p">Meine eigene C-Bibliothek: nachgebaute libc-Funktionen, String-Helfer und verkettete Listen, gebaut als libft.a.</p>
+      <article class="card proj reveal">
+        <span class="no">PROJEKT 01</span>
+        <span class="stamp ok" data-i18n="done">✅ Abgeschlossen</span>
+        <h3>libft</h3>
+        <p data-i18n="lf_p">Meine eigene kleine C-Bibliothek. strlen, atoi, split und Co. selbst geschrieben, dazu verkettete Listen. Alles landet in libft.a und kommt in den nächsten Projekten wieder zum Einsatz.</p>
         <ul>
-          <li data-i18n="libft_b1">Zeiger und Speicher aus nächster Nähe verstanden</li>
-          <li data-i18n="libft_b2">Verkettete Listen mit Zeigern aufgebaut</li>
-          <li data-i18n="libft_b3">Eine Bibliothek per Makefile bauen (libft.a)</li>
-        </ul>
-        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/libft" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-      </article>
-
-      <article class="card proj">
-        <div class="top"><h3>get_next_line</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
-        <p data-i18n="gnl_p">Liest einen File Descriptor Zeile für Zeile. Ein static-Puffer hält den Rest zwischen den Aufrufen.</p>
-        <ul>
-          <li data-i18n="gnl_b1">Zustand zwischen Funktionsaufrufen mit static-Variablen</li>
-          <li data-i18n="gnl_b2">Lesen in Blöcken mit read() und BUFFER_SIZE</li>
-          <li data-i18n="gnl_b3">Sauber mit malloc und free umgehen</li>
+          <li data-i18n="lf_1">Wie Zeiger und Speicher wirklich funktionieren</li>
+          <li data-i18n="lf_2">Verkettete Listen von Hand bauen</li>
+          <li data-i18n="lf_3">Ein Makefile, das eine Bibliothek baut</li>
         </ul>
         <div class="links">
-          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-          <a class="more" href="#demo-gnl" data-i18n="try">▶ Live-Demo</a>
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/libft" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-lf" data-i18n="try">▶ Ausprobieren</a>
         </div>
       </article>
 
-      <article class="card proj">
-        <div class="top"><h3>ft_printf</h3><span class="status ok" data-i18n="st_done">✅ Abgeschlossen</span></div>
-        <p data-i18n="pf_p">Eigener Nachbau von printf mit variadischen Argumenten.</p>
-        <ul>
-          <li data-i18n="pf_b1">Variadische Funktionen mit va_list</li>
-          <li data-i18n="pf_b2">Zahlen in Dezimal und Hexadezimal umwandeln</li>
-          <li data-i18n="pf_b3">Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)</li>
-        </ul>
-        <div class="links">
-          <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-          <a class="more" href="#demo-pf" data-i18n="try">▶ Live-Demo</a>
-        </div>
-      </article>
-
-      <article class="card proj">
-        <div class="top"><h3>push_swap</h3><span class="status wip" data-i18n="st_wip">🔄 In Arbeit</span></div>
-        <p data-i18n="ps_p">Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.</p>
-        <a class="more" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen →</a>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="demos" class="reveal">
-    <h2 data-i18n="dm_h">Live-Demos</h2>
-    <p class="loc dm-intro" data-i18n="dm_p">Echte Ausgabe meines C-Codes. Einfach antippen.</p>
-    <div class="grid">
-      <article class="card demo" id="demo-gnl">
+      <article class="card proj reveal">
+        <span class="no">PROJEKT 02</span>
+        <span class="stamp ok" data-i18n="done">✅ Abgeschlossen</span>
         <h3>get_next_line</h3>
-        <p class="dsub" data-i18n="dg_sub">Liest eine Datei Stück für Stück und gibt sie Zeile für Zeile zurück.</p>
-        <div class="term" id="dg-term"></div>
-        <div class="drow">
-          <button class="cbtn pri" id="dg-play" type="button" data-i18n="d_play">▶ Abspielen</button>
-          <span class="bsg"><span class="lbl">BUFFER_SIZE</span>
-          <button class="cbtn sm" type="button" data-bs="1" aria-pressed="false">1</button>
-          <button class="cbtn sm" type="button" data-bs="5" aria-pressed="true">5</button>
-          <button class="cbtn sm" type="button" data-bs="42" aria-pressed="false">42</button></span>
+        <p data-i18n="gnl_p">Liest eine Datei Zeile für Zeile. Klingt einfach, aber read() liefert nur Stücke fester Größe. Was übrig bleibt, merkt sich eine static-Variable bis zum nächsten Aufruf.</p>
+        <ul>
+          <li data-i18n="gnl_1">static-Variablen über mehrere Aufrufe</li>
+          <li data-i18n="gnl_2">Lesen in Blöcken mit read() und BUFFER_SIZE</li>
+          <li data-i18n="gnl_3">malloc und free ohne Speicherlecks</li>
+        </ul>
+        <div class="links">
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/get_next_line" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-gnl" data-i18n="try">▶ Ausprobieren</a>
         </div>
-        <p class="dstat" id="dg-stat"></p>
       </article>
-      <article class="card demo" id="demo-pf">
+
+      <article class="card proj reveal">
+        <span class="no">PROJEKT 03</span>
+        <span class="stamp ok" data-i18n="done">✅ Abgeschlossen</span>
         <h3>ft_printf</h3>
-        <p class="dsub" data-i18n="dp_sub">Mein eigenes printf.</p>
-        <div class="term" id="dp-term"></div>
-        <div class="drow">
-          <button class="cbtn pri" id="dp-play" type="button" data-i18n="d_next">▶ Nächstes Beispiel</button>
+        <p data-i18n="pf_p">Mein eigenes printf. Kann %c, %s, %p, %d, %i, %u, %x, %X und %%.</p>
+        <ul>
+          <li data-i18n="pf_1">Beliebig viele Argumente mit va_list</li>
+          <li data-i18n="pf_2">Zahlen ins Hex-System umrechnen</li>
+          <li data-i18n="pf_3">Eine kleine Funktion pro Umwandlung (Norm: max. 25 Zeilen)</li>
+        </ul>
+        <div class="links">
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/ft_printf" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-pf" data-i18n="try">▶ Ausprobieren</a>
         </div>
-        <p class="dstat" id="dp-stat"></p>
       </article>
+
+      <article class="card proj reveal">
+        <span class="no">PROJEKT 04</span>
+        <span class="stamp wip" data-i18n="wip">🔄 In Arbeit</span>
+        <h3>push_swap</h3>
+        <p data-i18n="ps_p">Zahlen sortieren mit nur zwei Stacks und ein paar erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Bin gerade dran.</p>
+        <div class="links">
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <section id="skills" class="reveal">
-    <h2 data-i18n="sk_h">Skills</h2>
-    <ul class="chips">
-      <li>C</li>
-      <li>Unix / Linux</li>
-      <li>Git</li>
-      <li>Makefiles</li>
-      <li>Shell</li>
-      <li data-i18n="sk_mem">Speicherverwaltung</li>
-    </ul>
-    <p class="loc" style="margin-top:16px" data-i18n="sk_next">Geplant: Python</p>
+  <section id="demos">
+    <div class="sh reveal"><span class="no">05</span><h2 data-i18n="h_demo">Live-Demos</h2></div>
+    <p class="dintro reveal" data-i18n="d_intro">Das hier ist keine Animation, die so tut als ob. Ich habe meinen C-Code kompiliert, laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.</p>
+    <div class="demos">
+
+      <article class="card demo reveal" id="demo-lf">
+        <h3>libft</h3>
+        <p class="what" data-i18n="lf_what">Tipp auf eine Funktion. Du siehst den Aufruf und was meine Bibliothek zurückgibt.</p>
+        <div class="row" id="lf-btns" style="margin-top:0"></div>
+        <div class="term" id="lf-term" style="margin-top:14px"></div>
+        <p class="ok-line" id="lf-ok"></p>
+      </article>
+
+      <article class="card demo reveal" id="demo-gnl">
+        <h3>get_next_line</h3>
+        <p class="what" data-i18n="gnl_what">Die Funktion bekommt von read() immer nur ein paar Zeichen auf einmal. Daraus muss sie ganze Zeilen bauen. Stell die Puffergröße ein und drück auf Abspielen.</p>
+        <span class="dlbl" data-i18n="g_file">Die Datei (grün = gerade gelesen)</span>
+        <div class="file" id="g-file"></div>
+        <div class="row">
+          <button class="cb pri" id="g-play" type="button" data-i18n="g_play">▶ Abspielen</button>
+          <button class="cb" id="g-step" type="button" data-i18n="g_step">Ein Schritt</button>
+          <span class="small">BUFFER_SIZE</span>
+          <button class="cb" type="button" data-bs="4" aria-pressed="false">4</button>
+          <button class="cb" type="button" data-bs="10" aria-pressed="true">10</button>
+          <button class="cb" type="button" data-bs="42" aria-pressed="false">42</button>
+        </div>
+        <div class="two">
+          <div><span class="dlbl" data-i18n="g_stash">Merker (static)</span><div class="stash" id="g-stash"></div></div>
+          <div><span class="dlbl" data-i18n="g_lines">Zurückgegebene Zeilen</span><ol class="lines" id="g-lines"></ol></div>
+        </div>
+        <p class="counter" id="g-count"></p>
+        <p class="ok-line" id="g-ok"></p>
+      </article>
+
+      <article class="card demo reveal" id="demo-pf">
+        <h3>ft_printf</h3>
+        <p class="what" data-i18n="pf_what">Oben steht der Aufruf, darunter was rauskommt. Daneben lief das echte printf mit denselben Werten. Sind beide gleich, gibt es einen Haken.</p>
+        <div class="term" id="pf-term"></div>
+        <div class="row">
+          <button class="cb" id="pf-prev" type="button" aria-label="zurück">◀</button>
+          <button class="cb pri" id="pf-next" type="button" data-i18n="pf_next">Nächstes Beispiel ▶</button>
+          <div class="dots" id="pf-dots"></div>
+        </div>
+        <p class="ok-line" id="pf-ok"></p>
+      </article>
+
+      <p class="small reveal" data-i18n="d_note">Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.</p>
+    </div>
   </section>
 
-  <section id="languages" class="reveal">
-    <h2 data-i18n="lg_h">Sprachen</h2>
-    <ul class="chips">
-      <li data-i18n="lg_de">Deutsch</li>
-      <li data-i18n="lg_en">Englisch</li>
-      <li data-i18n="lg_tr">Türkisch</li>
-    </ul>
+  <section id="skills">
+    <div class="cols">
+      <div>
+        <div class="sh reveal"><span class="no">06</span><h2>Skills</h2></div>
+        <ul class="chips reveal">
+          <li>C</li><li>Unix / Linux</li><li>Git</li><li>Makefiles</li><li>Shell</li><li data-i18n="mem">Speicherverwaltung</li>
+        </ul>
+        <p class="note reveal" data-i18n="sk_next">Als Nächstes will ich Python lernen.</p>
+      </div>
+      <div>
+        <div class="sh reveal"><span class="no">07</span><h2 data-i18n="h_lang">Sprachen</h2></div>
+        <ul class="chips reveal">
+          <li data-i18n="lg_de">Deutsch</li><li data-i18n="lg_tr">Türkisch</li><li data-i18n="lg_en">Englisch</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
 </div>
@@ -511,13 +512,16 @@ footer small{color:var(--muted)}
 
 <footer id="contact">
   <div class="wrap reveal">
-    <h2 data-i18n="ct_h">Kontakt</h2>
+    <span class="kicker" data-i18n="c_k">Kontakt</span>
+    <h2 data-i18n-html="c_h">Lass uns <i>reden.</i></h2>
+    <p data-i18n="c_p">Ich suche ein Praktikum. Schreib mir einfach.</p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="mailto:berkealca@gmail.com">berkealca@gmail.com</a>
+      <a class="btn pri" href="mailto:berkealca@gmail.com">berkealca@gmail.com</a>
+      <a class="btn" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-    <small>© Berke Alca</small>
+    <p class="pcontact">berkealca@gmail.com · github.com/berke-alca · linkedin.com/in/berke-alca-11a065178</p>
+    <small>© Berke Alca · Mannheim</small>
   </div>
 </footer>
 
@@ -525,312 +529,262 @@ footer small{color:var(--muted)}
 (function(){
   var T = {
     de:{
-      nav_about:"Über mich", nav_roadmap:"Roadmap", nav_timeline:"Werdegang", nav_projects:"Projekte", nav_skills:"Skills", nav_contact:"Kontakt",
-      email:"E-Mail",
-rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start Core Curriculum", rm1_p:"42 Heilbronn",
-      rm2_when:"Aktuell", rm2_h:"Projekte in C", rm2_p:"Abgeschlossene und laufende Projekte siehe unten",
-      rm3_when:"Als Nächstes", rm3_h:"Praktikum", rm3_p:"Erste Berufserfahrung in der Softwareentwicklung",
-      rm4_when:"Ziel", rm4_h:"Junior Developer", rm4_p:"Einstieg als Entwickler",
-      type_lbl:"Schwerpunkt:", st_l1:"Projekte abgeschlossen", st_l2:"in Arbeit", st_l3:"Tage bei 42 Heilbronn",
-      about_h:"Über mich",
-      hero42:"42 Heilbronn ist eine projektbasierte Programmierschule ohne Lehrkräfte und ohne Vorlesungen.",
-      ab_lead:"Student an der 42 Heilbronn. Schwerpunkt C und Unix. Danach: Praktikum, dann Junior Developer.",
-      ab_hint:"Tippe einen Reiter an:", tab1:"Was ist 42 Heilbronn?", tab2:"Mein Weg",
-      s1_h:"Aufgabe lesen", s1_p:"Jedes Projekt beginnt mit einer schriftlichen Aufgabe.",
-      s2_h:"In C lösen", s2_p:"Selbstständig, ohne Lehrkräfte und ohne Vorlesungen.",
-      s3_h:"Peer-Review", s3_p:"Andere Studierende bewerten den Code.",
-      s4_h:"Norminette", s4_p:"Strenger Coding-Standard, keine Compiler-Warnungen.",
-      w1_h:"Bauzeichner", w1_p:"Ausbildung",
-      w2_h:"Berufskolleg IT", w2_p:"Ulm, 2023–2025, Fachhochschulreife",
-      w3_h:"Informatik", w3_p:"Mannheim, zu theoretisch",
-      w4_h:"42 Heilbronn", w4_p:"Seit 05.10.2026, praxisnah in C",
-      intro:"Ich bin Berke, 22 Jahre alt und wohne in Mannheim.",
-      tl_st_when:"2025 – 2026", tl_st_h:"Informatik (B.Sc.), Hochschule Mannheim",
-      tl_st_p:"Informatik-Grundlagen. Wechsel zu 42 Heilbronn aufgrund des stärkeren Praxisbezugs.",
-      tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Informationstechnik, Ulm", tl_bk_p:"Mit Fachhochschulreife abgeschlossen.",
-      tl_bk_b2:"Linux auf tieferer Ebene: Installation und Partitionen, Shell und Skripte, Benutzer und Rechte, Netzwerk und Dienste, Systemaufbau",
-      sk_next:"Geplant: Python",
-      lg_h:"Sprachen", lg_de:"Deutsch", lg_en:"Englisch", lg_tr:"Türkisch",
-      tl_h:"Werdegang",
-      tl_42_when:"Seit 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
-      tl_42_p:"Projektbasierte Ausbildung in C, geprüft durch Peer-Evaluation.",
-      tl_bz_h:"Ausbildung zum Bauzeichner",
-      pr_h:"Projekte", st_done:"✅ Abgeschlossen", st_wip:"🔄 In Arbeit", code:"Code ansehen →",
-      libft_p:"Meine eigene C-Bibliothek: nachgebaute libc-Funktionen, String-Helfer und verkettete Listen, gebaut als libft.a.",
-      libft_b1:"Zeiger und Speicher aus nächster Nähe verstanden",
-      libft_b2:"Verkettete Listen mit Zeigern aufgebaut",
-      libft_b3:"Eine Bibliothek per Makefile bauen (libft.a)",
-      gnl_p:"Liest einen File Descriptor Zeile für Zeile. Ein static-Puffer hält den Rest zwischen den Aufrufen.",
-      gnl_b1:"Zustand zwischen Funktionsaufrufen mit static-Variablen",
-      gnl_b2:"Lesen in Blöcken mit read() und BUFFER_SIZE",
-      gnl_b3:"Sauber mit malloc und free umgehen",
-      pf_p:"Eigener Nachbau von printf mit variadischen Argumenten.",
-      pf_b1:"Variadische Funktionen mit va_list",
-      pf_b2:"Zahlen in Dezimal und Hexadezimal umwandeln",
-      pf_b3:"Code in kleine Funktionen aufteilen, eine pro Umwandlung (Norm: max. 25 Zeilen)",
-      ps_p:"Sortiert eine Liste von Zahlen mit zwei Stacks und wenigen erlaubten Operationen, in möglichst wenigen Zügen.",
-      sk_h:"Skills", sk_mem:"Speicherverwaltung",
-      ct_h:"Kontakt",
-      nav_demos:"Live-Demos", try:"▶ Live-Demo", dm_h:"Live-Demos",
-      dm_p:"Echte Ausgabe meines C-Codes. Einfach antippen.",
-      dg_sub:"Liest eine Datei Stück für Stück und gibt sie Zeile für Zeile zurück.", dp_sub:"Mein eigenes printf.",
-      d_play:"▶ Abspielen", d_next:"▶ Nächstes Beispiel", dg_hint:"Tipp auf ▶ Abspielen.", dg_lines:"Zeilen",
-      dg_leak:"✅ keine Speicherlecks", dp_ok:"✅ Gleiche Ausgabe wie printf", dp_bad:"⚠ Anders als printf"
+      n_about:"Über mich", n_path:"Werdegang", n_proj:"Projekte", n_demo:"Live-Demos", n_skills:"Skills", n_contact:"Kontakt",
+      m_left:"Lebenslauf", m_right:"42 Heilbronn",
+      tag:"Ich lerne Programmieren an der 42 Heilbronn. <mark>Gerade vor allem C.</mark>",
+      meta:"22 Jahre · wohnt in Mannheim · sucht ein Praktikum", mail:"E-Mail schreiben",
+      st1:"Projekte fertig", st2:"gerade dran", st3:"Tage an der 42",
+      h_about:"Über mich",
+      ab1:"Ich bin Berke, 22, und wohne in Mannheim. Seit Oktober 2026 bin ich an der 42 Heilbronn.",
+      ab2:"Vorher hab ich in Mannheim Informatik studiert. Das war mir zu viel Theorie. Ich will Sachen bauen und sehen, ob sie laufen.",
+      ab3:"An der 42 gibt es keine Lehrer und keine Vorlesungen. Du bekommst eine Aufgabe und musst selbst rausfinden, wie es geht.",
+      ab4:"Bis jetzt schreibe ich fast alles in C, auf Linux, mit Makefile und Git. Mein Plan: erst ein Praktikum, dann als Junior Developer anfangen.",
+      how_k:"Kurz erklärt", how_h:"So läuft die 42",
+      how1b:"Aufgabe", how1:"Jedes Projekt startet mit einem PDF, in dem steht, was das Programm können muss.",
+      how2b:"Selber machen", how2:"Keine Lehrer. Man liest man-Pages und fragt die Leute neben sich.",
+      how3b:"Peer-Review", how3:"Andere Studierende testen meinen Code. Ich teste ihren.",
+      how4b:"Norminette", how4:"Strenge Regeln, z. B. max. 25 Zeilen pro Funktion. Eine Compiler-Warnung und es zählt nicht.",
+      h_road:"Der Plan", r1:"Start an der 42", r2k:"Jetzt", r2:"Projekte in C", r2p:"Siehe unten",
+      r3k:"Als Nächstes", r3:"Praktikum", r3p:"Echte Software in einem Team", r4k:"Ziel", r4p:"Fester Einstieg als Entwickler",
+      h_path:"Werdegang", t1w:"seit 05.10.2026", t1s:"(Common Core)", t1p:"Projekte in C, bewertet von anderen Studierenden.",
+      t2h:"Informatik (B.Sc.), Hochschule Mannheim", t2p:"Grundlagen gelernt, dann gewechselt. Zu viel Theorie, zu wenig Code.",
+      t3h:"Berufskolleg Informationstechnik, Ulm", t3p:"Fachhochschulreife. Dort viel mit Linux gemacht: installieren, partitionieren, Shell-Skripte, Benutzer und Rechte, Netzwerk und Dienste.",
+      t4w:"davor", t4h:"Ausbildung zum Bauzeichner", t4p:"Erst planen, dann bauen. Das mach ich beim Programmieren heute noch so.",
+      h_proj:"Projekte", done:"✅ Abgeschlossen", wip:"🔄 In Arbeit", code:"Code ansehen ↗", try:"▶ Ausprobieren",
+      lf_p:"Meine eigene kleine C-Bibliothek. strlen, atoi, split und Co. selbst geschrieben, dazu verkettete Listen. Alles landet in libft.a und kommt in den nächsten Projekten wieder zum Einsatz.",
+      lf_1:"Wie Zeiger und Speicher wirklich funktionieren", lf_2:"Verkettete Listen von Hand bauen", lf_3:"Ein Makefile, das eine Bibliothek baut",
+      gnl_p:"Liest eine Datei Zeile für Zeile. Klingt einfach, aber read() liefert nur Stücke fester Größe. Was übrig bleibt, merkt sich eine static-Variable bis zum nächsten Aufruf.",
+      gnl_1:"static-Variablen über mehrere Aufrufe", gnl_2:"Lesen in Blöcken mit read() und BUFFER_SIZE", gnl_3:"malloc und free ohne Speicherlecks",
+      pf_p:"Mein eigenes printf. Kann %c, %s, %p, %d, %i, %u, %x, %X und %%.",
+      pf_1:"Beliebig viele Argumente mit va_list", pf_2:"Zahlen ins Hex-System umrechnen", pf_3:"Eine kleine Funktion pro Umwandlung (Norm: max. 25 Zeilen)",
+      ps_p:"Zahlen sortieren mit nur zwei Stacks und ein paar erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Bin gerade dran.",
+      h_demo:"Live-Demos",
+      d_intro:"Das hier ist keine Animation, die so tut als ob. Ich habe meinen C-Code kompiliert, laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.",
+      lf_what:"Tipp auf eine Funktion. Du siehst den Aufruf und was meine Bibliothek zurückgibt.",
+      lf_same:"✅ Gleiches Ergebnis wie das Original %s() aus der C-Standardbibliothek", lf_right:"✅ Richtiges Ergebnis",
+      gnl_what:"Die Funktion bekommt von read() immer nur ein paar Zeichen auf einmal. Daraus muss sie ganze Zeilen bauen. Stell die Puffergröße ein und drück auf Abspielen.",
+      g_file:"Die Datei (grün = gerade gelesen)", g_play:"▶ Abspielen", g_step:"Ein Schritt", g_stash:"Merker (static)", g_lines:"Zurückgegebene Zeilen",
+      g_count:"read() aufgerufen: %r× · Zeilen: %l", g_empty:"(leer)", g_end:"Datei zu Ende, get_next_line gibt NULL zurück.",
+      g_ok:"✅ Alle Zeilen zusammen ergeben genau die Datei. Keine Speicherlecks.", g_tip:"Tipp: Mit BUFFER_SIZE 4 siehst du am besten, wie sie Stück für Stück arbeitet.",
+      pf_what:"Oben steht der Aufruf, darunter was rauskommt. Daneben lief das echte printf mit denselben Werten. Sind beide gleich, gibt es einen Haken.",
+      pf_next:"Nächstes Beispiel ▶", pf_ret:"Rückgabewert", pf_chars:"Zeichen", pf_ok:"✅ Genau dieselbe Ausgabe wie printf", pf_bad:"⚠ Anders als printf",
+      d_note:"Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.",
+      mem:"Speicherverwaltung", sk_next:"Als Nächstes will ich Python lernen.",
+      h_lang:"Sprachen", lg_de:"Deutsch", lg_tr:"Türkisch", lg_en:"Englisch",
+      c_k:"Kontakt", c_h:"Lass uns <i>reden.</i>", c_p:"Ich suche ein Praktikum. Schreib mir einfach.",
+      ticker:["C","Unix","Git","Makefiles","Shell","valgrind","Norminette","42 Heilbronn","sucht Praktikum"]
     },
     en:{
-      nav_about:"About", nav_roadmap:"Roadmap", nav_timeline:"Timeline", nav_projects:"Projects", nav_skills:"Skills", nav_contact:"Contact",
-      email:"Email",
-rm_h:"Roadmap", rm1_when:"05.10.2026", rm1_h:"Start of Core Curriculum", rm1_p:"42 Heilbronn",
-      rm2_when:"Now", rm2_h:"Projects in C", rm2_p:"Completed and ongoing projects below",
-      rm3_when:"Next", rm3_h:"Internship", rm3_p:"First professional experience in software development",
-      rm4_when:"Goal", rm4_h:"Junior Developer", rm4_p:"Starting out as a developer",
-      type_lbl:"Focus:", st_l1:"projects completed", st_l2:"in progress", st_l3:"days at 42 Heilbronn",
-      about_h:"About me",
-      hero42:"42 Heilbronn is a project-based coding school with no teachers and no lectures.",
-      ab_lead:"Student at 42 Heilbronn. Focus on C and Unix. Next: an internship, then Junior Developer.",
-      ab_hint:"Tap a tab:", tab1:"What is 42 Heilbronn?", tab2:"My path",
-      s1_h:"Read the subject", s1_p:"Every project starts with a written assignment.",
-      s2_h:"Solve it in C", s2_p:"On my own, with no teachers and no lectures.",
-      s3_h:"Peer review", s3_p:"Other students assess the code.",
-      s4_h:"Norminette", s4_p:"Strict coding standard, no compiler warnings.",
-      w1_h:"Draughtsman", w1_p:"Apprenticeship",
-      w2_h:"Berufskolleg IT", w2_p:"Ulm, 2023–2025, Fachhochschulreife",
-      w3_h:"Computer science", w3_p:"Mannheim, too theoretical",
-      w4_h:"42 Heilbronn", w4_p:"Since 05.10.2026, hands-on in C",
-      intro:"I'm Berke, 22 years old, and I live in Mannheim.",
-      tl_st_when:"2025 – 2026", tl_st_h:"Computer Science (B.Sc.), Hochschule Mannheim",
-      tl_st_p:"Computer science fundamentals. Moved to 42 Heilbronn for the stronger focus on practice.",
-      tl_bk_when:"2023 – 2025", tl_bk_h:"Berufskolleg Information Technology, Ulm", tl_bk_p:"Completed with the Fachhochschulreife.",
-      tl_bk_b2:"Linux at a deeper level: installation and partitions, shell and scripts, users and permissions, network and services, system structure",
-      sk_next:"Planned: Python",
-      lg_h:"Languages", lg_de:"German", lg_en:"English", lg_tr:"Turkish",
-      tl_h:"Timeline",
-      tl_42_when:"Since 05.10.2026", tl_42_h:"42 Heilbronn (Common Core)",
-      tl_42_p:"Project-based training in C, assessed through peer evaluation.",
-      tl_bz_h:"Apprenticeship as architectural draughtsman",
-      pr_h:"Projects", st_done:"✅ Completed", st_wip:"🔄 In progress", code:"View code →",
-      libft_p:"My own C library: reimplemented libc functions, string helpers and linked lists, built as libft.a.",
-      libft_b1:"Got a close look at pointers and memory",
-      libft_b2:"Built linked lists with pointers",
-      libft_b3:"Building a library with a Makefile (libft.a)",
-      gnl_p:"Reads a file descriptor line by line. A static buffer keeps the leftover between calls.",
-      gnl_b1:"Keeping state between function calls with static variables",
-      gnl_b2:"Reading in chunks with read() and BUFFER_SIZE",
-      gnl_b3:"Handling malloc and free cleanly",
-      pf_p:"My own reimplementation of printf using variadic arguments.",
-      pf_b1:"Variadic functions with va_list",
-      pf_b2:"Converting numbers to decimal and hexadecimal",
-      pf_b3:"Splitting code into small functions, one per conversion (Norm: max. 25 lines)",
-      ps_p:"Sorts a list of integers using two stacks and a limited set of operations, in as few moves as possible.",
-      sk_h:"Skills", sk_mem:"Memory management",
-      ct_h:"Contact",
-      nav_demos:"Live demos", try:"▶ Live demo", dm_h:"Live demos",
-      dm_p:"Real output of my C code. Just tap.",
-      dg_sub:"Reads a file chunk by chunk and returns it line by line.", dp_sub:"My own printf.",
-      d_play:"▶ Play", d_next:"▶ Next example", dg_hint:"Tap ▶ Play.", dg_lines:"lines",
-      dg_leak:"✅ no memory leaks", dp_ok:"✅ Same output as printf", dp_bad:"⚠ Differs from printf"
+      n_about:"About", n_path:"Background", n_proj:"Projects", n_demo:"Live demos", n_skills:"Skills", n_contact:"Contact",
+      m_left:"Résumé", m_right:"42 Heilbronn",
+      tag:"I'm learning to code at 42 Heilbronn. <mark>Mostly C right now.</mark>",
+      meta:"22 · lives in Mannheim · looking for an internship", mail:"Send an email",
+      st1:"projects done", st2:"in progress", st3:"days at 42",
+      h_about:"About me",
+      ab1:"I'm Berke, 22, and I live in Mannheim. I've been at 42 Heilbronn since October 2026.",
+      ab2:"Before that I studied computer science in Mannheim. Too much theory for me. I want to build things and see if they run.",
+      ab3:"42 has no teachers and no lectures. You get a task and figure out on your own how to solve it.",
+      ab4:"So far I write almost everything in C, on Linux, with Makefiles and Git. The plan: an internship first, then start as a junior developer.",
+      how_k:"In short", how_h:"How 42 works",
+      how1b:"The task", how1:"Every project starts with a PDF that says what the program has to do.",
+      how2b:"Do it yourself", how2:"No teachers. You read man pages and ask the people next to you.",
+      how3b:"Peer review", how3:"Other students test my code. I test theirs.",
+      how4b:"Norminette", how4:"Strict rules, e.g. max. 25 lines per function. One compiler warning and it doesn't count.",
+      h_road:"The plan", r1:"Started at 42", r2k:"Now", r2:"Projects in C", r2p:"See below",
+      r3k:"Next", r3:"Internship", r3p:"Real software in a team", r4k:"Goal", r4p:"A proper start as a developer",
+      h_path:"Background", t1w:"since 05.10.2026", t1s:"(Common Core)", t1p:"Projects in C, graded by other students.",
+      t2h:"Computer Science (B.Sc.), Hochschule Mannheim", t2p:"Learned the basics, then switched. Too much theory, too little code.",
+      t3h:"Berufskolleg for Information Technology, Ulm", t3p:"Fachhochschulreife (university entrance qualification). Did a lot with Linux there: installing, partitioning, shell scripts, users and permissions, networking and services.",
+      t4w:"before", t4h:"Apprenticeship as an architectural draughtsman", t4p:"Plan first, then build. I still work that way when I code.",
+      h_proj:"Projects", done:"✅ Completed", wip:"🔄 In progress", code:"View code ↗", try:"▶ Try it",
+      lf_p:"My own small C library. strlen, atoi, split and more written from scratch, plus linked lists. It all goes into libft.a and gets reused in later projects.",
+      lf_1:"How pointers and memory really work", lf_2:"Building linked lists by hand", lf_3:"A Makefile that builds a library",
+      gnl_p:"Reads a file line by line. Sounds easy, but read() only hands you chunks of a fixed size. A static variable keeps the leftover until the next call.",
+      gnl_1:"static variables across several calls", gnl_2:"Reading in chunks with read() and BUFFER_SIZE", gnl_3:"malloc and free without memory leaks",
+      pf_p:"My own printf. Handles %c, %s, %p, %d, %i, %u, %x, %X and %%.",
+      pf_1:"Any number of arguments with va_list", pf_2:"Converting numbers to hex", pf_3:"One small function per conversion (Norm: max. 25 lines)",
+      ps_p:"Sorting numbers with just two stacks and a few allowed moves like sa, pb or ra. Goal: as few moves as possible. Working on it right now.",
+      h_demo:"Live demos",
+      d_intro:"This isn't an animation pretending to be code. I compiled my C code, ran it and recorded the real output. The page just plays it back.",
+      lf_what:"Tap a function. You'll see the call and what my library returns.",
+      lf_same:"✅ Same result as the original %s() from the C standard library", lf_right:"✅ Correct result",
+      gnl_what:"The function only gets a few characters at a time from read(). It has to build whole lines out of them. Pick a buffer size and hit play.",
+      g_file:"The file (green = just read)", g_play:"▶ Play", g_step:"One step", g_stash:"Leftover (static)", g_lines:"Returned lines",
+      g_count:"read() called: %r× · lines: %l", g_empty:"(empty)", g_end:"End of file, get_next_line returns NULL.",
+      g_ok:"✅ All lines together are exactly the file. No memory leaks.", g_tip:"Tip: BUFFER_SIZE 4 shows best how it works piece by piece.",
+      pf_what:"The call is on top, the output below. The real printf ran next to it with the same values. If both match, you get a check mark.",
+      pf_next:"Next example ▶", pf_ret:"Return value", pf_chars:"characters", pf_ok:"✅ Exactly the same output as printf", pf_bad:"⚠ Differs from printf",
+      d_note:"Recorded on 15.11.2026 from the main branch. Compiled with cc -Wall -Wextra -Werror, checked for memory leaks with valgrind.",
+      mem:"Memory management", sk_next:"Next up, I want to learn Python.",
+      h_lang:"Languages", lg_de:"German", lg_tr:"Turkish", lg_en:"English",
+      c_k:"Contact", c_h:"Let's <i>talk.</i>", c_p:"I'm looking for an internship. Just send me a message.",
+      ticker:["C","Unix","Git","Makefiles","Shell","valgrind","Norminette","42 Heilbronn","looking for an internship"]
     }
   };
 
-  var lang = "de";
-  try { var s = localStorage.getItem("cv-lang"); if (s === "de" || s === "en") lang = s; } catch(e){}
+  var DEMO = {"gnl":{"4":[["R","Hall"],["R","o 42"],["R","!\nIc"],["L","Hallo 42!\n"],["R","h le"],["R","se i"],["R","mmer"],["R"," nur"],["R"," ein"],["R"," paa"],["R","r Ze"],["R","iche"],["R","n.\nU"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R","nd b"],["R","aue "],["R","dara"],["R","us g"],["R","anze"],["R"," Zei"],["R","len."],["R","\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"10":[["R","Hallo 42!\n"],["L","Hallo 42!\n"],["R","Ich lese i"],["R","mmer nur e"],["R","in paar Ze"],["R","ichen.\nUnd"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R"," baue dara"],["R","us ganze Z"],["R","eilen.\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"42":[["R","Hallo 42!\nIch lese immer nur ein paar Zeic"],["L","Hallo 42!\n"],["R","hen.\nUnd baue daraus ganze Zeilen.\nEnde"],["L","Ich lese immer nur ein paar Zeichen.\n"],["L","Und baue daraus ganze Zeilen.\n"],["R",""],["L","Ende"],["R",""],["N"]]},"pf":[{"fmt":"\"Hallo %s!\\n\"","args":"\"Berke\"","out":"Hallo Berke!\n","ret":13,"same":true},{"fmt":"\"%d + %d = %d\\n\"","args":"19, 23, 19 + 23","out":"19 + 23 = 42\n","ret":13,"same":true},{"fmt":"\"Akku: %i%%\\n\"","args":"87","out":"Akku: 87%\n","ret":10,"same":true},{"fmt":"\"Temperatur: %d Grad\\n\"","args":"-5","out":"Temperatur: -5 Grad\n","ret":20,"same":true},{"fmt":"\"Note: %c\\n\"","args":"'A'","out":"Note: A\n","ret":8,"same":true},{"fmt":"\"42 in Hex: %x\\n\"","args":"42","out":"42 in Hex: 2a\n","ret":14,"same":true},{"fmt":"\"Farbe: #%X\\n\"","args":"0x3DDC84","out":"Farbe: #3DDC84\n","ret":15,"same":true},{"fmt":"\"%u Bytes\\n\"","args":"4096","out":"4096 Bytes\n","ret":11,"same":true},{"fmt":"\"x liegt bei %p\\n\"","args":"&x","out":"x liegt bei 0x7fffbef634dc\n","ret":27,"same":true},{"fmt":"\"Name: %s\\n\"","args":"NULL","out":"Name: (null)\n","ret":13,"same":true}],"lf":[{"call":"ft_split(\"Mannheim,Heilbronn,,42\", ',')","out":["Mannheim","Heilbronn","42"],"ref":"split","ok":true},{"call":"ft_strtrim(\"   hallo   \", \" \")","out":"hallo","ref":"trim","ok":true},{"call":"ft_substr(\"get_next_line\", 4, 4)","out":"next","ref":"substr","ok":true},{"call":"ft_strjoin(\"Berke \", \"Alca\")","out":"Berke Alca","ref":"join","ok":true},{"call":"ft_strmapi(\"heilbronn\", ft_toupper)","out":"HEILBRONN","ref":"mapi","ok":true},{"call":"ft_itoa(-2147483648)","out":"-2147483648","ref":"itoa","ok":true},{"call":"ft_atoi(\"   -42abc\")","out":-42,"ref":"atoi","ok":true},{"call":"ft_strlen(\"42 Heilbronn\")","out":12,"ref":"strlen","ok":true},{"call":"ft_strrchr(\"a/b/c.txt\", '/')","out":"/c.txt","ref":"strrchr","ok":true}]}
+;
 
-  var hooks = [];
-  function apply(l){
-    lang = l;
-    document.documentElement.lang = l;
-    var els = document.querySelectorAll("[data-i18n]");
-    for (var i = 0; i < els.length; i++){
-      var k = els[i].getAttribute("data-i18n");
-      if (T[l][k] != null) els[i].textContent = T[l][k];
-    }
-    document.getElementById("l-de").className = l === "de" ? "on" : "";
-    document.getElementById("l-en").className = l === "en" ? "on" : "";
-    try { localStorage.setItem("cv-lang", l); } catch(e){}
-    for (var h = 0; h < hooks.length; h++) hooks[h]();
-  }
-  document.getElementById("lang").addEventListener("click", function(){ apply(lang === "de" ? "en" : "de"); });
-  document.getElementById("pdf").addEventListener("click", function(){ window.print(); });
-  apply(lang);
-
-  var tabs = document.querySelectorAll(".tab");
-  for (var t = 0; t < tabs.length; t++){
-    tabs[t].addEventListener("click", function(){
-      var sib = this.parentNode.querySelectorAll(".tab");
-      for (var u = 0; u < sib.length; u++){
-        var on = sib[u] === this;
-        sib[u].setAttribute("aria-selected", on ? "true" : "false");
-        document.getElementById(sib[u].getAttribute("data-tab")).className = on ? "panel on" : "panel";
-      }
-    });
-  }
-
+  var root = document.documentElement;
   var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var fine = window.matchMedia && matchMedia("(hover:hover)").matches;
+  function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e){ return null; } }
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  // theme
+  var th = store("cv-theme");
+  if (th === "light" || th === "dark") root.setAttribute("data-theme", th);
+  $("theme").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var nx = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", nx); store("cv-theme", nx);
+  });
+
+  // language
+  var lang = store("cv-lang") === "en" ? "en" : "de";
+  var hooks = [];
+  function t(k){ return T[lang][k]; }
+  function apply(l){
+    lang = l; root.lang = l;
+    var els = document.querySelectorAll("[data-i18n]"), i;
+    for (i = 0; i < els.length; i++){ var v = T[l][els[i].getAttribute("data-i18n")]; if (v != null) els[i].textContent = v; }
+    els = document.querySelectorAll("[data-i18n-html]");
+    for (i = 0; i < els.length; i++){ var h = T[l][els[i].getAttribute("data-i18n-html")]; if (h != null) els[i].innerHTML = h; }
+    $("l-de").className = l === "de" ? "on" : ""; $("l-en").className = l === "en" ? "on" : "";
+    var tk = T[l].ticker, s = "";
+    for (var r = 0; r < 2; r++) for (i = 0; i < tk.length; i++) s += '<span' + (i % 3 === 0 ? ' class="g"' : '') + '>' + esc(tk[i]) + '</span>✦';
+    $("ticker").innerHTML = s;
+    store("cv-lang", l);
+    for (i = 0; i < hooks.length; i++) hooks[i]();
+  }
+  $("lang").addEventListener("click", function(){ apply(lang === "de" ? "en" : "de"); });
+  $("pdf").addEventListener("click", function(){ window.print(); });
 
   // scroll progress
-  var sp = document.getElementById("sp");
-  function onScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    sp.style.width = (h > 0 ? Math.min(100, window.scrollY / h * 100) : 0) + "%";
-  }
-  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  var pr = $("progress");
+  function onScroll(){ var h = root.scrollHeight - innerHeight; pr.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + "%"; }
+  addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
-  // typewriter
-  var tw = document.getElementById("tw");
-  var words = ["C","Unix","Git","Makefiles","Shell"];
-  if (rm){ tw.textContent = "C · Unix · Git"; }
+  // reveal
+  var rv = document.querySelectorAll(".reveal");
+  if (rm || !("IntersectionObserver" in window)){ for (var a = 0; a < rv.length; a++) rv[a].classList.add("in"); }
   else {
-    var wi = 0, ci = 0, del = false;
-    (function tick(){
-      var w = words[wi];
-      ci += del ? -1 : 1;
-      tw.textContent = w.slice(0, ci);
-      var d = del ? 60 : 120;
-      if (!del && ci === w.length){ del = true; d = 1400; }
-      else if (del && ci === 0){ del = false; wi = (wi + 1) % words.length; d = 300; }
-      setTimeout(tick, d);
-    })();
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+    for (var b = 0; b < rv.length; b++) io.observe(rv[b]);
   }
 
-  // stats from the page itself
-  var done = document.querySelectorAll(".proj .status.ok").length;
-  var wip = document.querySelectorAll(".proj .status.wip").length;
+  // stats
+  var done = document.querySelectorAll(".proj .stamp.ok").length, wip = document.querySelectorAll(".proj .stamp.wip").length;
   var days = Math.max(0, Math.floor((Date.now() - new Date(2026, 9, 5).getTime()) / 86400000) + 1);
-  var nd = document.getElementById("n-done"), nw = document.getElementById("n-wip"), ny = document.getElementById("n-days");
-  nd.setAttribute("data-to", done); nw.setAttribute("data-to", wip); ny.setAttribute("data-to", days);
-  function count(el){
-    var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+  function count(el, to){
     if (rm){ el.textContent = to; return; }
-    var t0 = null;
-    function step(t){
-      if (t0 === null) t0 = t;
-      var k = Math.min(1, (t - t0) / 1100);
-      el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(step);
-    }
-    el.textContent = 0; requestAnimationFrame(step);
+    var t0 = null; (function f(ts){ if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1400); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); })(performance.now());
   }
-  if ("IntersectionObserver" in window && !rm){
-    var cio = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ count(nd); count(nw); count(ny); cio.disconnect(); } });
-    }, {threshold:.4});
-    cio.observe(document.getElementById("stats"));
-  } else { count(nd); count(nw); count(ny); }
-
-  // spotlight + tilt
-  if (fine && !rm){
-    var cards = document.querySelectorAll(".card,.timeline>li,.stat");
-    cards.forEach(function(c){
-      c.addEventListener("mousemove", function(e){
-        var r = c.getBoundingClientRect();
-        c.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        c.style.setProperty("--my", (e.clientY - r.top) + "px");
-        if (c.classList.contains("proj")){
-          var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-          c.style.transform = "perspective(800px) rotateX(" + (-y * 6) + "deg) rotateY(" + (x * 6) + "deg) translateY(-3px)";
-        }
-      });
-      c.addEventListener("mouseleave", function(){ if (c.classList.contains("proj")) c.style.transform = ""; });
-    });
+  $("n-done").textContent = done; $("n-wip").textContent = wip; $("n-days").textContent = days;
+  if (!rm && "IntersectionObserver" in window){
+    var so = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ count($("n-done"), done); count($("n-wip"), wip); count($("n-days"), days); so.disconnect(); } });
+    so.observe(document.querySelector(".stats"));
   }
 
-  // ---------- live demos ----------
-  // Recorded runs of the original C code from github.com/berke-alca/CoreCurriculum
-  var DEMO = {"gnl":{"file":"#include <unistd.h>\nint main(void)\n{\n  write(1, \"42\\n\", 3);\n  return (0);\n}\n","runs":{"1":[["R",1,"#"],["R",1,"i"],["R",1,"n"],["R",1,"c"],["R",1,"l"],["R",1,"u"],["R",1,"d"],["R",1,"e"],["R",1," "],["R",1,"<"],["R",1,"u"],["R",1,"n"],["R",1,"i"],["R",1,"s"],["R",1,"t"],["R",1,"d"],["R",1,"."],["R",1,"h"],["R",1,">"],["R",1,"\n"],["L","#include <unistd.h>\n"],["R",1,"i"],["R",1,"n"],["R",1,"t"],["R",1," "],["R",1,"m"],["R",1,"a"],["R",1,"i"],["R",1,"n"],["R",1,"("],["R",1,"v"],["R",1,"o"],["R",1,"i"],["R",1,"d"],["R",1,")"],["R",1,"\n"],["L","int main(void)\n"],["R",1,"{"],["R",1,"\n"],["L","{\n"],["R",1," "],["R",1," "],["R",1,"w"],["R",1,"r"],["R",1,"i"],["R",1,"t"],["R",1,"e"],["R",1,"("],["R",1,"1"],["R",1,","],["R",1," "],["R",1,"\""],["R",1,"4"],["R",1,"2"],["R",1,"\\"],["R",1,"n"],["R",1,"\""],["R",1,","],["R",1," "],["R",1,"3"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",1," "],["R",1," "],["R",1,"r"],["R",1,"e"],["R",1,"t"],["R",1,"u"],["R",1,"r"],["R",1,"n"],["R",1," "],["R",1,"("],["R",1,"0"],["R",1,")"],["R",1,";"],["R",1,"\n"],["L","  return (0);\n"],["R",1,"}"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"5":[["R",5,"#incl"],["R",5,"ude <"],["R",5,"unist"],["R",5,"d.h>\n"],["L","#include <unistd.h>\n"],["R",5,"int m"],["R",5,"ain(v"],["R",5,"oid)\n"],["L","int main(void)\n"],["R",5,"{\n  w"],["L","{\n"],["R",5,"rite("],["R",5,"1, \"4"],["R",5,"2\\n\","],["R",5," 3);\n"],["L","  write(1, \"42\\n\", 3);\n"],["R",5,"  ret"],["R",5,"urn ("],["R",5,"0);\n}"],["L","  return (0);\n"],["R",1,"\n"],["L","}\n"],["R",0,""],["N"]],"42":[["R",42,"#include <unistd.h>\nint main(void)\n{\n  wri"],["L","#include <unistd.h>\n"],["L","int main(void)\n"],["L","{\n"],["R",34,"te(1, \"42\\n\", 3);\n  return (0);\n}\n"],["L","  write(1, \"42\\n\", 3);\n"],["L","  return (0);\n"],["L","}\n"],["R",0,""],["N"]]}},"pf":[{"fmt":"\"Hello %s, 42 = 0x%x\\n\"","args":"\"Berke\", 42","out":"Hello Berke, 42 = 0x2a\n","ret":23,"same":true},{"fmt":"\"%d | %u | %x | %X\\n\"","args":"-1, -1, -1, -1","out":"-1 | 4294967295 | ffffffff | FFFFFFFF\n","ret":38,"same":true},{"fmt":"\"%c%c = %i%%\\n\"","args":"'4', '2', 100","out":"42 = 100%\n","ret":10,"same":true},{"fmt":"\"INT_MIN %d, INT_MAX %i\\n\"","args":"INT_MIN, INT_MAX","out":"INT_MIN -2147483648, INT_MAX 2147483647\n","ret":40,"same":true},{"fmt":"\"%p | %p\\n\"","args":"(void *)0x7ffd42a0, NULL","out":"0x7ffd42a0 | (nil)\n","ret":19,"same":true},{"fmt":"\"[%s] [%s]\\n\"","args":"\"\", \"C\"","out":"[] [C]\n","ret":7,"same":true}]};
-  function tr(k){ return T[lang][k]; }
-  function esc(c){ return String(c).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
-
-  // get_next_line: the file gets read chunk by chunk, finished lines turn green
+  // ---------- demo: libft ----------
   (function(){
-    var FILE = DEMO.gnl.file, term = document.getElementById("dg-term"), stat = document.getElementById("dg-stat");
-    var playB = document.getElementById("dg-play"), bsB = document.querySelectorAll("[data-bs]");
-    var bs = 5, timer = null, chars = [], rows = [], done = false, info = "";
-    var parts = FILE.split(/(?<=\n)/), h = "", k = 0;
-    parts.forEach(function(line){
-      h += '<div class="ln">';
-      for (var i = 0; i < line.length; i++, k++) h += '<span class="c' + (line[i] === "\n" ? " nl" : "") + '">' + (line[i] === "\n" ? "↵" : esc(line[i])) + "</span>";
-      h += '<span class="bd">✓</span></div>';
+    var btns = $("lf-btns"), term = $("lf-term"), ok = $("lf-ok"), cur = 0, timer = null;
+    var LIBC = {atoi:1, strlen:1, strrchr:1};
+    DEMO.lf.forEach(function(d, i){
+      var b = document.createElement("button"); b.type = "button"; b.className = "cb fn";
+      b.textContent = d.call.split("(")[0]; b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      b.addEventListener("click", function(){ show(i, true); }); btns.appendChild(b);
     });
-    term.innerHTML = h;
-    chars = term.querySelectorAll(".c"); rows = term.querySelectorAll(".ln");
-    function msg(){ stat.innerHTML = done ? info : timer ? info : tr("dg_hint"); }
-    function clear(){
-      if (timer){ clearTimeout(timer); timer = null; }
-      for (var i = 0; i < chars.length; i++) chars[i].className = chars[i].className.replace(/ (r|cur)/g, "");
-      for (var j = 0; j < rows.length; j++) rows[j].className = "ln";
-      done = false; info = "";
+    function fmt(v){
+      if (Array.isArray(v)) return "{ " + v.map(function(x){ return '"' + esc(x) + '"'; }).join(", ") + ", NULL }";
+      return typeof v === "string" ? '"' + esc(v) + '"' : esc(v);
     }
-    function run(){
-      clear();
-      var ev = DEMO.gnl.runs[bs], i = 0, off = 0, reads = 0, li = 0;
-      var nr = ev.filter(function(e){ return e[0] === "R"; }).length, d = rm ? 30 : Math.max(70, Math.min(650, 4200 / nr));
-      (function step(){
-        var e = ev[i++];
-        if (!e) return;
-        var cur = term.querySelectorAll(".cur");
-        for (var c = 0; c < cur.length; c++) cur[c].className = cur[c].className.replace(" cur", "");
-        if (e[0] === "R"){
-          reads++;
-          for (var j = off; j < off + e[2].length; j++) chars[j].className += " r cur";
-          off += e[2].length;
-          info = "read() × " + reads;
-        } else if (e[0] === "L"){
-          rows[li++].className = "ln ok";
-        } else {
-          done = true;
-          info = li + " " + tr("dg_lines") + " · read() × " + reads + " · <b>" + tr("dg_leak") + "</b>";
-        }
-        timer = done ? null : setTimeout(step, e[0] === "L" ? d / 2 : d);
-        msg();
-      })();
-    }
-    playB.addEventListener("click", run);
-    for (var b = 0; b < bsB.length; b++){
-      bsB[b].addEventListener("click", function(){
-        bs = +this.getAttribute("data-bs");
-        for (var x = 0; x < bsB.length; x++) bsB[x].setAttribute("aria-pressed", bsB[x] === this ? "true" : "false");
-        run();
-      });
-    }
-    hooks.push(function(){
-      if (done){ var m = info.match(/^(\d+) .*?read\(\) × (\d+)/); if (m) info = m[1] + " " + tr("dg_lines") + " · read() × " + m[2] + " · <b>" + tr("dg_leak") + "</b>"; }
-      msg();
-    });
-    msg();
-  })();
-
-  // ft_printf: the call, then the real output typed out
-  (function(){
-    var term = document.getElementById("dp-term"), stat = document.getElementById("dp-stat"), cur = 0, timer = null;
     function show(i, anim){
-      if (timer){ clearTimeout(timer); timer = null; }
-      cur = i; var c = DEMO.pf[i];
-      term.innerHTML = '<span class="dim">' + esc("ft_printf(" + c.fmt + ", " + c.args + ");") + '</span>\n<span class="out"></span><span class="cursor"></span>';
-      var out = term.querySelector(".out"), n = anim && !rm ? 0 : c.out.length;
-      stat.innerHTML = "";
-      (function type(){
-        out.textContent = c.out.slice(0, n);
-        if (n < c.out.length){ n++; timer = setTimeout(type, 35); return; }
-        timer = null;
-        stat.innerHTML = "<b>" + (c.same ? tr("dp_ok") : tr("dp_bad")) + "</b>";
-      })();
+      cur = i; var d = DEMO.lf[i], bs = btns.children;
+      for (var k = 0; k < bs.length; k++) bs[k].setAttribute("aria-pressed", k === i ? "true" : "false");
+      var head = '<span class="dim">$ </span>' + esc(d.call).replace(/^(ft_\w+)/, '<span class="sp">$1</span>') + '<br><span class="dim">→ </span>';
+      var res = fmt(d.out);
+      clearTimeout(timer); ok.textContent = "";
+      function fin(){ ok.textContent = d.ok ? (LIBC[d.ref] ? t("lf_same").replace("%s", d.ref) : t("lf_right")) : "⚠"; }
+      if (!anim || rm){ term.innerHTML = head + res; fin(); return; }
+      var plain = res.replace(/&quot;/g,'"').replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&"), n = 0;
+      (function step(){ n++; term.innerHTML = head + '<span class="cur">' + esc(plain.slice(0, n)) + '</span>'; if (n < plain.length) timer = setTimeout(step, 28); else { term.innerHTML = head + res; fin(); } })();
     }
-    document.getElementById("dp-play").addEventListener("click", function(){ show((cur + 1) % DEMO.pf.length, true); });
-    hooks.push(function(){ if (!timer) show(cur, false); });
-    show(0, false);
+    show(0, false); hooks.push(function(){ show(cur, false); });
   })();
 
-  var items = document.querySelectorAll(".reveal");
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce || !("IntersectionObserver" in window)){
-    for (var j = 0; j < items.length; j++) items[j].classList.add("in");
-  } else {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, {threshold:.08});
-    for (var m = 0; m < items.length; m++) io.observe(items[m]);
-  }
+  // ---------- demo: get_next_line ----------
+  (function(){
+    var bs = "10", ev, pos, file = "", playing = null;
+    var fEl = $("g-file"), stEl = $("g-stash"), lnEl = $("g-lines"), cEl = $("g-count"), okEl = $("g-ok");
+    var st, reads, nlines, readTo, curFrom, curTo, ended;
+    function vis(s){ return esc(s).replace(/\n/g, '<span class="nl">↵</span>'); }
+    function reset(){
+      ev = DEMO.gnl[bs]; pos = 0; st = ""; reads = 0; nlines = 0; readTo = 0; curFrom = 0; curTo = 0; ended = false;
+      file = ev.filter(function(e){ return e[0] === "R"; }).map(function(e){ return e[1]; }).join("");
+      lnEl.innerHTML = ""; okEl.textContent = t("g_tip"); render();
+    }
+    function render(){
+      var h = '<span class="r">' + vis(file.slice(0, curFrom)) + '</span><span class="c">' + vis(file.slice(curFrom, curTo)) + '</span>' + vis(file.slice(curTo)).replace(/\n/g, "\n");
+      fEl.innerHTML = h.replace(/↵<\/span>/g, "↵</span>\n");
+      stEl.innerHTML = st ? vis(st) : '<span class="small">' + t("g_empty") + '</span>';
+      cEl.textContent = t("g_count").replace("%r", reads).replace("%l", nlines);
+    }
+    function step(){
+      if (pos >= ev.length) return false;
+      var e = ev[pos++];
+      if (e[0] === "R"){ reads++; curFrom = readTo; readTo += e[1].length; curTo = readTo; st += e[1]; }
+      else if (e[0] === "L"){
+        nlines++; st = st.slice(e[1].length);
+        var li = document.createElement("li"); li.innerHTML = "<b>" + nlines + "</b>" + vis(e[1]); lnEl.appendChild(li);
+      } else { ended = true; curFrom = curTo = readTo; okEl.textContent = t("g_end") + " " + t("g_ok"); }
+      render(); return pos < ev.length;
+    }
+    function stop(){ clearTimeout(playing); playing = null; $("g-play").textContent = t("g_play"); }
+    $("g-play").addEventListener("click", function(){
+      if (playing){ stop(); return; }
+      if (pos >= ev.length) reset();
+      if (rm){ while (step()); return; }
+      $("g-play").textContent = "❚❚";
+      (function go(){ var more = step(); var last = ev[pos - 1]; playing = more ? setTimeout(go, last && last[0] === "L" ? 900 : 520) : null; if (!more) stop(); })();
+    });
+    $("g-step").addEventListener("click", function(){ stop(); if (pos >= ev.length) reset(); step(); });
+    var bb = document.querySelectorAll("[data-bs]");
+    for (var i = 0; i < bb.length; i++) bb[i].addEventListener("click", function(){
+      stop(); bs = this.getAttribute("data-bs");
+      for (var k = 0; k < bb.length; k++) bb[k].setAttribute("aria-pressed", bb[k] === this ? "true" : "false");
+      reset();
+    });
+    reset();
+    hooks.push(function(){ stop(); render(); if (!ended) okEl.textContent = t("g_tip"); else okEl.textContent = t("g_end") + " " + t("g_ok"); });
+  })();
+
+  // ---------- demo: ft_printf ----------
+  (function(){
+    var cur = 0, timer = null, term = $("pf-term"), ok = $("pf-ok"), dots = $("pf-dots");
+    DEMO.pf.forEach(function(d, i){
+      var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", String(i + 1));
+      b.addEventListener("click", function(){ show(i, true); }); dots.appendChild(b);
+    });
+    function show(i, anim){
+      cur = (i + DEMO.pf.length) % DEMO.pf.length; var d = DEMO.pf[cur];
+      for (var k = 0; k < dots.children.length; k++) dots.children[k].setAttribute("aria-current", k === cur ? "true" : "false");
+      var call = '<span class="dim">$ </span>ft_printf(' + esc(d.fmt).replace(/%[cspdiuxX%]/g, '<span class="hl">$&</span>') + ', ' + esc(d.args) + ');';
+      var sw = "", m = /#([0-9A-F]{6})/.exec(d.out); if (m) sw = '<span class="swatch" style="background:#' + m[1] + '"></span>';
+      var out = d.out.replace(/\n$/, "");
+      var tail = '<br><span class="dim">' + t("pf_ret") + ': ' + d.ret + ' ' + t("pf_chars") + '</span>';
+      clearTimeout(timer); ok.textContent = "";
+      function fin(){ term.innerHTML = call + '<br><br>' + esc(out) + sw + '<br>' + tail; ok.textContent = d.same ? t("pf_ok") : t("pf_bad"); }
+      if (!anim || rm){ fin(); return; }
+      var n = 0;
+      (function step(){ n++; term.innerHTML = call + '<br><br><span class="cur">' + esc(out.slice(0, n)) + '</span><br>'; if (n < out.length) timer = setTimeout(step, 40); else fin(); })();
+    }
+    $("pf-next").addEventListener("click", function(){ show(cur + 1, true); });
+    $("pf-prev").addEventListener("click", function(){ show(cur - 1, true); });
+    show(0, false); hooks.push(function(){ show(cur, false); });
+  })();
+
+  apply(lang);
 })();
 </script>
 </body>
