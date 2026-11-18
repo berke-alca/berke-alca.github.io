@@ -197,7 +197,9 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 @media print{
   @page{size:A4;margin:16mm}
   body{background:#fff;color:#000;font-size:10.5pt;line-height:1.45}
-  .bar,.avatar,#demos,.links,.how,.cta,.dots,footer small{display:none!important}
+  .bar,.avatar,#demos,.links,.how,.cta,.dots,footer small,.dm,.sheet,.planline{display:none!important}
+  .mast h1{color:#000!important;-webkit-text-stroke:0!important}
+  body{background-image:none!important}
   .reveal{opacity:1!important;transform:none!important}
   *{animation:none!important;transition:none!important;box-shadow:none!important}
   a{color:#000}
@@ -228,6 +230,95 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
   footer .pcontact{display:block!important}
 }
 .pcontact{display:none}
+
+/* hero: blueprint switch */
+.planline{display:flex;flex-direction:column;align-items:center;gap:8px;margin:22px 0 0}
+.planbtn{display:inline-flex;align-items:center;gap:8px;font:500 15px/1 -apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;color:var(--accent);background:transparent;border:1px dashed var(--accent);border-radius:999px;padding:10px 18px;cursor:pointer;transition:background .2s}
+.planbtn:hover{background:var(--accent-soft)}
+.planbtn svg,.tb svg{display:block}
+.planline .small{max-width:340px}
+
+/* push_swap race */
+.race{display:grid;gap:12px}
+@media (min-width:860px){.race{grid-template-columns:repeat(3,1fr)}}
+.lane{background:var(--bg2);border-radius:14px;padding:12px}
+.lane canvas{display:block;width:100%;height:150px}
+.lane .lh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.lane .lh b{font:600 14px/1.2 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.lane .lh span{font-size:12px;color:var(--muted)}
+.lane .lc{display:flex;justify-content:space-between;margin-top:8px;font:13px/1.3 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--muted);font-variant-numeric:tabular-nums}
+.lane .lc .op{color:var(--ink);font-weight:600}
+.lane.win{box-shadow:0 0 0 2px var(--ok)}
+.lane .flag{font-size:12px;font-weight:600;color:var(--ok);min-height:1.3em;margin-top:4px}
+.bench{font:12px/1.6 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--muted);margin:10px 0 0;white-space:pre-wrap;word-break:break-word}
+
+/* ---------- blueprint mode ---------- */
+.dm,.sheet{display:none}
+:root[data-plan="on"]{
+  --bg:#0d3e78; --bg2:rgba(255,255,255,.06); --card:rgba(13,62,120,.55); --ink:#eef5ff; --muted:#a8c6ee; --hair:rgba(238,245,255,.42);
+  --accent:#ffffff; --accent-soft:rgba(255,255,255,.12); --ok:#9ff0b8; --ok-soft:rgba(159,240,184,.12); --wip:#ffd38a; --wip-soft:rgba(255,211,138,.12);
+  --bar:rgba(13,62,120,.78); --shadow:none; --term:rgba(0,0,0,.18); --term-ink:#eef5ff; --term-dim:#a8c6ee; --term-hl:#9fd0ff; --term-sp:#ffe08a;
+  color-scheme:dark;
+}
+:root[data-plan="on"] body{
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:100px 100px,100px 100px,20px 20px,20px 20px;background-position:-1px -1px}
+[data-plan="on"] .card,[data-plan="on"] .road li,[data-plan="on"] .chips li,[data-plan="on"] .lane{border-radius:3px;border:1px solid var(--hair);box-shadow:none}
+[data-plan="on"] .proj:hover{transform:none;box-shadow:none}
+[data-plan="on"] .road li.now{box-shadow:none;border:1.5px solid var(--ink)}
+[data-plan="on"] .btn,[data-plan="on"] .cb,[data-plan="on"] .tb{background:transparent;border:1px solid var(--hair);color:var(--ink);border-radius:3px}
+[data-plan="on"] .btn.pri,[data-plan="on"] .cb.pri{border-color:var(--ink)}
+[data-plan="on"] .cb[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+[data-plan="on"] .planbtn{border-radius:3px;border-style:solid}
+[data-plan="on"] .term{border:1px solid var(--hair);border-radius:3px}
+[data-plan="on"] .file,[data-plan="on"] .stash,[data-plan="on"] .lines li{border-radius:3px}
+[data-plan="on"] .file .c{background:#eef5ff;color:#0d3e78}
+[data-plan="on"] .mast h1{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+[data-plan="on"] .avatar{background:transparent;border:1.5px solid var(--ink);color:var(--ink);
+  background-image:linear-gradient(var(--hair),var(--hair)),linear-gradient(var(--hair),var(--hair));background-size:1px 130%,130% 1px;background-position:center;background-repeat:no-repeat}
+[data-plan="on"] .kicker,[data-plan="on"] .tl .when,[data-plan="on"] .dlbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+[data-plan="on"] main{counter-reset:det}
+[data-plan="on"] .sh h2{display:flex;align-items:center;gap:14px}
+[data-plan="on"] .sh h2::before{counter-increment:det;content:counter(det,upper-alpha);flex:none;display:inline-grid;place-items:center;width:1.15em;height:1.15em;border:1.5px solid var(--ink);border-radius:50%;font:600 .5em/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+[data-plan="on"] .proj ul li::before{background:var(--ink);border-radius:0;transform:rotate(45deg);width:5px;height:5px}
+[data-plan="on"] footer{background:transparent}
+[data-plan="on"] footer .btn.pri{background:transparent;color:var(--ink);border-color:var(--ink)}
+
+/* dimension lines (architect style: oblique ticks) */
+[data-plan="on"] .dm{display:block;position:absolute;left:0;right:0;top:-20px;height:13px;pointer-events:none;
+  border-left:1px solid var(--muted);border-right:1px solid var(--muted);color:var(--muted)}
+.dm::before{content:"";position:absolute;left:-6px;right:-6px;top:6px;border-top:1px solid currentColor}
+.dm b{position:absolute;top:1px;width:1.5px;height:11px;background:var(--ink);transform:rotate(45deg)}
+.dm b:first-child{left:-1px}
+.dm b+b{right:-1px}
+.dm i{-webkit-text-stroke:0;position:absolute;left:50%;top:-4px;transform:translateX(-50%);font:600 11px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-style:normal;letter-spacing:.04em;color:var(--ink);background:var(--bg);padding:2px 6px;white-space:nowrap}
+.dm.v{left:auto;top:0;bottom:0;right:-20px;width:13px;height:auto;border:0;border-top:1px solid var(--muted);border-bottom:1px solid var(--muted)}
+.dm.v::before{left:6px;right:auto;top:-6px;bottom:-6px;border-top:0;border-left:1px solid currentColor}
+.dm.v b{left:1px;width:11px;height:1.5px}
+.dm.v b:first-child{top:-1px}
+.dm.v b+b{top:auto;bottom:-1px;right:auto}
+.dm.v i{top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg)}
+.has-dm{position:relative}
+[data-plan="on"] .card.has-dm{margin-top:4px}
+
+[data-plan="on"] .mast h1{display:inline-block}
+@media (max-width:719px){.dm.v{display:none!important}}
+/* title block (Schriftfeld) */
+[data-plan="on"] .sheet{display:grid;grid-template-columns:repeat(4,auto);margin:44px auto 0;max-width:560px;border:1.5px solid var(--ink);text-align:left;
+  font:12px/1.35 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.sheet div{padding:7px 9px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);min-width:0;overflow-wrap:anywhere}
+.sheet div:nth-child(4n){border-right:0}
+.sheet div:nth-last-child(-n+4){border-bottom:0}
+.sheet span{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.sheet .big{grid-column:1/-1;font-size:15px;font-weight:600;font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;border-right:0}
+
+/* switching animation: the plan is "drawn" over the page */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-new(root){animation:wipe .95s cubic-bezier(.65,0,.25,1)}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 </style>
 </head>
 <body>
@@ -243,6 +334,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <a href="#skills" data-i18n="n_skills">Skills</a>
       <a href="#contact" data-i18n="n_contact">Kontakt</a>
     </nav>
+    <button class="tb" id="plan" type="button" aria-pressed="false" aria-label="Bauplan / Blueprint" title="Bauplan"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 14.5V1.5l13 13z M4.5 11.5V8.7l2.8 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M1.5 4.5h1.6M1.5 7.5h1.6M1.5 10.5h1.6" stroke="currentColor" stroke-width="1.1"/></svg></button>
     <button class="tb" id="lang" type="button" aria-label="Sprache wechseln / Switch language"><span id="l-de" class="on">DE</span> | <span id="l-en">EN</span></button>
     <button class="tb" id="theme" type="button" aria-label="Hell / Dunkel"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
     <button class="tb" id="pdf" type="button">PDF</button>
@@ -263,6 +355,10 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <a class="btn pri" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="mail">E-Mail schreiben</a>
+    </div>
+    <div class="planline">
+      <button class="planbtn" id="plan2" type="button"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 14.5V1.5l13 13z M4.5 11.5V8.7l2.8 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M1.5 4.5h1.6M1.5 7.5h1.6M1.5 10.5h1.6" stroke="currentColor" stroke-width="1.1"/></svg><span id="plan2-t" data-i18n="plan_on">Diese Seite als Bauplan ansehen</span></button>
+      <span class="small" data-i18n="plan_why">Ich hab mal Bauzeichner gelernt. Darum gibt es diese Seite auch als technische Zeichnung.</span>
     </div>
   </div>
 
@@ -374,11 +470,17 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       </article>
 
       <article class="card proj reveal">
-        <span class="stamp wip" data-i18n="wip">🔄 In Arbeit</span>
+        <span class="stamp ok" data-i18n="done">✅ Abgeschlossen</span>
         <h3>push_swap</h3>
-        <p data-i18n="ps_p">Zahlen sortieren mit nur zwei Stacks und ein paar erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Bin gerade dran.</p>
+        <p data-i18n="ps_p">Zahlen sortieren mit nur zwei Stacks und elf erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Zu zweit gebaut.</p>
+        <ul>
+          <li data-i18n="ps_1">Vier Strategien: Selection Sort, Chunk Sort und Radix Sort</li>
+          <li data-i18n="ps_2">Misst erst, wie unsortiert die Zahlen sind, und wählt dann selbst (--adaptive)</li>
+          <li data-i18n="ps_3">Teamarbeit an einem Projekt mit Git und Pull Requests</li>
+        </ul>
         <div class="links">
           <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/push_swap" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-ps" data-i18n="try">▶ Ausprobieren</a>
         </div>
       </article>
 
@@ -431,6 +533,18 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         <p class="ok-line" id="pf-ok"></p>
       </article>
 
+      <article class="card demo reveal" id="demo-ps">
+        <h3>push_swap</h3>
+        <p class="what" data-i18n="ps_what">Dieselben 40 Zahlen, drei Strategien aus unserem Code im Rennen. Jeder Balken ist eine Zahl: links Stack a, rechts Stack b. Wer braucht die wenigsten Befehle?</p>
+        <div class="race" id="ps-race"></div>
+        <div class="row">
+          <button class="cb pri" id="ps-play" type="button" data-i18n="ps_play">▶ Rennen starten</button>
+          <button class="cb" id="ps-reset" type="button" data-i18n="ps_reset">Zurück auf Start</button>
+        </div>
+        <p class="ok-line" id="ps-ok"></p>
+        <p class="bench" id="ps-bench"></p>
+      </article>
+
       <p class="small reveal" data-i18n="d_note">Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.</p>
     </div>
   </section>
@@ -466,6 +580,17 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <a class="btn" href="https://www.linkedin.com/in/berke-alca-11a065178" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
     <p class="pcontact">berkealca@gmail.com · github.com/berke-alca · linkedin.com/in/berke-alca-11a065178</p>
+    <div class="sheet" id="sheet" aria-hidden="true">
+      <div class="big"><span data-i18n="sh_proj">Bauvorhaben</span><b data-i18n="sh_projv">Lebenslauf Berke Alca</b></div>
+      <div><span data-i18n="sh_by">Gezeichnet</span>B. Alca</div>
+      <div><span data-i18n="sh_date">Stand</span><b id="sh-date">–</b></div>
+      <div><span data-i18n="sh_scale">Maßstab</span>1 : 1</div>
+      <div><span data-i18n="sh_sheet">Blatt</span>1 / 1</div>
+      <div><span data-i18n="sh_size">Format</span><b id="sh-size">–</b></div>
+      <div><span data-i18n="sh_unit">Maße</span>mm</div>
+      <div><span data-i18n="sh_plan">Plan-Nr.</span>42-HN-001</div>
+      <div><span data-i18n="sh_idx">Index</span>a</div>
+    </div>
     <small>© Berke Alca · Mannheim</small>
   </div>
 </footer>
@@ -502,7 +627,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       gnl_1:"static-Variablen über mehrere Aufrufe", gnl_2:"Lesen in Blöcken mit read() und BUFFER_SIZE", gnl_3:"malloc und free ohne Speicherlecks",
       pf_p:"Mein eigenes printf. Kann %c, %s, %p, %d, %i, %u, %x, %X und %%.",
       pf_1:"Beliebig viele Argumente mit va_list", pf_2:"Zahlen ins Hex-System umrechnen", pf_3:"Eine kleine Funktion pro Umwandlung (Norm: max. 25 Zeilen)",
-      ps_p:"Zahlen sortieren mit nur zwei Stacks und ein paar erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Bin gerade dran.",
+      ps_p:"Zahlen sortieren mit nur zwei Stacks und elf erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Zu zweit gebaut.",
       h_demo:"Live-Demos",
       d_intro:"Das hier ist keine Animation, die so tut als ob. Ich habe meinen C-Code kompiliert, laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.",
       lf_what:"Tipp auf eine Funktion. Du siehst den Aufruf und was meine Bibliothek zurückgibt.",
@@ -513,7 +638,15 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       g_ok:"✅ Alle Zeilen zusammen ergeben genau die Datei. Keine Speicherlecks.", g_tip:"Tipp: Mit BUFFER_SIZE 4 siehst du am besten, wie sie Stück für Stück arbeitet.",
       pf_what:"Oben steht der Aufruf, darunter was rauskommt. Daneben lief das echte printf mit denselben Werten. Sind beide gleich, gibt es einen Haken.",
       pf_next:"Nächstes Beispiel ▶", pf_ret:"Rückgabewert", pf_chars:"Zeichen", pf_ok:"✅ Genau dieselbe Ausgabe wie printf", pf_bad:"⚠ Anders als printf",
-      d_note:"Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.",
+      d_note:"Aufgenommen am 15.11.2026 (push_swap am 18.11.2026) aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.",
+      plan_on:"Diese Seite als Bauplan ansehen", plan_off:"Zurück zur normalen Ansicht",
+      plan_why:"Ich hab mal Bauzeichner gelernt. Darum gibt es diese Seite auch als technische Zeichnung.",
+      sh_proj:"Bauvorhaben", sh_projv:"Lebenslauf Berke Alca", sh_by:"Gezeichnet", sh_date:"Stand", sh_scale:"Maßstab", sh_sheet:"Blatt", sh_size:"Format", sh_unit:"Maße", sh_plan:"Plan-Nr.", sh_idx:"Index",
+      ps_1:"Vier Strategien: Selection Sort, Chunk Sort und Radix Sort", ps_2:"Misst erst, wie unsortiert die Zahlen sind, und wählt dann selbst (--adaptive)", ps_3:"Teamarbeit an einem Projekt mit Git und Pull Requests",
+      ps_what:"Dieselben 40 Zahlen, drei Strategien aus unserem Code im Rennen. Jeder Balken ist eine Zahl: links Stack a, rechts Stack b. Wer braucht die wenigsten Befehle?",
+      ps_play:"▶ Rennen starten", ps_pause:"❚❚ Pause", ps_reset:"Zurück auf Start", ps_move:"Befehl", ps_win:"Am wenigsten Befehle", ps_done:"sortiert",
+      ps_ok:"✅ Nachgerechnet: Alle drei Befehlslisten sortieren die Zahlen wirklich. Dazu 880 Zufallstests mit 1 bis 500 Zahlen, alle richtig.",
+      ps_adapt:"--adaptive misst hier %d Unordnung und nimmt deshalb Medium.",
       mem:"Speicherverwaltung", sk_next:"Als Nächstes will ich Python lernen.",
       h_lang:"Sprachen", lg_de:"Deutsch", lg_tr:"Türkisch", lg_en:"Englisch",
       c_k:"Kontakt", c_h:"Lass uns <i>reden.</i>", c_p:"Ich suche ein Praktikum. Schreib mir einfach.",
@@ -548,7 +681,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       gnl_1:"static variables across several calls", gnl_2:"Reading in chunks with read() and BUFFER_SIZE", gnl_3:"malloc and free without memory leaks",
       pf_p:"My own printf. Handles %c, %s, %p, %d, %i, %u, %x, %X and %%.",
       pf_1:"Any number of arguments with va_list", pf_2:"Converting numbers to hex", pf_3:"One small function per conversion (Norm: max. 25 lines)",
-      ps_p:"Sorting numbers with just two stacks and a few allowed moves like sa, pb or ra. Goal: as few moves as possible. Working on it right now.",
+      ps_p:"Sorting numbers with just two stacks and eleven allowed moves like sa, pb or ra. Goal: as few moves as possible. Built as a team of two.",
       h_demo:"Live demos",
       d_intro:"This isn't an animation pretending to be code. I compiled my C code, ran it and recorded the real output. The page just plays it back.",
       lf_what:"Tap a function. You'll see the call and what my library returns.",
@@ -559,7 +692,15 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       g_ok:"✅ All lines together are exactly the file. No memory leaks.", g_tip:"Tip: BUFFER_SIZE 4 shows best how it works piece by piece.",
       pf_what:"The call is on top, the output below. The real printf ran next to it with the same values. If both match, you get a check mark.",
       pf_next:"Next example ▶", pf_ret:"Return value", pf_chars:"characters", pf_ok:"✅ Exactly the same output as printf", pf_bad:"⚠ Differs from printf",
-      d_note:"Recorded on 15.11.2026 from the main branch. Compiled with cc -Wall -Wextra -Werror, checked for memory leaks with valgrind.",
+      d_note:"Recorded on 15.11.2026 (push_swap on 18.11.2026) from the main branch. Compiled with cc -Wall -Wextra -Werror, checked for memory leaks with valgrind.",
+      plan_on:"View this page as a blueprint", plan_off:"Back to the normal view",
+      plan_why:"I trained as an architectural draughtsman. So this page also comes as a technical drawing.",
+      sh_proj:"Project", sh_projv:"Résumé Berke Alca", sh_by:"Drawn by", sh_date:"Revised", sh_scale:"Scale", sh_sheet:"Sheet", sh_size:"Format", sh_unit:"Units", sh_plan:"Drawing no.", sh_idx:"Rev.",
+      ps_1:"Four strategies: selection sort, chunk sort and radix sort", ps_2:"Measures how unsorted the numbers are first, then picks on its own (--adaptive)", ps_3:"Teamwork on one project with Git and pull requests",
+      ps_what:"The same 40 numbers, three strategies from our code racing each other. Every bar is a number: stack a on the left, stack b on the right. Who needs the fewest moves?",
+      ps_play:"▶ Start the race", ps_pause:"❚❚ Pause", ps_reset:"Back to start", ps_move:"Move", ps_win:"Fewest moves", ps_done:"sorted",
+      ps_ok:"✅ Double-checked: all three move lists really sort the numbers. Plus 880 random tests with 1 to 500 numbers, all correct.",
+      ps_adapt:"--adaptive measures %d disorder here, so it picks medium.",
       mem:"Memory management", sk_next:"Next up, I want to learn Python.",
       h_lang:"Languages", lg_de:"German", lg_tr:"Turkish", lg_en:"English",
       c_k:"Contact", c_h:"Let's <i>talk.</i>", c_p:"I'm looking for an internship. Just send me a message.",
@@ -567,6 +708,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     }
   };
 
+  var PS = {"input":[8,2,18,16,15,9,7,6,28,39,1,3,34,40,17,20,30,38,32,21,23,14,27,36,35,13,19,24,29,22,33,5,12,31,25,26,37,11,4,10],"runs":{"simple":{"ops":"ra ra ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb rra pb rra rra rra rra rra pb ra ra ra pb rra rra rra rra pb rra pb rra rra rra rra rra pb rra rra rra rra rra rra pb rra rra rra rra pb rra rra rra rra rra rra rra rra rra rra rra rra pb rra pb ra ra ra ra pb rra rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra pb ra ra ra pb pb rra rra rra rra rra rra pb ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra rra pb ra ra ra ra ra pb rra rra rra rra pb ra ra pb ra ra pb ra ra ra pb rra pb pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa","n":267,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: simple, O(n^2)","[bench] total_ops: 267","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 71 rb: 0 rr: 0 rra: 116 rrb: 0 rrr: 0"]},"medium":{"ops":"pb pb ra ra ra pb pb pb ra ra pb rb pb rb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb rb pb ra ra ra ra pb rb pb rb pb rb pb pb pb rb ra ra ra ra pb rb pb ra ra ra pb pb pb ra ra pb rb pb pb pb rb pb pb pb rb pb rb pb pb rb pb pb pb pb rb pb pb rb pb rb pb rb rb pa rb pa rrb rrb pa rb pa rrb rrb rrb pa pa pa rb pa rrb rrb pa pa rrb pa pa rrb pa rb pa rrb rrb pa rrb pa pa pa rrb pa pa pa rrb pa rb pa rrb rrb pa pa rrb pa rb rb pa rrb pa rrb pa rrb rrb rrb pa rb pa rb rb pa rb pa rrb rrb pa rrb pa rrb rrb pa pa rrb pa pa pa","n":172,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: medium, O(n*sqrt(n))","[bench] total_ops: 172","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 35 rb: 29 rr: 0 rra: 0 rrb: 28 rrr: 0"]},"complex":{"ops":"ra ra ra ra pb pb pb ra ra pb pb pb ra ra pb ra ra ra ra pb pb ra pb ra pb pb pb ra pb ra pb pb ra pb pb ra pb pb ra ra pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa ra pb ra ra pb ra pb pb ra ra ra pb ra pb pb pb ra pb pb ra ra pb pb ra pb ra pb ra ra pb pb ra pb ra ra pb ra pb ra pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb pb pb ra ra ra pb ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra ra pb ra pb pb pb ra pb ra ra pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa ra pb pb pb ra pb pb pb ra ra pb ra pb pb ra ra pb pb ra pb pb ra ra pb pb pb ra pb ra pb ra pb pb pb ra pb ra pb ra pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb ra pb pb ra pb pb pb ra ra pb pb ra pb pb pb pb ra pb pb ra pb pb ra pb ra ra pb ra pb ra pb pb ra ra pb pb ra pb ra pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb ra pb ra pb ra ra pb pb ra pb ra pb ra pb ra pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa","n":380,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: complex, O(n log n)","[bench] total_ops: 380","[bench] sa: 0 sb: 0 ss: 0 pa: 140 pb: 140 ra: 100 rb: 0 rr: 0 rra: 0 rrb: 0 rrr: 0"]},"adaptive":{"ops":"pb pb ra ra ra pb pb pb ra ra pb rb pb rb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb rb pb ra ra ra ra pb rb pb rb pb rb pb pb pb rb ra ra ra ra pb rb pb ra ra ra pb pb pb ra ra pb rb pb pb pb rb pb pb pb rb pb rb pb pb rb pb pb pb pb rb pb pb rb pb rb pb rb rb pa rb pa rrb rrb pa rb pa rrb rrb rrb pa pa pa rb pa rrb rrb pa pa rrb pa pa rrb pa rb pa rrb rrb pa rrb pa pa pa rrb pa pa pa rrb pa rb pa rrb rrb pa pa rrb pa rb rb pa rrb pa rrb pa rrb rrb rrb pa rb pa rb rb pa rb pa rrb rrb pa rrb pa rrb rrb pa pa rrb pa pa pa","n":172,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: adaptive -> medium, O(n*sqrt(n))","[bench] total_ops: 172","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 35 rb: 29 rr: 0 rra: 0 rrb: 28 rrr: 0"]}}};
   var DEMO = {"gnl":{"4":[["R","Hall"],["R","o 42"],["R","!\nIc"],["L","Hallo 42!\n"],["R","h le"],["R","se i"],["R","mmer"],["R"," nur"],["R"," ein"],["R"," paa"],["R","r Ze"],["R","iche"],["R","n.\nU"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R","nd b"],["R","aue "],["R","dara"],["R","us g"],["R","anze"],["R"," Zei"],["R","len."],["R","\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"10":[["R","Hallo 42!\n"],["L","Hallo 42!\n"],["R","Ich lese i"],["R","mmer nur e"],["R","in paar Ze"],["R","ichen.\nUnd"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R"," baue dara"],["R","us ganze Z"],["R","eilen.\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"42":[["R","Hallo 42!\nIch lese immer nur ein paar Zeic"],["L","Hallo 42!\n"],["R","hen.\nUnd baue daraus ganze Zeilen.\nEnde"],["L","Ich lese immer nur ein paar Zeichen.\n"],["L","Und baue daraus ganze Zeilen.\n"],["R",""],["L","Ende"],["R",""],["N"]]},"pf":[{"fmt":"\"Hallo %s!\\n\"","args":"\"Berke\"","out":"Hallo Berke!\n","ret":13,"same":true},{"fmt":"\"%d + %d = %d\\n\"","args":"19, 23, 19 + 23","out":"19 + 23 = 42\n","ret":13,"same":true},{"fmt":"\"Akku: %i%%\\n\"","args":"87","out":"Akku: 87%\n","ret":10,"same":true},{"fmt":"\"Temperatur: %d Grad\\n\"","args":"-5","out":"Temperatur: -5 Grad\n","ret":20,"same":true},{"fmt":"\"Note: %c\\n\"","args":"'A'","out":"Note: A\n","ret":8,"same":true},{"fmt":"\"42 in Hex: %x\\n\"","args":"42","out":"42 in Hex: 2a\n","ret":14,"same":true},{"fmt":"\"Farbe: #%X\\n\"","args":"0x3DDC84","out":"Farbe: #3DDC84\n","ret":15,"same":true},{"fmt":"\"%u Bytes\\n\"","args":"4096","out":"4096 Bytes\n","ret":11,"same":true},{"fmt":"\"x liegt bei %p\\n\"","args":"&x","out":"x liegt bei 0x7fffbef634dc\n","ret":27,"same":true},{"fmt":"\"Name: %s\\n\"","args":"NULL","out":"Name: (null)\n","ret":13,"same":true}],"lf":[{"call":"ft_split(\"Mannheim,Heilbronn,,42\", ',')","out":["Mannheim","Heilbronn","42"],"ref":"split","ok":true},{"call":"ft_strtrim(\"   hallo   \", \" \")","out":"hallo","ref":"trim","ok":true},{"call":"ft_substr(\"get_next_line\", 4, 4)","out":"next","ref":"substr","ok":true},{"call":"ft_strjoin(\"Berke \", \"Alca\")","out":"Berke Alca","ref":"join","ok":true},{"call":"ft_strmapi(\"heilbronn\", ft_toupper)","out":"HEILBRONN","ref":"mapi","ok":true},{"call":"ft_itoa(-2147483648)","out":"-2147483648","ref":"itoa","ok":true},{"call":"ft_atoi(\"   -42abc\")","out":-42,"ref":"atoi","ok":true},{"call":"ft_strlen(\"42 Heilbronn\")","out":12,"ref":"strlen","ok":true},{"call":"ft_strrchr(\"a/b/c.txt\", '/')","out":"/c.txt","ref":"strrchr","ok":true}]}
 ;
 
@@ -709,6 +851,152 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
   })();
 
   apply(lang);
+
+  // ---------- demo: push_swap race ----------
+  (function(){
+    var race = $("ps-race"), ok = $("ps-ok"), bench = $("ps-bench"), play = $("ps-play");
+    var N = PS.input.length, raf = null, last = 0, acc = 0, SPEED = 55, winner = null, started = false;
+    var lanes = [["simple","O(n²)"],["medium","O(n√n)"],["complex","O(n log n)"]].map(function(x){
+      var d = document.createElement("div"); d.className = "lane";
+      d.innerHTML = '<div class="lh"><b>--' + x[0] + '</b><span>' + x[1] + '</span></div><canvas></canvas>' +
+        '<div class="lc"><span class="op">&nbsp;</span><span class="cnt"></span></div><div class="flag"></div>';
+      race.appendChild(d);
+      var r = PS.runs[x[0]];
+      return {el:d, cv:d.querySelector("canvas"), op:d.querySelector(".op"), cnt:d.querySelector(".cnt"), flag:d.querySelector(".flag"),
+              ops:r.ops.split(" "), n:r.n, ok:r.ok, i:0, a:[], b:[]};
+    });
+    function sw(s){ if (s.length > 1){ var x = s[0]; s[0] = s[1]; s[1] = x; } }
+    function rot(s){ if (s.length > 1) s.push(s.shift()); }
+    function rrot(s){ if (s.length > 1) s.unshift(s.pop()); }
+    function doop(l, o){
+      var a = l.a, b = l.b;
+      if (o === "sa" || o === "ss") sw(a);
+      if (o === "sb" || o === "ss") sw(b);
+      if (o === "pa" && b.length) a.unshift(b.shift());
+      if (o === "pb" && a.length) b.unshift(a.shift());
+      if (o === "ra" || o === "rr") rot(a);
+      if (o === "rb" || o === "rr") rot(b);
+      if (o === "rra" || o === "rrr") rrot(a);
+      if (o === "rrb" || o === "rrr") rrot(b);
+    }
+    var C = {};
+    function colors(){ var cs = getComputedStyle(root); ["--accent","--wip","--hair","--muted"].forEach(function(k){ C[k] = cs.getPropertyValue(k).trim(); }); }
+    function draw(l){
+      var cv = l.cv, w = cv.clientWidth, h = cv.clientHeight, dpr = window.devicePixelRatio || 1;
+      if (!w) return;
+      if (cv.width !== Math.round(w * dpr)){ cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+      var g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+      var col = (w - 9) / 2, rh = h / N;
+      g.fillStyle = C["--hair"]; g.fillRect(col + 4, 0, 1, h);
+      function stack(s, x0, c){
+        g.fillStyle = c;
+        for (var k = 0; k < s.length; k++){
+          g.globalAlpha = .35 + .65 * s[k] / N;
+          g.fillRect(x0, k * rh + .5, Math.max(2, col * s[k] / N), Math.max(1, rh - 1));
+        }
+        g.globalAlpha = 1;
+      }
+      stack(l.a, 0, C["--accent"]); stack(l.b, col + 9, C["--wip"]);
+    }
+    function label(l){
+      l.cnt.textContent = t("ps_move") + " " + l.i + " / " + l.n;
+      if (l.i >= l.n) l.flag.textContent = (l === winner ? t("ps_win") + " · " : "") + "✓ " + t("ps_done");
+      else l.flag.textContent = "";
+    }
+    function allDone(){ return lanes.every(function(l){ return l.i >= l.n; }); }
+    function finish(){
+      var allOk = lanes.every(function(l){ return l.ok; });
+      ok.textContent = allOk ? t("ps_ok") : "";
+      var bl = PS.runs.adaptive.bench, m = /disorder: ([\d.]+)%/.exec(bl[0]), dis = m ? m[1] : "?";
+      if (lang === "de") dis = dis.replace(".", ",");
+      bench.textContent = t("ps_adapt").replace("%d", dis + " %") + "\n$ ./push_swap --adaptive --bench " + PS.input.join(" ") + "\n" + bl.join("\n");
+    }
+    function step(l){
+      if (l.i >= l.n) return;
+      var o = l.ops[l.i++]; doop(l, o); l.op.textContent = o;
+      if (l.i >= l.n){ if (!winner){ winner = l; l.el.classList.add("win"); } label(l); }
+    }
+    function frame(ts){
+      if (!last) last = ts;
+      acc += (ts - last) / 1000 * SPEED; last = ts;
+      var k = Math.floor(acc); acc -= k;
+      lanes.forEach(function(l){ for (var j = 0; j < k; j++) step(l); label(l); draw(l); });
+      if (allDone()){ stop(); finish(); return; }
+      raf = requestAnimationFrame(frame);
+    }
+    function stop(){ if (raf) cancelAnimationFrame(raf); raf = null; last = 0; play.textContent = t("ps_play"); }
+    function reset(){
+      stop(); winner = null; ok.textContent = ""; bench.textContent = "";
+      lanes.forEach(function(l){ l.i = 0; l.a = PS.input.slice(); l.b = []; l.el.classList.remove("win"); l.op.innerHTML = "&nbsp;"; label(l); draw(l); });
+    }
+    function start(){
+      started = true;
+      if (allDone()) reset();
+      if (rm){ lanes.forEach(function(l){ while (l.i < l.n) step(l); label(l); draw(l); }); finish(); return; }
+      play.textContent = t("ps_pause"); raf = requestAnimationFrame(frame);
+    }
+    play.addEventListener("click", function(){ if (raf) stop(); else start(); });
+    $("ps-reset").addEventListener("click", reset);
+    colors(); reset();
+    function redraw(){ colors(); lanes.forEach(draw); }
+    addEventListener("resize", redraw);
+    if (window.MutationObserver) new MutationObserver(redraw).observe(root, {attributes:true, attributeFilter:["data-theme","data-plan"]});
+    if (window.matchMedia){ var mq = matchMedia("(prefers-color-scheme: dark)"); if (mq.addEventListener) mq.addEventListener("change", redraw); }
+    if (!rm && "IntersectionObserver" in window){
+      var po = new IntersectionObserver(function(es){ if (es[0].isIntersecting && !started){ po.disconnect(); setTimeout(start, 400); } }, {threshold:.5});
+      po.observe(race);
+    }
+    hooks.push(function(){ lanes.forEach(label); play.textContent = raf ? t("ps_pause") : t("ps_play"); if (allDone()) finish(); });
+  })();
+
+  // ---------- blueprint mode ----------
+  (function(){
+    var on = false, dims = [], b1 = $("plan"), t2 = $("plan2-t"), rz = null;
+    function mm(px){ var v = px * 25.4 / 96; return (v >= 100 ? v.toFixed(0) : v.toFixed(1)).replace(".", lang === "de" ? "," : "."); }
+    function add(el, v, pre){
+      var d = document.createElement("span"); d.className = "dm" + (v ? " v" : ""); d.setAttribute("aria-hidden", "true");
+      d.innerHTML = "<b></b><b></b><i></i>"; el.classList.add("has-dm"); el.appendChild(d);
+      dims.push({el:el, i:d.lastChild, v:v, pre:pre || ""});
+    }
+    function build(){
+      if (dims.length) return;
+      add(document.querySelector(".avatar"), false, "Ø ");
+      add(document.querySelector(".mast h1"), false);
+      var cs = document.querySelectorAll(".card, .road"), k;
+      for (k = 0; k < cs.length; k++) add(cs[k], false);
+      cs = document.querySelectorAll(".proj");
+      for (k = 0; k < cs.length; k++) add(cs[k], true);
+    }
+    function update(){
+      if (!on) return;
+      dims.forEach(function(d){ d.i.textContent = d.pre + mm(d.v ? d.el.offsetHeight : d.el.offsetWidth); });
+      $("sh-size").textContent = mm(innerWidth) + " × " + mm(root.scrollHeight) + " mm";
+      var lm = new Date(document.lastModified);
+      if (!isNaN(lm)) $("sh-date").textContent = lm.toLocaleDateString(lang === "de" ? "de-DE" : "en-GB");
+    }
+    function label(){
+      t2.textContent = t(on ? "plan_off" : "plan_on");
+      b1.title = t(on ? "plan_off" : "plan_on");
+    }
+    function set(v){
+      on = v;
+      if (v) build();
+      if (v) root.setAttribute("data-plan", "on"); else root.removeAttribute("data-plan");
+      b1.setAttribute("aria-pressed", v ? "true" : "false");
+      label(); update();
+    }
+    function toggle(){
+      var v = !on;
+      if (!rm && document.startViewTransition) document.startViewTransition(function(){ set(v); });
+      else set(v);
+    }
+    b1.addEventListener("click", toggle);
+    $("plan2").addEventListener("click", toggle);
+    addEventListener("resize", function(){ clearTimeout(rz); rz = setTimeout(update, 150); });
+    addEventListener("beforeprint", function(){ if (on) set(false); });
+    hooks.push(function(){ label(); update(); });
+    label();
+  })();
 })();
 </script>
 </body>
