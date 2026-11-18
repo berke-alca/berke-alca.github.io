@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" data-plan="on">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -255,28 +255,44 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 /* ---------- blueprint mode ---------- */
 .dm,.sheet{display:none}
 :root[data-plan="on"]{
-  --bg:#0d3e78; --bg2:rgba(255,255,255,.06); --card:rgba(13,62,120,.55); --ink:#eef5ff; --muted:#a8c6ee; --hair:rgba(238,245,255,.42);
-  --accent:#ffffff; --accent-soft:rgba(255,255,255,.12); --ok:#9ff0b8; --ok-soft:rgba(159,240,184,.12); --wip:#ffd38a; --wip-soft:rgba(255,211,138,.12);
-  --bar:rgba(13,62,120,.78); --shadow:none; --term:rgba(0,0,0,.18); --term-ink:#eef5ff; --term-dim:#a8c6ee; --term-hl:#9fd0ff; --term-sp:#ffe08a;
+  --bg:#f6f5f1; --bg2:rgba(27,31,36,.045); --card:rgba(255,255,255,.72); --ink:#1b1f24; --muted:#5f6670; --hair:rgba(27,31,36,.22);
+  --accent:#d4471a; --accent-soft:rgba(212,71,26,.09); --ok:#1f7a3d; --ok-soft:rgba(31,122,61,.09); --wip:#b25e00; --wip-soft:rgba(178,94,0,.1);
+  --bar:rgba(246,245,241,.8); --shadow:none; --term:#1b1f24; --term-ink:#f1f0eb; --term-dim:#8d939b; --term-hl:#ff8a5c; --term-sp:#ffd27a;
+  --grid1:rgba(27,31,36,.075); --grid2:rgba(27,31,36,.035);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root[data-plan="on"]:not([data-theme="light"]){
+  --bg:#141619; --bg2:rgba(255,255,255,.05); --card:rgba(20,22,25,.78); --ink:#e9e7e1; --muted:#9aa0a8; --hair:rgba(233,231,225,.24);
+  --accent:#ff7a4d; --accent-soft:rgba(255,122,77,.12); --ok:#5fd68a; --ok-soft:rgba(95,214,138,.12); --wip:#ffb454; --wip-soft:rgba(255,180,84,.12);
+  --bar:rgba(20,22,25,.8); --term:#0b0c0e; --grid1:rgba(255,255,255,.07); --grid2:rgba(255,255,255,.03);
+  color-scheme:dark;
+  }
+}
+:root[data-plan="on"][data-theme="dark"]{
+  --bg:#141619; --bg2:rgba(255,255,255,.05); --card:rgba(20,22,25,.78); --ink:#e9e7e1; --muted:#9aa0a8; --hair:rgba(233,231,225,.24);
+  --accent:#ff7a4d; --accent-soft:rgba(255,122,77,.12); --ok:#5fd68a; --ok-soft:rgba(95,214,138,.12); --wip:#ffb454; --wip-soft:rgba(255,180,84,.12);
+  --bar:rgba(20,22,25,.8); --term:#0b0c0e; --grid1:rgba(255,255,255,.07); --grid2:rgba(255,255,255,.03);
   color-scheme:dark;
 }
 :root[data-plan="on"] body{
   background-color:var(--bg);
   background-image:
-    linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px),
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    linear-gradient(var(--grid1) 1px,transparent 1px),linear-gradient(90deg,var(--grid1) 1px,transparent 1px),
+    linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);
   background-size:100px 100px,100px 100px,20px 20px,20px 20px;background-position:-1px -1px}
 [data-plan="on"] .card,[data-plan="on"] .road li,[data-plan="on"] .chips li,[data-plan="on"] .lane{border-radius:3px;border:1px solid var(--hair);box-shadow:none}
 [data-plan="on"] .proj:hover{transform:none;box-shadow:none}
-[data-plan="on"] .road li.now{box-shadow:none;border:1.5px solid var(--ink)}
+[data-plan="on"] .road li.now{box-shadow:none;border:1.5px solid var(--accent)}
 [data-plan="on"] .btn,[data-plan="on"] .cb,[data-plan="on"] .tb{background:transparent;border:1px solid var(--hair);color:var(--ink);border-radius:3px}
-[data-plan="on"] .btn.pri,[data-plan="on"] .cb.pri{border-color:var(--ink)}
+[data-plan="on"] .btn.pri,[data-plan="on"] .cb.pri{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-plan="on"] .btn:hover,[data-plan="on"] .cb:hover,[data-plan="on"] .tb:hover{border-color:var(--ink)}
 [data-plan="on"] .cb[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 [data-plan="on"] .planbtn{border-radius:3px;border-style:solid}
 [data-plan="on"] .term{border:1px solid var(--hair);border-radius:3px}
 [data-plan="on"] .file,[data-plan="on"] .stash,[data-plan="on"] .lines li{border-radius:3px}
-[data-plan="on"] .file .c{background:#eef5ff;color:#0d3e78}
-[data-plan="on"] .mast h1{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+[data-plan="on"] .file .c{background:var(--accent);color:#fff}
+[data-plan="on"] .mast h1{color:transparent;-webkit-text-stroke:1.6px var(--ink)}
 [data-plan="on"] .avatar{background:transparent;border:1.5px solid var(--ink);color:var(--ink);
   background-image:linear-gradient(var(--hair),var(--hair)),linear-gradient(var(--hair),var(--hair));background-size:1px 130%,130% 1px;background-position:center;background-repeat:no-repeat}
 [data-plan="on"] .kicker,[data-plan="on"] .tl .when,[data-plan="on"] .dlbl{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
@@ -285,7 +301,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 [data-plan="on"] .sh h2::before{counter-increment:det;content:counter(det,upper-alpha);flex:none;display:inline-grid;place-items:center;width:1.15em;height:1.15em;border:1.5px solid var(--ink);border-radius:50%;font:600 .5em/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
 [data-plan="on"] .proj ul li::before{background:var(--ink);border-radius:0;transform:rotate(45deg);width:5px;height:5px}
 [data-plan="on"] footer{background:transparent}
-[data-plan="on"] footer .btn.pri{background:transparent;color:var(--ink);border-color:var(--ink)}
+[data-plan="on"] footer .btn.pri{background:var(--ink);color:var(--bg)}
 
 /* dimension lines (architect style: oblique ticks) */
 [data-plan="on"] .dm{display:block;position:absolute;left:0;right:0;top:-20px;height:13px;pointer-events:none;
@@ -294,7 +310,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 .dm b{position:absolute;top:1px;width:1.5px;height:11px;background:var(--ink);transform:rotate(45deg)}
 .dm b:first-child{left:-1px}
 .dm b+b{right:-1px}
-.dm i{-webkit-text-stroke:0;position:absolute;left:50%;top:-4px;transform:translateX(-50%);font:600 11px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-style:normal;letter-spacing:.04em;color:var(--ink);background:var(--bg);padding:2px 6px;white-space:nowrap}
+.dm i{-webkit-text-stroke:0;position:absolute;left:50%;top:-4px;transform:translateX(-50%);font:600 11px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-style:normal;letter-spacing:.04em;color:var(--accent);background:var(--bg);padding:2px 6px;white-space:nowrap}
 .dm.v{left:auto;top:0;bottom:0;right:-20px;width:13px;height:auto;border:0;border-top:1px solid var(--muted);border-bottom:1px solid var(--muted)}
 .dm.v::before{left:6px;right:auto;top:-6px;bottom:-6px;border-top:0;border-left:1px solid currentColor}
 .dm.v b{left:1px;width:11px;height:1.5px}
@@ -306,6 +322,9 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 
 [data-plan="on"] .mast h1{display:inline-block}
 @media (max-width:719px){.dm.v{display:none!important}}
+.reveal>.dm{transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.8,.2,1) .35s}
+.reveal>.dm.v{transform:scaleY(0)}
+.reveal.in>.dm{transform:none}
 /* title block (Schriftfeld) */
 [data-plan="on"] .sheet{display:grid;grid-template-columns:repeat(4,auto);margin:44px auto 0;max-width:560px;border:1.5px solid var(--ink);text-align:left;
   font:12px/1.35 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
@@ -315,10 +334,6 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
 .sheet span{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
 .sheet .big{grid-column:1/-1;font-size:15px;font-weight:600;font-family:-apple-system,"SF Pro Display","Segoe UI",system-ui,sans-serif;border-right:0}
 
-/* switching animation: the plan is "drawn" over the page */
-::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
-::view-transition-new(root){animation:wipe .95s cubic-bezier(.65,0,.25,1)}
-@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 </style>
 </head>
 <body>
@@ -334,7 +349,6 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <a href="#skills" data-i18n="n_skills">Skills</a>
       <a href="#contact" data-i18n="n_contact">Kontakt</a>
     </nav>
-    <button class="tb" id="plan" type="button" aria-pressed="false" aria-label="Bauplan / Blueprint" title="Bauplan"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 14.5V1.5l13 13z M4.5 11.5V8.7l2.8 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M1.5 4.5h1.6M1.5 7.5h1.6M1.5 10.5h1.6" stroke="currentColor" stroke-width="1.1"/></svg></button>
     <button class="tb" id="lang" type="button" aria-label="Sprache wechseln / Switch language"><span id="l-de" class="on">DE</span> | <span id="l-en">EN</span></button>
     <button class="tb" id="theme" type="button" aria-label="Hell / Dunkel"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="display:block"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
     <button class="tb" id="pdf" type="button">PDF</button>
@@ -357,8 +371,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <a class="btn" href="mailto:berkealca@gmail.com" data-i18n="mail">E-Mail schreiben</a>
     </div>
     <div class="planline">
-      <button class="planbtn" id="plan2" type="button"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 14.5V1.5l13 13z M4.5 11.5V8.7l2.8 2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M1.5 4.5h1.6M1.5 7.5h1.6M1.5 10.5h1.6" stroke="currentColor" stroke-width="1.1"/></svg><span id="plan2-t" data-i18n="plan_on">Diese Seite als Bauplan ansehen</span></button>
-      <span class="small" data-i18n="plan_why">Ich hab mal Bauzeichner gelernt. Darum gibt es diese Seite auch als technische Zeichnung.</span>
+      <span class="small" data-i18n="plan_why">Ich hab mal Bauzeichner gelernt. Darum sieht diese Seite aus wie ein Bauplan.</span>
     </div>
   </div>
 
@@ -639,8 +652,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_what:"Oben steht der Aufruf, darunter was rauskommt. Daneben lief das echte printf mit denselben Werten. Sind beide gleich, gibt es einen Haken.",
       pf_next:"Nächstes Beispiel ▶", pf_ret:"Rückgabewert", pf_chars:"Zeichen", pf_ok:"✅ Genau dieselbe Ausgabe wie printf", pf_bad:"⚠ Anders als printf",
       d_note:"Aufgenommen am 15.11.2026 (push_swap am 18.11.2026) aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.",
-      plan_on:"Diese Seite als Bauplan ansehen", plan_off:"Zurück zur normalen Ansicht",
-      plan_why:"Ich hab mal Bauzeichner gelernt. Darum gibt es diese Seite auch als technische Zeichnung.",
+      plan_why:"Ich hab mal Bauzeichner gelernt. Darum sieht diese Seite aus wie ein Bauplan.",
       sh_proj:"Bauvorhaben", sh_projv:"Lebenslauf Berke Alca", sh_by:"Gezeichnet", sh_date:"Stand", sh_scale:"Maßstab", sh_sheet:"Blatt", sh_size:"Format", sh_unit:"Maße", sh_plan:"Plan-Nr.", sh_idx:"Index",
       ps_1:"Vier Strategien: Selection Sort, Chunk Sort und Radix Sort", ps_2:"Misst erst, wie unsortiert die Zahlen sind, und wählt dann selbst (--adaptive)", ps_3:"Teamarbeit an einem Projekt mit Git und Pull Requests",
       ps_what:"Dieselben 40 Zahlen, drei Strategien aus unserem Code im Rennen. Jeder Balken ist eine Zahl: links Stack a, rechts Stack b. Wer braucht die wenigsten Befehle?",
@@ -693,8 +705,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_what:"The call is on top, the output below. The real printf ran next to it with the same values. If both match, you get a check mark.",
       pf_next:"Next example ▶", pf_ret:"Return value", pf_chars:"characters", pf_ok:"✅ Exactly the same output as printf", pf_bad:"⚠ Differs from printf",
       d_note:"Recorded on 15.11.2026 (push_swap on 18.11.2026) from the main branch. Compiled with cc -Wall -Wextra -Werror, checked for memory leaks with valgrind.",
-      plan_on:"View this page as a blueprint", plan_off:"Back to the normal view",
-      plan_why:"I trained as an architectural draughtsman. So this page also comes as a technical drawing.",
+      plan_why:"I trained as an architectural draughtsman. That's why this page looks like a construction drawing.",
       sh_proj:"Project", sh_projv:"Résumé Berke Alca", sh_by:"Drawn by", sh_date:"Revised", sh_scale:"Scale", sh_sheet:"Sheet", sh_size:"Format", sh_unit:"Units", sh_plan:"Drawing no.", sh_idx:"Rev.",
       ps_1:"Four strategies: selection sort, chunk sort and radix sort", ps_2:"Measures how unsorted the numbers are first, then picks on its own (--adaptive)", ps_3:"Teamwork on one project with Git and pull requests",
       ps_what:"The same 40 numbers, three strategies from our code racing each other. Every bar is a number: stack a on the left, stack b on the right. Who needs the fewest moves?",
@@ -880,7 +891,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       if (o === "rrb" || o === "rrr") rrot(b);
     }
     var C = {};
-    function colors(){ var cs = getComputedStyle(root); ["--accent","--wip","--hair","--muted"].forEach(function(k){ C[k] = cs.getPropertyValue(k).trim(); }); }
+    function colors(){ var cs = getComputedStyle(root); ["--ink","--accent","--hair","--muted"].forEach(function(k){ C[k] = cs.getPropertyValue(k).trim(); }); }
     function draw(l){
       var cv = l.cv, w = cv.clientWidth, h = cv.clientHeight, dpr = window.devicePixelRatio || 1;
       if (!w) return;
@@ -896,7 +907,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         }
         g.globalAlpha = 1;
       }
-      stack(l.a, 0, C["--accent"]); stack(l.b, col + 9, C["--wip"]);
+      stack(l.a, 0, C["--ink"]); stack(l.b, col + 9, C["--accent"]);
     }
     function label(l){
       l.cnt.textContent = t("ps_move") + " " + l.i + " / " + l.n;
@@ -949,53 +960,32 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     hooks.push(function(){ lanes.forEach(label); play.textContent = raf ? t("ps_pause") : t("ps_play"); if (allDone()) finish(); });
   })();
 
-  // ---------- blueprint mode ----------
+  // ---------- drawing marks (dimension lines, title block) ----------
   (function(){
-    var on = false, dims = [], b1 = $("plan"), t2 = $("plan2-t"), rz = null;
+    var dims = [], rz = null;
     function mm(px){ var v = px * 25.4 / 96; return (v >= 100 ? v.toFixed(0) : v.toFixed(1)).replace(".", lang === "de" ? "," : "."); }
     function add(el, v, pre){
+      if (!el) return;
       var d = document.createElement("span"); d.className = "dm" + (v ? " v" : ""); d.setAttribute("aria-hidden", "true");
       d.innerHTML = "<b></b><b></b><i></i>"; el.classList.add("has-dm"); el.appendChild(d);
       dims.push({el:el, i:d.lastChild, v:v, pre:pre || ""});
     }
-    function build(){
-      if (dims.length) return;
-      add(document.querySelector(".avatar"), false, "Ø ");
-      add(document.querySelector(".mast h1"), false);
-      var cs = document.querySelectorAll(".card, .road"), k;
-      for (k = 0; k < cs.length; k++) add(cs[k], false);
-      cs = document.querySelectorAll(".proj");
-      for (k = 0; k < cs.length; k++) add(cs[k], true);
-    }
+    add(document.querySelector(".avatar"), false, "Ø ");
+    add(document.querySelector(".mast h1"), false);
+    var cs = document.querySelectorAll(".card, .road"), k;
+    for (k = 0; k < cs.length; k++) add(cs[k], false);
+    cs = document.querySelectorAll(".proj");
+    for (k = 0; k < cs.length; k++) add(cs[k], true);
     function update(){
-      if (!on) return;
       dims.forEach(function(d){ d.i.textContent = d.pre + mm(d.v ? d.el.offsetHeight : d.el.offsetWidth); });
       $("sh-size").textContent = mm(innerWidth) + " × " + mm(root.scrollHeight) + " mm";
       var lm = new Date(document.lastModified);
       if (!isNaN(lm)) $("sh-date").textContent = lm.toLocaleDateString(lang === "de" ? "de-DE" : "en-GB");
     }
-    function label(){
-      t2.textContent = t(on ? "plan_off" : "plan_on");
-      b1.title = t(on ? "plan_off" : "plan_on");
-    }
-    function set(v){
-      on = v;
-      if (v) build();
-      if (v) root.setAttribute("data-plan", "on"); else root.removeAttribute("data-plan");
-      b1.setAttribute("aria-pressed", v ? "true" : "false");
-      label(); update();
-    }
-    function toggle(){
-      var v = !on;
-      if (!rm && document.startViewTransition) document.startViewTransition(function(){ set(v); });
-      else set(v);
-    }
-    b1.addEventListener("click", toggle);
-    $("plan2").addEventListener("click", toggle);
     addEventListener("resize", function(){ clearTimeout(rz); rz = setTimeout(update, 150); });
-    addEventListener("beforeprint", function(){ if (on) set(false); });
-    hooks.push(function(){ label(); update(); });
-    label();
+    addEventListener("load", update);
+    hooks.push(update);
+    update();
   })();
 })();
 </script>
