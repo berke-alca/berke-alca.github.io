@@ -104,7 +104,8 @@ section{padding:88px 0 0}
 .road li.now .kicker{color:var(--accent)}
 .road h3{margin:0;font-size:19px}
 .road p{margin:2px 0 0;color:var(--muted);font-size:15px}
-@media (min-width:720px){.road{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:720px){.road{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.road{grid-template-columns:repeat(5,1fr)}}
 
 /* timeline */
 .tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
@@ -215,7 +216,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
   .card,.road li{border:0;padding:0;background:none;border-radius:0}
   .story p{font-size:10.5pt;margin:0 0 6pt}
   .story .pull{font-size:10.5pt;margin:6pt 0}
-  .road{grid-template-columns:repeat(4,1fr)!important;gap:6pt}
+  .road{grid-template-columns:repeat(5,1fr)!important;gap:6pt}
   .road h3{font-size:11pt}
   .tl{border-top:0}
   .tl>li{grid-template-columns:110pt 1fr;padding:5pt 0}
@@ -363,7 +364,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     <div class="avatar" aria-hidden="true">BA</div>
     <h1>Berke Alca</h1>
     <p class="kicker">Software Engineering Student @ 42 Heilbronn</p>
-    <p class="tag" data-i18n-html="tag">Ich lerne Programmieren an der 42 Heilbronn. <mark>Gerade vor allem C.</mark></p>
+    <p class="tag" data-i18n-html="tag">Ich lerne Programmieren an der 42 Heilbronn. <mark>Die C-Projekte sind fertig, jetzt kommt Python.</mark></p>
     <p class="meta" data-i18n="meta">22 Jahre · wohnt in Mannheim · sucht ein Praktikum</p>
     <div class="cta">
       <a class="btn pri" href="https://github.com/berke-alca" target="_blank" rel="noopener">GitHub ↗</a>
@@ -401,7 +402,8 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     <div class="sh reveal"><h2 data-i18n="h_road">Der Plan</h2></div>
     <ol class="road reveal">
       <li class="done"><span class="kicker">05.10.2026</span><h3 data-i18n="r1">Start an der 42</h3><p>42 Heilbronn</p></li>
-      <li class="now"><span class="kicker" data-i18n="r2k">Jetzt</span><h3 data-i18n="r2">Projekte in C</h3><p data-i18n="r2p">Siehe unten</p></li>
+      <li class="done"><span class="kicker" data-i18n="r2k">Geschafft</span><h3 data-i18n="r2">Projekte in C</h3><p data-i18n="r2p">libft bis push_swap</p></li>
+      <li class="now"><span class="kicker" data-i18n="rpk">Jetzt</span><h3>Python</h3><p data-i18n="rpp">Die nächsten Projekte</p></li>
       <li><span class="kicker" data-i18n="r3k">Als Nächstes</span><h3 data-i18n="r3">Praktikum</h3><p data-i18n="r3p">Echte Software in einem Team</p></li>
       <li class="goal"><span class="kicker" data-i18n="r4k">Ziel</span><h3>Junior Developer</h3><p data-i18n="r4p">Fester Einstieg als Entwickler</p></li>
     </ol>
@@ -569,7 +571,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         <ul class="chips reveal">
           <li>C</li><li>Unix / Linux</li><li>Git</li><li>Makefiles</li><li>Shell</li><li data-i18n="mem">Speicherverwaltung</li>
         </ul>
-        <p class="note reveal" data-i18n="sk_next">Als Nächstes will ich Python lernen.</p>
+        <p class="note reveal" data-i18n="sk_next">Gerade lerne ich Python.</p>
       </div>
       <div>
         <div class="sh reveal"><h2 data-i18n="h_lang">Sprachen</h2></div>
@@ -614,7 +616,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     de:{
       n_about:"Über mich", n_path:"Werdegang", n_proj:"Projekte", n_demo:"Live-Demos", n_skills:"Skills", n_contact:"Kontakt",
       m_left:"Lebenslauf", m_right:"42 Heilbronn",
-      tag:"Ich lerne Programmieren an der 42 Heilbronn. <mark>Gerade vor allem C.</mark>",
+      tag:"Ich lerne Programmieren an der 42 Heilbronn. <mark>Die C-Projekte sind fertig, jetzt kommt Python.</mark>",
       meta:"22 Jahre · wohnt in Mannheim · sucht ein Praktikum", mail:"E-Mail schreiben",
       st1:"Projekte fertig", st2:"gerade dran", st3:"Tage an der 42",
       h_about:"Über mich",
@@ -627,7 +629,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       how2b:"Selber machen", how2:"Keine Lehrer. Man liest man-Pages und fragt die Leute neben sich.",
       how3b:"Peer-Review", how3:"Andere Studierende testen meinen Code. Ich teste ihren.",
       how4b:"Norminette", how4:"Strenge Regeln, z. B. max. 25 Zeilen pro Funktion. Eine Compiler-Warnung und es zählt nicht.",
-      h_road:"Der Plan", r1:"Start an der 42", r2k:"Jetzt", r2:"Projekte in C", r2p:"Siehe unten",
+      h_road:"Der Plan", r1:"Start an der 42", r2k:"Geschafft", r2:"Projekte in C", r2p:"libft bis push_swap", rpk:"Jetzt", rpp:"Die nächsten Projekte",
       r3k:"Als Nächstes", r3:"Praktikum", r3p:"Echte Software in einem Team", r4k:"Ziel", r4p:"Fester Einstieg als Entwickler",
       h_path:"Werdegang", t1w:"seit 05.10.2026", t1s:"(Common Core)", t1p:"Projekte in C, bewertet von anderen Studierenden.",
       t2h:"Informatik (B.Sc.), Hochschule Mannheim", t2p:"Grundlagen gelernt, dann gewechselt. Zu viel Theorie, zu wenig Code.",
@@ -659,7 +661,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       ps_play:"▶ Rennen starten", ps_pause:"❚❚ Pause", ps_reset:"Zurück auf Start", ps_move:"Befehl", ps_win:"Am wenigsten Befehle", ps_done:"sortiert",
       ps_ok:"✅ Nachgerechnet: Alle drei Befehlslisten sortieren die Zahlen wirklich. Dazu 880 Zufallstests mit 1 bis 500 Zahlen, alle richtig.",
       ps_adapt:"--adaptive misst hier %d Unordnung und nimmt deshalb Medium.",
-      mem:"Speicherverwaltung", sk_next:"Als Nächstes will ich Python lernen.",
+      mem:"Speicherverwaltung", sk_next:"Gerade lerne ich Python.",
       h_lang:"Sprachen", lg_de:"Deutsch", lg_tr:"Türkisch", lg_en:"Englisch",
       c_k:"Kontakt", c_h:"Lass uns <i>reden.</i>", c_p:"Ich suche ein Praktikum. Schreib mir einfach.",
       ticker:["C","Unix","Git","Makefiles","Shell","valgrind","Norminette","42 Heilbronn","sucht Praktikum"]
@@ -667,7 +669,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     en:{
       n_about:"About", n_path:"Background", n_proj:"Projects", n_demo:"Live demos", n_skills:"Skills", n_contact:"Contact",
       m_left:"Résumé", m_right:"42 Heilbronn",
-      tag:"I'm learning to code at 42 Heilbronn. <mark>Mostly C right now.</mark>",
+      tag:"I'm learning to code at 42 Heilbronn. <mark>C projects done, now it's Python.</mark>",
       meta:"22 · lives in Mannheim · looking for an internship", mail:"Send an email",
       st1:"projects done", st2:"in progress", st3:"days at 42",
       h_about:"About me",
@@ -680,7 +682,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       how2b:"Do it yourself", how2:"No teachers. You read man pages and ask the people next to you.",
       how3b:"Peer review", how3:"Other students test my code. I test theirs.",
       how4b:"Norminette", how4:"Strict rules, e.g. max. 25 lines per function. One compiler warning and it doesn't count.",
-      h_road:"The plan", r1:"Started at 42", r2k:"Now", r2:"Projects in C", r2p:"See below",
+      h_road:"The plan", r1:"Started at 42", r2k:"Done", r2:"Projects in C", r2p:"libft to push_swap", rpk:"Now", rpp:"The next projects",
       r3k:"Next", r3:"Internship", r3p:"Real software in a team", r4k:"Goal", r4p:"A proper start as a developer",
       h_path:"Background", t1w:"since 05.10.2026", t1s:"(Common Core)", t1p:"Projects in C, graded by other students.",
       t2h:"Computer Science (B.Sc.), Hochschule Mannheim", t2p:"Learned the basics, then switched. Too much theory, too little code.",
@@ -712,7 +714,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       ps_play:"▶ Start the race", ps_pause:"❚❚ Pause", ps_reset:"Back to start", ps_move:"Move", ps_win:"Fewest moves", ps_done:"sorted",
       ps_ok:"✅ Double-checked: all three move lists really sort the numbers. Plus 880 random tests with 1 to 500 numbers, all correct.",
       ps_adapt:"--adaptive measures %d disorder here, so it picks medium.",
-      mem:"Memory management", sk_next:"Next up, I want to learn Python.",
+      mem:"Memory management", sk_next:"Learning Python right now.",
       h_lang:"Languages", lg_de:"German", lg_tr:"Turkish", lg_en:"English",
       c_k:"Contact", c_h:"Let's <i>talk.</i>", c_p:"I'm looking for an internship. Just send me a message.",
       ticker:["C","Unix","Git","Makefiles","Shell","valgrind","Norminette","42 Heilbronn","looking for an internship"]
