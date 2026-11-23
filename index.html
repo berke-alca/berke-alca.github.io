@@ -499,12 +499,27 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         </div>
       </article>
 
+      <article class="card proj reveal">
+        <span class="stamp wip" data-i18n="wip">🔄 In Arbeit</span>
+        <h3>python00</h3>
+        <p data-i18n="py_p">Mein erstes Python-Modul. Kleine Programme, die etwas ausgeben, Eingaben lesen und damit rechnen. Die ersten drei Übungen sind fertig, der Rest kommt noch.</p>
+        <ul>
+          <li data-i18n="py_1">Funktionen mit def schreiben und aufrufen</li>
+          <li data-i18n="py_2">Eingaben mit input() lesen, Ausgabe mit f-Strings</li>
+          <li data-i18n="py_3">Text mit int() in Zahlen umwandeln und damit rechnen</li>
+        </ul>
+        <div class="links">
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/python00" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-py" data-i18n="try">▶ Ausprobieren</a>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <section id="demos">
     <div class="sh reveal"><h2 data-i18n="h_demo">Live-Demos</h2></div>
-    <p class="dintro reveal" data-i18n="d_intro">Das hier ist keine Animation, die so tut als ob. Ich habe meinen C-Code kompiliert, laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.</p>
+    <p class="dintro reveal" data-i18n="d_intro">Das hier ist keine Animation, die so tut als ob. Ich habe meinen echten Code laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.</p>
     <div class="demos">
 
       <article class="card demo reveal" id="demo-lf">
@@ -560,6 +575,15 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         <p class="bench" id="ps-bench"></p>
       </article>
 
+      <article class="card demo reveal" id="demo-py">
+        <h3>python00</h3>
+        <p class="what" data-i18n="py_what">Tipp auf eine Übung. Das ist die echte Ausgabe im Terminal, farbig ist, was eingetippt wurde.</p>
+        <div class="row" id="py-btns" style="margin-top:0"></div>
+        <div class="term" id="py-term" style="margin-top:14px;white-space:pre-wrap"></div>
+        <p class="ok-line" id="py-ok"></p>
+        <p class="small" data-i18n="py_note">Aufgenommen am 23.11.2026 aus dem Stand von main, mit Python 3.11.</p>
+      </article>
+
       <p class="small reveal" data-i18n="d_note">Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.</p>
     </div>
   </section>
@@ -569,7 +593,7 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       <div>
         <div class="sh reveal"><h2>Skills</h2></div>
         <ul class="chips reveal">
-          <li>C</li><li>Unix / Linux</li><li>Git</li><li>Makefiles</li><li>Shell</li><li data-i18n="mem">Speicherverwaltung</li>
+          <li>C</li><li>Unix / Linux</li><li>Git</li><li>Makefiles</li><li>Shell</li><li data-i18n="mem">Speicherverwaltung</li><li>Python</li>
         </ul>
         <p class="note reveal" data-i18n="sk_next">Gerade lerne ich Python.</p>
       </div>
@@ -643,8 +667,12 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_p:"Mein eigenes printf. Kann %c, %s, %p, %d, %i, %u, %x, %X und %%.",
       pf_1:"Beliebig viele Argumente mit va_list", pf_2:"Zahlen ins Hex-System umrechnen", pf_3:"Eine kleine Funktion pro Umwandlung (Norm: max. 25 Zeilen)",
       ps_p:"Zahlen sortieren mit nur zwei Stacks und elf erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Zu zweit gebaut.",
+      py_p:"Mein erstes Python-Modul. Kleine Programme, die etwas ausgeben, Eingaben lesen und damit rechnen. Die ersten drei Übungen sind fertig, der Rest kommt noch.",
+      py_1:"Funktionen mit def schreiben und aufrufen", py_2:"Eingaben mit input() lesen, Ausgabe mit f-Strings", py_3:"Text mit int() in Zahlen umwandeln und damit rechnen",
+      py_what:"Tipp auf eine Übung. Das ist die echte Ausgabe im Terminal, farbig ist, was eingetippt wurde.",
+      py_note:"Aufgenommen am 23.11.2026 aus dem Stand von main, mit Python 3.11.", py_ok:"✅ Ausgabe stimmt, Programm ohne Fehler beendet", py_area:"✅ Nachgerechnet: %a × %b = %c",
       h_demo:"Live-Demos",
-      d_intro:"Das hier ist keine Animation, die so tut als ob. Ich habe meinen C-Code kompiliert, laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.",
+      d_intro:"Das hier ist keine Animation, die so tut als ob. Ich habe meinen echten Code laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.",
       lf_what:"Tipp auf eine Funktion. Du siehst den Aufruf und was meine Bibliothek zurückgibt.",
       lf_same:"✅ Gleiches Ergebnis wie das Original %s() aus der C-Standardbibliothek", lf_right:"✅ Richtiges Ergebnis",
       gnl_what:"Die Funktion bekommt von read() immer nur ein paar Zeichen auf einmal. Daraus muss sie ganze Zeilen bauen. Stell die Puffergröße ein und drück auf Abspielen.",
@@ -696,8 +724,12 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_p:"My own printf. Handles %c, %s, %p, %d, %i, %u, %x, %X and %%.",
       pf_1:"Any number of arguments with va_list", pf_2:"Converting numbers to hex", pf_3:"One small function per conversion (Norm: max. 25 lines)",
       ps_p:"Sorting numbers with just two stacks and eleven allowed moves like sa, pb or ra. Goal: as few moves as possible. Built as a team of two.",
+      py_p:"My first Python module. Small programs that print text, read input and calculate with it. The first three exercises are done, the rest is still to come.",
+      py_1:"Writing and calling functions with def", py_2:"Reading input with input(), output with f-strings", py_3:"Turning text into numbers with int() and calculating with them",
+      py_what:"Tap an exercise. This is the real terminal output, the coloured part is what was typed in.",
+      py_note:"Recorded on 23.11.2026 from main, with Python 3.11.", py_ok:"✅ Output is correct, program exited without errors", py_area:"✅ Double-checked: %a × %b = %c",
       h_demo:"Live demos",
-      d_intro:"This isn't an animation pretending to be code. I compiled my C code, ran it and recorded the real output. The page just plays it back.",
+      d_intro:"This isn't an animation pretending to be code. I ran my real code and recorded the real output. The page just plays it back.",
       lf_what:"Tap a function. You'll see the call and what my library returns.",
       lf_same:"✅ Same result as the original %s() from the C standard library", lf_right:"✅ Correct result",
       gnl_what:"The function only gets a few characters at a time from read(). It has to build whole lines out of them. Pick a buffer size and hit play.",
@@ -724,6 +756,8 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
   var PS = {"input":[8,2,18,16,15,9,7,6,28,39,1,3,34,40,17,20,30,38,32,21,23,14,27,36,35,13,19,24,29,22,33,5,12,31,25,26,37,11,4,10],"runs":{"simple":{"ops":"ra ra ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb rra pb rra rra rra rra rra pb ra ra ra pb rra rra rra rra pb rra pb rra rra rra rra rra pb rra rra rra rra rra rra pb rra rra rra rra pb rra rra rra rra rra rra rra rra rra rra rra rra pb rra pb ra ra ra ra pb rra rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra pb ra ra ra pb pb rra rra rra rra rra rra pb ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra rra pb ra ra ra ra ra pb rra rra rra rra pb ra ra pb ra ra pb ra ra ra pb rra pb pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa","n":267,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: simple, O(n^2)","[bench] total_ops: 267","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 71 rb: 0 rr: 0 rra: 116 rrb: 0 rrr: 0"]},"medium":{"ops":"pb pb ra ra ra pb pb pb ra ra pb rb pb rb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb rb pb ra ra ra ra pb rb pb rb pb rb pb pb pb rb ra ra ra ra pb rb pb ra ra ra pb pb pb ra ra pb rb pb pb pb rb pb pb pb rb pb rb pb pb rb pb pb pb pb rb pb pb rb pb rb pb rb rb pa rb pa rrb rrb pa rb pa rrb rrb rrb pa pa pa rb pa rrb rrb pa pa rrb pa pa rrb pa rb pa rrb rrb pa rrb pa pa pa rrb pa pa pa rrb pa rb pa rrb rrb pa pa rrb pa rb rb pa rrb pa rrb pa rrb rrb rrb pa rb pa rb rb pa rb pa rrb rrb pa rrb pa rrb rrb pa pa rrb pa pa pa","n":172,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: medium, O(n*sqrt(n))","[bench] total_ops: 172","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 35 rb: 29 rr: 0 rra: 0 rrb: 28 rrr: 0"]},"complex":{"ops":"ra ra ra ra pb pb pb ra ra pb pb pb ra ra pb ra ra ra ra pb pb ra pb ra pb pb pb ra pb ra pb pb ra pb pb ra pb pb ra ra pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa ra pb ra ra pb ra pb pb ra ra ra pb ra pb pb pb ra pb pb ra ra pb pb ra pb ra pb ra ra pb pb ra pb ra ra pb ra pb ra pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb pb pb ra ra ra pb ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra ra pb ra pb pb pb ra pb ra ra pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa ra pb pb pb ra pb pb pb ra ra pb ra pb pb ra ra pb pb ra pb pb ra ra pb pb pb ra pb ra pb ra pb pb pb ra pb ra pb ra pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb ra pb pb ra pb pb pb ra ra pb pb ra pb pb pb pb ra pb pb ra pb pb ra pb ra ra pb ra pb ra pb pb ra ra pb pb ra pb ra pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pb ra pb ra pb ra ra pb pb ra pb ra pb ra pb ra pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa","n":380,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: complex, O(n log n)","[bench] total_ops: 380","[bench] sa: 0 sb: 0 ss: 0 pa: 140 pb: 140 ra: 100 rb: 0 rr: 0 rra: 0 rrb: 0 rrr: 0"]},"adaptive":{"ops":"pb pb ra ra ra pb pb pb ra ra pb rb pb rb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb rb pb ra ra ra ra pb rb pb rb pb rb pb pb pb rb ra ra ra ra pb rb pb ra ra ra pb pb pb ra ra pb rb pb pb pb rb pb pb pb rb pb rb pb pb rb pb pb pb pb rb pb pb rb pb rb pb rb rb pa rb pa rrb rrb pa rb pa rrb rrb rrb pa pa pa rb pa rrb rrb pa pa rrb pa pa rrb pa rb pa rrb rrb pa rrb pa pa pa rrb pa pa pa rrb pa rb pa rrb rrb pa pa rrb pa rb rb pa rrb pa rrb pa rrb rrb rrb pa rb pa rb rb pa rb pa rrb rrb pa rrb pa rrb rrb pa pa rrb pa pa pa","n":172,"ok":true,"bench":["[bench] disorder: 44.74%","[bench] strategy: adaptive -> medium, O(n*sqrt(n))","[bench] total_ops: 172","[bench] sa: 0 sb: 0 ss: 0 pa: 40 pb: 40 ra: 35 rb: 29 rr: 0 rra: 0 rrb: 28 rrr: 0"]}}};
   var DEMO = {"gnl":{"4":[["R","Hall"],["R","o 42"],["R","!\nIc"],["L","Hallo 42!\n"],["R","h le"],["R","se i"],["R","mmer"],["R"," nur"],["R"," ein"],["R"," paa"],["R","r Ze"],["R","iche"],["R","n.\nU"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R","nd b"],["R","aue "],["R","dara"],["R","us g"],["R","anze"],["R"," Zei"],["R","len."],["R","\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"10":[["R","Hallo 42!\n"],["L","Hallo 42!\n"],["R","Ich lese i"],["R","mmer nur e"],["R","in paar Ze"],["R","ichen.\nUnd"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R"," baue dara"],["R","us ganze Z"],["R","eilen.\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"42":[["R","Hallo 42!\nIch lese immer nur ein paar Zeic"],["L","Hallo 42!\n"],["R","hen.\nUnd baue daraus ganze Zeilen.\nEnde"],["L","Ich lese immer nur ein paar Zeichen.\n"],["L","Und baue daraus ganze Zeilen.\n"],["R",""],["L","Ende"],["R",""],["N"]]},"pf":[{"fmt":"\"Hallo %s!\\n\"","args":"\"Berke\"","out":"Hallo Berke!\n","ret":13,"same":true},{"fmt":"\"%d + %d = %d\\n\"","args":"19, 23, 19 + 23","out":"19 + 23 = 42\n","ret":13,"same":true},{"fmt":"\"Akku: %i%%\\n\"","args":"87","out":"Akku: 87%\n","ret":10,"same":true},{"fmt":"\"Temperatur: %d Grad\\n\"","args":"-5","out":"Temperatur: -5 Grad\n","ret":20,"same":true},{"fmt":"\"Note: %c\\n\"","args":"'A'","out":"Note: A\n","ret":8,"same":true},{"fmt":"\"42 in Hex: %x\\n\"","args":"42","out":"42 in Hex: 2a\n","ret":14,"same":true},{"fmt":"\"Farbe: #%X\\n\"","args":"0x3DDC84","out":"Farbe: #3DDC84\n","ret":15,"same":true},{"fmt":"\"%u Bytes\\n\"","args":"4096","out":"4096 Bytes\n","ret":11,"same":true},{"fmt":"\"x liegt bei %p\\n\"","args":"&x","out":"x liegt bei 0x7fffbef634dc\n","ret":27,"same":true},{"fmt":"\"Name: %s\\n\"","args":"NULL","out":"Name: (null)\n","ret":13,"same":true}],"lf":[{"call":"ft_split(\"Mannheim,Heilbronn,,42\", ',')","out":["Mannheim","Heilbronn","42"],"ref":"split","ok":true},{"call":"ft_strtrim(\"   hallo   \", \" \")","out":"hallo","ref":"trim","ok":true},{"call":"ft_substr(\"get_next_line\", 4, 4)","out":"next","ref":"substr","ok":true},{"call":"ft_strjoin(\"Berke \", \"Alca\")","out":"Berke Alca","ref":"join","ok":true},{"call":"ft_strmapi(\"heilbronn\", ft_toupper)","out":"HEILBRONN","ref":"mapi","ok":true},{"call":"ft_itoa(-2147483648)","out":"-2147483648","ref":"itoa","ok":true},{"call":"ft_atoi(\"   -42abc\")","out":-42,"ref":"atoi","ok":true},{"call":"ft_strlen(\"42 Heilbronn\")","out":12,"ref":"strlen","ok":true},{"call":"ft_strrchr(\"a/b/c.txt\", '/')","out":"/c.txt","ref":"strrchr","ok":true}]}
 ;
+
+  var PY = [{"cmd": "python3 ex0/ft_hello_garden.py", "in": [], "out": "Hello, Garden Community!\n", "ok": true}, {"cmd": "python3 ex1/ft_garden_name.py", "in": ["Heilbronn Garden"], "out": "Enter garden name: Heilbronn Garden\nGarden: Heilbronn Garden\nStatus: Growing well!\n", "ok": true}, {"cmd": "python3 ex2/ft_plot_area.py", "in": ["12", "7"], "out": "Enter length: 12\nEnter width: 7\nPlot area: 84\n", "ok": true}, {"cmd": "python3 ex2/ft_plot_area.py", "in": ["42", "5"], "out": "Enter length: 42\nEnter width: 5\nPlot area: 210\n", "ok": true}];
 
   var root = document.documentElement;
   var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -788,6 +822,40 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       if (!anim || rm){ term.innerHTML = head + res; fin(); return; }
       var plain = res.replace(/&quot;/g,'"').replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&"), n = 0;
       (function step(){ n++; term.innerHTML = head + '<span class="cur">' + esc(plain.slice(0, n)) + '</span>'; if (n < plain.length) timer = setTimeout(step, 28); else { term.innerHTML = head + res; fin(); } })();
+    }
+    show(0, false); hooks.push(function(){ show(cur, false); });
+  })();
+
+  // ---------- demo: python00 ----------
+  (function(){
+    var btns = $("py-btns"), term = $("py-term"), ok = $("py-ok"), cur = 0, timer = null;
+    PY.forEach(function(d, i){
+      var b = document.createElement("button"); b.type = "button"; b.className = "cb fn";
+      b.textContent = d.cmd.split("/")[0].replace("python3 ", "") + (i === 3 ? " (2)" : "");
+      b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      b.addEventListener("click", function(){ show(i, true); }); btns.appendChild(b);
+    });
+    function paint(d, n){
+      var o = d.out.slice(0, n), h = "", pos = 0;
+      d["in"].forEach(function(v){
+        var k = d.out.indexOf(": " + v + "\n", pos);
+        if (k < 0) return; k += 2;
+        if (k < o.length){ h += esc(o.slice(pos, k)) + '<span class="hl">' + esc(o.slice(k, Math.min(k + v.length, o.length))) + '</span>'; pos = Math.min(k + v.length, o.length); }
+      });
+      return h + esc(o.slice(pos));
+    }
+    function show(i, anim){
+      cur = i; var d = PY[i], bs = btns.children;
+      for (var k = 0; k < bs.length; k++) bs[k].setAttribute("aria-pressed", k === i ? "true" : "false");
+      var head = '<span class="dim">$ </span><span class="sp">' + esc(d.cmd) + '</span>\n';
+      clearTimeout(timer); ok.textContent = "";
+      function fin(){
+        if (!d.ok){ ok.textContent = "⚠"; return; }
+        ok.textContent = d["in"].length === 2 ? t("py_area").replace("%a", d["in"][0]).replace("%b", d["in"][1]).replace("%c", (+d["in"][0]) * (+d["in"][1])) : t("py_ok");
+      }
+      if (!anim || rm){ term.innerHTML = head + paint(d, d.out.length); fin(); return; }
+      var n = 0;
+      (function step(){ n++; term.innerHTML = head + '<span class="cur">' + paint(d, n) + '</span>'; if (n < d.out.length) timer = setTimeout(step, 24); else { term.innerHTML = head + paint(d, n); fin(); } })();
     }
     show(0, false); hooks.push(function(){ show(cur, false); });
   })();
