@@ -507,10 +507,27 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
           <li data-i18n="py_1">Funktionen mit def schreiben und aufrufen</li>
           <li data-i18n="py_2">Eingaben mit input() lesen, Ausgabe mit f-Strings</li>
           <li data-i18n="py_3">Text mit int() in Zahlen umwandeln und damit rechnen</li>
+          <li data-i18n="py_4">if / elif / else, while-Schleifen und Rekursion mit Hilfsfunktion</li>
+          <li data-i18n="py_5">Type Hints, geprüft mit mypy, Code sauber nach flake8</li>
         </ul>
         <div class="links">
           <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/python00" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
           <a class="lnk" href="#demo-py" data-i18n="try">▶ Ausprobieren</a>
+        </div>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="stamp wip" data-i18n="wip">🔄 In Arbeit</span>
+        <h3>python01</h3>
+        <p data-i18n="py1_p">Mein zweites Python-Modul: objektorientiert programmieren. Eine kleine Garten-Simulation mit Pflanzen als Objekten, die wachsen, älter werden und ihr Gewicht schützen.</p>
+        <ul>
+          <li data-i18n="py1_1">Eigene Klassen mit __init__ und Methoden</li>
+          <li data-i18n="py1_2">Viele Objekte in einer Liste anlegen und in einer Schleife ausgeben</li>
+          <li data-i18n="py1_3">Daten schützen: Getter und Setter, die falsche Werte ablehnen</li>
+        </ul>
+        <div class="links">
+          <a class="lnk" href="https://github.com/berke-alca/CoreCurriculum/tree/main/python01" target="_blank" rel="noopener" data-i18n="code">Code ansehen ↗</a>
+          <a class="lnk" href="#demo-py1" data-i18n="try">▶ Ausprobieren</a>
         </div>
       </article>
 
@@ -581,7 +598,16 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
         <div class="row" id="py-btns" style="margin-top:0"></div>
         <div class="term" id="py-term" style="margin-top:14px;white-space:pre-wrap"></div>
         <p class="ok-line" id="py-ok"></p>
-        <p class="small" data-i18n="py_note">Aufgenommen am 23.11.2026 aus dem Stand von main, mit Python 3.11.</p>
+        <p class="small" data-i18n="py_note">Aufgenommen am 28.11.2026 aus dem Stand von main, mit Python 3.11.</p>
+      </article>
+
+      <article class="card demo reveal" id="demo-py1">
+        <h3>python01</h3>
+        <p class="what" data-i18n="py1_what">Tipp auf eine Übung. Jede startet ein kleines Programm mit Klassen und Objekten. Das ist die echte Ausgabe im Terminal.</p>
+        <div class="row" id="py1-btns" style="margin-top:0"></div>
+        <div class="term" id="py1-term" style="margin-top:14px;white-space:pre-wrap"></div>
+        <p class="ok-line" id="py1-ok"></p>
+        <p class="small" data-i18n="py1_note">Aufgenommen am 28.11.2026 aus dem Stand von main, mit Python 3.11. Übung 2 kommt dazu, sobald sie fertig ist.</p>
       </article>
 
       <p class="small reveal" data-i18n="d_note">Aufgenommen am 15.11.2026 aus dem Stand von main. Kompiliert mit cc -Wall -Wextra -Werror, auf Speicherlecks geprüft mit valgrind.</p>
@@ -667,10 +693,15 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_p:"Mein eigenes printf. Kann %c, %s, %p, %d, %i, %u, %x, %X und %%.",
       pf_1:"Beliebig viele Argumente mit va_list", pf_2:"Zahlen ins Hex-System umrechnen", pf_3:"Eine kleine Funktion pro Umwandlung (Norm: max. 25 Zeilen)",
       ps_p:"Zahlen sortieren mit nur zwei Stacks und elf erlaubten Befehlen wie sa, pb oder ra. Ziel: so wenig Züge wie möglich. Zu zweit gebaut.",
-      py_p:"Mein erstes Python-Modul. Kleine Programme, die etwas ausgeben, Eingaben lesen und damit rechnen. Die ersten drei Übungen sind fertig, der Rest kommt noch.",
-      py_1:"Funktionen mit def schreiben und aufrufen", py_2:"Eingaben mit input() lesen, Ausgabe mit f-Strings", py_3:"Text mit int() in Zahlen umwandeln und damit rechnen",
+      py_p:"Mein erstes Python-Modul. Kleine Programme, die etwas ausgeben, Eingaben lesen, rechnen und Entscheidungen treffen. Alle acht Übungen sind geschrieben.",
+      py_1:"Funktionen mit def schreiben und aufrufen", py_2:"Eingaben mit input() lesen, Ausgabe mit f-Strings", py_3:"Text mit int() in Zahlen umwandeln und damit rechnen", py_4:"if / elif / else, while-Schleifen und Rekursion mit Hilfsfunktion", py_5:"Type Hints, geprüft mit mypy, Code sauber nach flake8",
+      py1_p:"Mein zweites Python-Modul: objektorientiert programmieren. Eine kleine Garten-Simulation mit Pflanzen als Objekten, die wachsen, älter werden und ihr Gewicht schützen.",
+      py1_1:"Eigene Klassen mit __init__ und Methoden", py1_2:"Viele Objekte in einer Liste anlegen und in einer Schleife ausgeben", py1_3:"Daten schützen: Getter und Setter, die falsche Werte ablehnen",
+      py1_what:"Tipp auf eine Übung. Jede startet ein kleines Programm mit Klassen und Objekten. Das ist die echte Ausgabe im Terminal.",
+      py1_note:"Aufgenommen am 28.11.2026 aus dem Stand von main, mit Python 3.11. Übung 2 kommt dazu, sobald sie fertig ist.",
+      py1_ok:"✅ Ausgabe geprüft, Programm ohne Fehler beendet. flake8 ohne Meldung.", py_calc:"✅ Nachgerechnet: %s",
       py_what:"Tipp auf eine Übung. Das ist die echte Ausgabe im Terminal, farbig ist, was eingetippt wurde.",
-      py_note:"Aufgenommen am 23.11.2026 aus dem Stand von main, mit Python 3.11.", py_ok:"✅ Ausgabe stimmt, Programm ohne Fehler beendet", py_area:"✅ Nachgerechnet: %a × %b = %c",
+      py_note:"Aufgenommen am 28.11.2026 aus dem Stand von main, mit Python 3.11.", py_ok:"✅ Ausgabe stimmt, Programm ohne Fehler beendet", py_area:"✅ Nachgerechnet: %a × %b = %c",
       h_demo:"Live-Demos",
       d_intro:"Das hier ist keine Animation, die so tut als ob. Ich habe meinen echten Code laufen lassen und die echte Ausgabe aufgezeichnet. Die Seite spielt sie nur ab.",
       lf_what:"Tipp auf eine Funktion. Du siehst den Aufruf und was meine Bibliothek zurückgibt.",
@@ -724,10 +755,15 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       pf_p:"My own printf. Handles %c, %s, %p, %d, %i, %u, %x, %X and %%.",
       pf_1:"Any number of arguments with va_list", pf_2:"Converting numbers to hex", pf_3:"One small function per conversion (Norm: max. 25 lines)",
       ps_p:"Sorting numbers with just two stacks and eleven allowed moves like sa, pb or ra. Goal: as few moves as possible. Built as a team of two.",
-      py_p:"My first Python module. Small programs that print text, read input and calculate with it. The first three exercises are done, the rest is still to come.",
-      py_1:"Writing and calling functions with def", py_2:"Reading input with input(), output with f-strings", py_3:"Turning text into numbers with int() and calculating with them",
+      py_p:"My first Python module. Small programs that print text, read input, calculate and make decisions. All eight exercises are written.",
+      py_1:"Writing and calling functions with def", py_2:"Reading input with input(), output with f-strings", py_3:"Turning text into numbers with int() and calculating with them", py_4:"if / elif / else, while loops and recursion with a helper function", py_5:"Type hints checked with mypy, code clean under flake8",
+      py1_p:"My second Python module: object-oriented programming. A small garden simulation with plants as objects that grow, get older and protect their weight.",
+      py1_1:"Writing my own classes with __init__ and methods", py1_2:"Creating many objects in a list and printing them in a loop", py1_3:"Protecting data: getters and setters that reject bad values",
+      py1_what:"Tap an exercise. Each one runs a small program with classes and objects. This is the real terminal output.",
+      py1_note:"Recorded on 28.11.2026 from main, with Python 3.11. Exercise 2 will be added once it's finished.",
+      py1_ok:"✅ Output checked, program exited without errors. flake8 reports nothing.", py_calc:"✅ Double-checked: %s",
       py_what:"Tap an exercise. This is the real terminal output, the coloured part is what was typed in.",
-      py_note:"Recorded on 23.11.2026 from main, with Python 3.11.", py_ok:"✅ Output is correct, program exited without errors", py_area:"✅ Double-checked: %a × %b = %c",
+      py_note:"Recorded on 28.11.2026 from main, with Python 3.11.", py_ok:"✅ Output is correct, program exited without errors", py_area:"✅ Double-checked: %a × %b = %c",
       h_demo:"Live demos",
       d_intro:"This isn't an animation pretending to be code. I ran my real code and recorded the real output. The page just plays it back.",
       lf_what:"Tap a function. You'll see the call and what my library returns.",
@@ -757,7 +793,8 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
   var DEMO = {"gnl":{"4":[["R","Hall"],["R","o 42"],["R","!\nIc"],["L","Hallo 42!\n"],["R","h le"],["R","se i"],["R","mmer"],["R"," nur"],["R"," ein"],["R"," paa"],["R","r Ze"],["R","iche"],["R","n.\nU"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R","nd b"],["R","aue "],["R","dara"],["R","us g"],["R","anze"],["R"," Zei"],["R","len."],["R","\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"10":[["R","Hallo 42!\n"],["L","Hallo 42!\n"],["R","Ich lese i"],["R","mmer nur e"],["R","in paar Ze"],["R","ichen.\nUnd"],["L","Ich lese immer nur ein paar Zeichen.\n"],["R"," baue dara"],["R","us ganze Z"],["R","eilen.\nEnd"],["L","Und baue daraus ganze Zeilen.\n"],["R","e"],["R",""],["L","Ende"],["R",""],["N"]],"42":[["R","Hallo 42!\nIch lese immer nur ein paar Zeic"],["L","Hallo 42!\n"],["R","hen.\nUnd baue daraus ganze Zeilen.\nEnde"],["L","Ich lese immer nur ein paar Zeichen.\n"],["L","Und baue daraus ganze Zeilen.\n"],["R",""],["L","Ende"],["R",""],["N"]]},"pf":[{"fmt":"\"Hallo %s!\\n\"","args":"\"Berke\"","out":"Hallo Berke!\n","ret":13,"same":true},{"fmt":"\"%d + %d = %d\\n\"","args":"19, 23, 19 + 23","out":"19 + 23 = 42\n","ret":13,"same":true},{"fmt":"\"Akku: %i%%\\n\"","args":"87","out":"Akku: 87%\n","ret":10,"same":true},{"fmt":"\"Temperatur: %d Grad\\n\"","args":"-5","out":"Temperatur: -5 Grad\n","ret":20,"same":true},{"fmt":"\"Note: %c\\n\"","args":"'A'","out":"Note: A\n","ret":8,"same":true},{"fmt":"\"42 in Hex: %x\\n\"","args":"42","out":"42 in Hex: 2a\n","ret":14,"same":true},{"fmt":"\"Farbe: #%X\\n\"","args":"0x3DDC84","out":"Farbe: #3DDC84\n","ret":15,"same":true},{"fmt":"\"%u Bytes\\n\"","args":"4096","out":"4096 Bytes\n","ret":11,"same":true},{"fmt":"\"x liegt bei %p\\n\"","args":"&x","out":"x liegt bei 0x7fffbef634dc\n","ret":27,"same":true},{"fmt":"\"Name: %s\\n\"","args":"NULL","out":"Name: (null)\n","ret":13,"same":true}],"lf":[{"call":"ft_split(\"Mannheim,Heilbronn,,42\", ',')","out":["Mannheim","Heilbronn","42"],"ref":"split","ok":true},{"call":"ft_strtrim(\"   hallo   \", \" \")","out":"hallo","ref":"trim","ok":true},{"call":"ft_substr(\"get_next_line\", 4, 4)","out":"next","ref":"substr","ok":true},{"call":"ft_strjoin(\"Berke \", \"Alca\")","out":"Berke Alca","ref":"join","ok":true},{"call":"ft_strmapi(\"heilbronn\", ft_toupper)","out":"HEILBRONN","ref":"mapi","ok":true},{"call":"ft_itoa(-2147483648)","out":"-2147483648","ref":"itoa","ok":true},{"call":"ft_atoi(\"   -42abc\")","out":-42,"ref":"atoi","ok":true},{"call":"ft_strlen(\"42 Heilbronn\")","out":12,"ref":"strlen","ok":true},{"call":"ft_strrchr(\"a/b/c.txt\", '/')","out":"/c.txt","ref":"strrchr","ok":true}]}
 ;
 
-  var PY = [{"cmd": "python3 ex0/ft_hello_garden.py", "in": [], "out": "Hello, Garden Community!\n", "ok": true}, {"cmd": "python3 ex1/ft_garden_name.py", "in": ["Heilbronn Garden"], "out": "Enter garden name: Heilbronn Garden\nGarden: Heilbronn Garden\nStatus: Growing well!\n", "ok": true}, {"cmd": "python3 ex2/ft_plot_area.py", "in": ["12", "7"], "out": "Enter length: 12\nEnter width: 7\nPlot area: 84\n", "ok": true}, {"cmd": "python3 ex2/ft_plot_area.py", "in": ["42", "5"], "out": "Enter length: 42\nEnter width: 5\nPlot area: 210\n", "ok": true}];
+  var PY = [{"label": "ex0", "cmd": "python3 ex0/ft_hello_garden.py", "in": [], "out": "Hello, Garden Community!\n", "ok": true}, {"label": "ex1", "cmd": "python3 ex1/ft_garden_name.py", "in": ["Heilbronn Garden"], "out": "Enter garden name: Heilbronn Garden\nGarden: Heilbronn Garden\nStatus: Growing well!\n", "ok": true}, {"label": "ex2", "cmd": "python3 ex2/ft_plot_area.py", "in": ["12", "7"], "out": "Enter length: 12\nEnter width: 7\nPlot area: 84\n", "ok": true, "calc": "12 × 7 = 84"}, {"label": "ex2 (2)", "cmd": "python3 ex2/ft_plot_area.py", "in": ["42", "5"], "out": "Enter length: 42\nEnter width: 5\nPlot area: 210\n", "ok": true, "calc": "42 × 5 = 210"}, {"label": "ex3", "cmd": "python3 ex3/ft_harvest_total.py", "in": ["4", "7", "2"], "out": "Day 1 harvest: 4\nDay 2 harvest: 7\nDay 3 harvest: 2\nTotal harvest: 13\n", "ok": true, "calc": "4 + 7 + 2 = 13"}, {"label": "ex4", "cmd": "python3 ex4/ft_plant_age.py", "in": ["75"], "out": "Enter plant age in days: 75\nPlant is ready to harvest!\n", "ok": true, "calc": "75 > 60"}, {"label": "ex4 (2)", "cmd": "python3 ex4/ft_plant_age.py", "in": ["20"], "out": "Enter plant age in days: 20\nPlant needs more time to grow.\n", "ok": true, "calc": "20 ≤ 60"}, {"label": "ex5", "cmd": "python3 ex5/ft_water_reminder.py", "in": ["3"], "out": "Days since last watering: 3\nWater the plants!\n", "ok": true, "calc": "3 > 2"}, {"label": "ex6 loop", "cmd": "python3 ex6/ft_count_harvest_iterative.py", "in": ["4"], "out": "Days until harvest: 4\nDay 1\nDay 2\nDay 3\nDay 4\nHarvest time!\n", "ok": true}, {"label": "ex6 rec", "cmd": "cd ex6 && python3 -c \"from ft_count_harvest_recursive import ft_count_harvest_recursive; ft_count_harvest_recursive()\"", "in": ["4"], "out": "Days until harvest: 4\nDay 1\nDay 2\nDay 3\nDay 4\nHarvest time!\n", "ok": true}, {"label": "ex7", "cmd": "cd ex7 && python3 -c \"from ft_seed_inventory import ft_seed_inventory; ft_seed_inventory('tomato', 15, 'packets')\"", "in": [], "out": "Tomato seeds: 15 packets available\n", "ok": true}];
+  var PY1 = [{"label": "ex0", "cmd": "python3 \"ex0/ ft_garden_intro.py\"", "in": [], "out": "=== Welcome to My Garden ===\nPlant: Rose\nHeight: 25cm\nAge: 30 days\n=== End of Program ===\n", "ok": true}, {"label": "ex1", "cmd": "python3 ex1/ft_garden_data.py", "in": [], "out": "=== Garden Plant Registry ===\nRose: 25cm, 30 days old\nSunflower: 80cm, 45 days old\nCactus: 125cm, 120 days old\n", "ok": true}, {"label": "ex3", "cmd": "python3 ex3/ft_plant_factory.py", "in": [], "out": "=== Plant Factory Output ===\nCreated: Rose: 25.0cm, 30 days old\nCreated: Oak: 200.0cm, 365 days old\nCreated: Cactus: 5.0cm, 90 days old\nCreated: Sunflower: 80.0cm, 45 days old\nCreated: Fern: 15.0cm, 120 days old\n", "ok": true}, {"label": "ex4", "cmd": "python3 ex4/ft_garden_security.py", "in": [], "out": "Rose: 10.0kg\nWeight updated: 15kg\nRose: Error, weight can't be negative\nWeight update rejected\nRose: 15kg\n", "ok": true}];
 
   var root = document.documentElement;
   var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -826,12 +863,12 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
     show(0, false); hooks.push(function(){ show(cur, false); });
   })();
 
-  // ---------- demo: python00 ----------
-  (function(){
-    var btns = $("py-btns"), term = $("py-term"), ok = $("py-ok"), cur = 0, timer = null;
-    PY.forEach(function(d, i){
+  // ---------- demo: python00 / python01 ----------
+  function pyDemo(pre, DATA, okKey){
+    var btns = $(pre + "-btns"), term = $(pre + "-term"), ok = $(pre + "-ok"), cur = 0, timer = null;
+    DATA.forEach(function(d, i){
       var b = document.createElement("button"); b.type = "button"; b.className = "cb fn";
-      b.textContent = d.cmd.split("/")[0].replace("python3 ", "") + (i === 3 ? " (2)" : "");
+      b.textContent = d.label;
       b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
       b.addEventListener("click", function(){ show(i, true); }); btns.appendChild(b);
     });
@@ -845,20 +882,22 @@ footer small{display:block;margin-top:40px;color:var(--muted);font-size:12px}
       return h + esc(o.slice(pos));
     }
     function show(i, anim){
-      cur = i; var d = PY[i], bs = btns.children;
+      cur = i; var d = DATA[i], bs = btns.children;
       for (var k = 0; k < bs.length; k++) bs[k].setAttribute("aria-pressed", k === i ? "true" : "false");
       var head = '<span class="dim">$ </span><span class="sp">' + esc(d.cmd) + '</span>\n';
       clearTimeout(timer); ok.textContent = "";
       function fin(){
         if (!d.ok){ ok.textContent = "⚠"; return; }
-        ok.textContent = d["in"].length === 2 ? t("py_area").replace("%a", d["in"][0]).replace("%b", d["in"][1]).replace("%c", (+d["in"][0]) * (+d["in"][1])) : t("py_ok");
+        ok.textContent = d.calc ? t("py_calc").replace("%s", d.calc) : t(okKey);
       }
       if (!anim || rm){ term.innerHTML = head + paint(d, d.out.length); fin(); return; }
       var n = 0;
       (function step(){ n++; term.innerHTML = head + '<span class="cur">' + paint(d, n) + '</span>'; if (n < d.out.length) timer = setTimeout(step, 24); else { term.innerHTML = head + paint(d, n); fin(); } })();
     }
     show(0, false); hooks.push(function(){ show(cur, false); });
-  })();
+  }
+  pyDemo("py", PY, "py_ok");
+  pyDemo("py1", PY1, "py1_ok");
 
   // ---------- demo: get_next_line ----------
   (function(){
